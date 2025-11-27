@@ -50,4 +50,5 @@ dependencies:
       - pyradiomics>=3.0.0
       - antspyx>=0.6.0
       - tokenizers>=0.20.0
+      - gradio>=4.0.0
     # Note: google-colab is only available in Colab environment
