@@ -27,13 +27,7 @@ _TBA_
 |:---------|:------------|
 | [01a-Enkle_eksempler_losninger.ipynb](notebooks/01a-Enkle_eksempler_losninger.ipynb) | Løsninger og drøftinger til oppgavene i notebook 01 |
 | [02a-Binaer_klassifikasjon_losninger.ipynb](notebooks/02a-Binaer_klassifikasjon_losninger.ipynb) | Løsninger til oppgavene i notebook 02, inkl. ROC, modellsammenligning, TRIPOD |
-
-### Engelske versjoner (referanse):
-
-| Notebook | Colab |
-|:---------|:------|
-| [01-Simple_examples.ipynb](notebooks/01-Simple_examples.ipynb) | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab0-ML/notebooks/01-Simple_examples.ipynb) |
-| [02-Binary_classification.ipynb](notebooks/02-Binary_classification.ipynb) | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab0-ML/notebooks/02-Binary_classification.ipynb) |  
+| [03a-PyCaret_hurtigguide_losninger.ipynb](notebooks/03a-PyCaret_hurtigguide_losninger.ipynb) | Løsninger til oppgavene i notebook 03, inkl. Iris, Breast Cancer, feature selection, hyperparameter-tuning, modellkalibrering |
 
 
 ## Maskinlæring i Python
@@ -63,19 +57,28 @@ jupyter notebook
 ### Maskinlæring
 
 * [Introduction to Machine Learning](https://developers.google.com/machine-learning/intro-to-ml) (Nybegynner, 20 min) - Googles introduksjon til grunnleggende ML-konsepter.
-* [Intro to machine learning](https://www.kaggle.com/learn/intro-to-machine-learning) (Nybegynner, 3 timer) - Kaggles introduksjon til maskinlæring 
+* [Intro to Machine Learning](https://www.kaggle.com/learn/intro-to-machine-learning) (Nybegynner, 3 timer) - Kaggles hands-on introduksjon til maskinlæring.
 * [Supervised Learning with scikit-learn](https://app.datacamp.com/learn/courses/supervised-learning-with-scikit-learn) (Middels, 4 timer) - Interaktiv introduksjon til ML ved bruk av scikit-learn.
 * [Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course) (Middels, 15 timer) - Googles praktiske introduksjon til maskinlæring.
-* [Problem Framing](https://developers.google.com/machine-learning/problem-framing) (Middels, 45 minutter) - Googles tilnærming til hvordan man avgjør om ML er en god løsning for et problem og hvordan man skisserer en ML-løsning.
+* [Problem Framing](https://developers.google.com/machine-learning/problem-framing) (Middels, 45 min) - Hvordan avgjøre om ML er en god løsning og hvordan skissere en ML-løsning.
+
+### Forklarbar AI (XAI)
+
+* [Interpretable Machine Learning](https://christophm.github.io/interpretable-ml-book/) - Christoph Molnars omfattende bok om tolkbar ML (gratis online).
+* [SHAP Documentation](https://shap.readthedocs.io/) - Offisiell dokumentasjon for SHAP-biblioteket.
 
 ### Python for datavitenskap
 
 * [Intermediate Python](https://app.datacamp.com/learn/courses/intermediate-python-for-data-science) (Nybegynner, 4 timer) - DataCamps datavitenskapsorienterte introduksjon til Python.
 * [Pandas](https://www.kaggle.com/learn/pandas) (Nybegynner, 4 timer) - Kaggles introduksjon til Pandas.
+* [scikit-learn User Guide](https://scikit-learn.org/stable/user_guide.html) - Offisiell dokumentasjon med eksempler og tutorials.
 
 ### Jupyter Notebooks
 
-Her er to ressurser som hjelper deg i gang med Jupyter Notebooks:
-* Jeremy Howards [Jupyter Notebook 101](https://www.kaggle.com/code/jhoward/jupyter-notebook-101).
-* Datacamps [How to Use Jupyter Notebooks: The Ultimate Guide](https://www.datacamp.com/tutorial/tutorial-jupyter-notebook)
+* [Jupyter Notebook 101](https://www.kaggle.com/code/jhoward/jupyter-notebook-101) - Jeremy Howards introduksjon til Jupyter.
+* [How to Use Jupyter Notebooks: The Ultimate Guide](https://www.datacamp.com/tutorial/tutorial-jupyter-notebook) - DataCamps grundige guide.
 
+### Medisinsk ML
+
+* [Machine Learning for Healthcare](https://ocw.mit.edu/courses/6-s897-machine-learning-for-healthcare-spring-2019/) - MIT OpenCourseWare kurs om ML i helsevesenet.
+* [TRIPOD Statement](https://www.tripod-statement.org/) - Retningslinjer for rapportering av prediktive modeller i medisin.
