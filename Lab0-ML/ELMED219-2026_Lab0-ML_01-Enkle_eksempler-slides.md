@@ -378,3 +378,4 @@ gr.Interface(
 *Generert fra: 01-Enkle_eksempler.ipynb*
 *ELMED219-2026, UiB*
 
+

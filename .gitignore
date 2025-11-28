@@ -1,0 +1,35 @@
+.DS_Store
+.ipynb_checkpoints
+slides
+.vscode
+
+# Ignore large dataset (>= 100 MB)
+
+# Ignore Lab1 data
+Lab1-mpMRI-glioma/data/Task01_BrainTumour*
+
+# Ignore Lab0 stuff
+Lab0-ML/Lab0-begin-python-pandas-medim/._assets
+Lab0-ML/Lab0-begin-python-pandas-medim/._kiwi_data
+Lab0-ML/Lab0-begin-python-pandas-medim/.vscode
+
+# Avoid interference with the ELMED219-2025 repo when using private notebooks etc. for experimentation
+my_stuff/
+
+# Ignore saved models
+test.pkl
+logs.log
+saved_model.pkl
+
+# Ignore pycaret stuff
+test.py
+catboost_info
+mlruns
+flagged
+.gradio
+
+
+
+# Old stuff
+2024-Project
+2024-Lab0-ML

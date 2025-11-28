@@ -92,25 +92,31 @@ Alt kursmateriale er åpent tilgjengelig i dette GitHub-repositoriet. Se også [
 | 9   | Fr 27.02.2026 | 08:15–10:00    | Oppsummering & refleksjoner                                      | AL       | Hist 1   |     B         |
 | 10  | Fr 06.03.2026 | 09:00–11:00    | HJEMMEEKSAMEN MCQ (Inspera)                                       |          |          |   BMED365     |
 
-### Tidligere versjoner av BMED365-kurset
-_"Computational imaging, modelling and AI in biomedicine"_
 
-| **År**                    | Lenke             |
-| --------------------------- |  --              | 
-|2025 |https://github.com/MMIV-ML/BMED365-2025 |
-|2024 |https://github.com/MMIV-ML/BMED365-2024 |
 
 ### Tidligere versjoner av ELMED219-kurset
 _"Artificial intelligence and computational medicine"_
 
 | **År**                    | Lenke             |
 | --------------------------- |  --              | 
-|2024 |https://github.com/MMIV-ML/ELMED219-2024       |
-|2023 |https://github.com/MMIV-ML/ELMED219-2023       |
+|2025 |https://github.com/MMIV-ML/ELMED219-2025  |
+|2024 |https://github.com/MMIV-ML/ELMED219-2024  |
+|2023 |https://github.com/MMIV-ML/ELMED219-2023  |
 |2022 |https://github.com/MMIV-ML/ELMED219-2022  |
 |2021 |https://github.com/MMIV-ML/ELMED219-2021  |
 |2020 |https://github.com/MMIV-ML/ELMED219-2020  |
 |2019 |https://github.com/MMIV-ML/ELMED219x-2019 |
+
+
+
+### Tidligere versjoner av BMED365-kurset
+_"Computational imaging, modelling and AI in biomedicine"_
+
+| **År**                    | Lenke             |
+| --------------------------- |  --             | 
+|2025 |https://github.com/MMIV-ML/BMED365-2025 |
+|2024 |https://github.com/MMIV-ML/BMED365-2024 |
+
 
 ### Tidligere versjoner av BMED360-kurset
 _"In Vivo Imaging and Physiological Modelling"_
@@ -120,4 +126,4 @@ _"In Vivo Imaging and Physiological Modelling"_
 |2021 |https://github.com/computational-medicine/BMED360-2021 |
 |2020 |https://github.com/computational-medicine/BMED360-2020 |
 
-Oppdatert: 2025-11-27
+Oppdatert: 2025-11-28
