@@ -41,7 +41,7 @@ Vi bruker Python, det mest populære programmeringsspråket for maskinlæring. D
 
 **Hovedmiljø:** Bruk `environment.yml` i rot-katalogen for notebook 01 og 02.
 
-**PyCaret-miljø:** Notebook 03 krever PyCaret, som har avhengigheter som kan konflikte med TensorFlow/PyTorch. Vi anbefaler et separat miljø:
+**PyCaret-miljø:** Notebook 03 krever PyCaret, som har avhengigheter som kan være i konflikt med TensorFlow/PyTorch. Vi anbefaler et separat miljø:
 
 ```bash
 # Opprett PyCaret-miljø
