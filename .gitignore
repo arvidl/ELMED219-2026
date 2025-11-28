@@ -1,7 +1,8 @@
 .DS_Store
 .ipynb_checkpoints
-slides
 .vscode
+__pycache__/
+*.pyc
 
 # Ignore large dataset (>= 100 MB)
 

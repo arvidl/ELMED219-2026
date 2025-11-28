@@ -11,7 +11,10 @@ I denne første laben får vi en introduksjon til **maskinlæring**: hva det er 
 ## Ressurser
 
 ### Lysbilder:
-_TBA_
+
+| Fil | Beskrivelse |
+|:----|:------------|
+| [01-Enkle_eksempler-slides.pptx](slides/ELMED219-2026_Lab0-ML_01-Enkle_eksempler-slides.pptx) | Introduksjon til maskinlæring |
 
 ### Notebooks:
 
