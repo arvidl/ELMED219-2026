@@ -15,16 +15,47 @@ _TBA_
 
 ### Notebooks:
 
-| Notebook | 1-klikk Notebook |
-|:----------|-----------------|
-| [01-Enkle_eksempler.ipynb](https://nbviewer.org/github/arvidl/ELMED219-2026/blob/main/Lab0-ML/notebooks/01-Enkle_eksempler.ipynb) <br> Bygger prediktive modeller basert på enkle datasett. Gir praktisk introduksjon til grunnleggende ML-ingredienser og -teknikker. | [![Google Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab0-ML/notebooks/01-Enkle_eksempler.ipynb) |
-| [02-Binary_classification.ipynb](https://nbviewer.org/github/MMIV-ML/ELMED219-2025/blob/main/Lab0-ML/notebooks/02-Binary_classification.ipynb) <br> Denne notebooken går gjennom noen sentrale konsepter innen _klassifisering_ i maskinlæring. | [![Google Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MMIV-ML/ELMED219-2025/blob/main/Lab0-ML/notebooks/02-Binary_classification.ipynb)  
-| [03-PyCaret.ipynb](https://nbviewer.org/github/MMIV-ML/ELMED219-2025/blob/main/Lab0-ML/notebooks/03-PyCaret.ipynb) <br> Går gjennom hele ML-arbeidsflyter ved hjelp av PyCaret | [![Google Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MMIV-ML/ELMED219-2025/blob/main/Lab0-ML/notebooks/03-PyCaret.ipynb)  
+| Notebook | Beskrivelse | Colab |
+|:---------|:------------|:------|
+| [01-Enkle_eksempler.ipynb](notebooks/01-Enkle_eksempler.ipynb) | Bygger prediktive modeller basert på enkle datasett. Praktisk introduksjon til grunnleggende ML. | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab0-ML/notebooks/01-Enkle_eksempler.ipynb) |
+| [02-Binaer_klassifikasjon.ipynb](notebooks/02-Binaer_klassifikasjon.ipynb) | Sentrale konsepter innen binær klassifikasjon: evaluering, metrikker, validering. | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab0-ML/notebooks/02-Binaer_klassifikasjon.ipynb) |
+| [03-PyCaret_hurtigguide.ipynb](notebooks/03-PyCaret_hurtigguide.ipynb) | AutoML med PyCaret – hurtig prototyping med advarsler for medisinsk bruk. | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab0-ML/notebooks/03-PyCaret_hurtigguide.ipynb) |
+
+### Løsningsnotebooks:
+
+| Notebook | Beskrivelse |
+|:---------|:------------|
+| [01a-Enkle_eksempler_losninger.ipynb](notebooks/01a-Enkle_eksempler_losninger.ipynb) | Løsninger og drøftinger til oppgavene i notebook 01 |
+| [02a-Binaer_klassifikasjon_losninger.ipynb](notebooks/02a-Binaer_klassifikasjon_losninger.ipynb) | Løsninger til oppgavene i notebook 02, inkl. ROC, modellsammenligning, TRIPOD |
+
+### Engelske versjoner (referanse):
+
+| Notebook | Colab |
+|:---------|:------|
+| [01-Simple_examples.ipynb](notebooks/01-Simple_examples.ipynb) | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab0-ML/notebooks/01-Simple_examples.ipynb) |
+| [02-Binary_classification.ipynb](notebooks/02-Binary_classification.ipynb) | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab0-ML/notebooks/02-Binary_classification.ipynb) |  
 
 
 ## Maskinlæring i Python
 
 Vi bruker Python, det mest populære programmeringsspråket for maskinlæring. Det praktiske innholdet er hovedsakelig basert på [Jupyter Notebooks](https://jupyter.org/), som lar oss blande kode, tekst, resultater og dokumentasjon i ett enkelt dokument. Vi bruker også standard datavitenskap- og maskinlæringsbiblioteker i Python, som [Pandas](https://pandas.pydata.org/) og [scikit-learn](https://scikit-learn.org/stable/).
+
+### Conda-miljøer
+
+**Hovedmiljø:** Bruk `environment.yml` i rot-katalogen for notebook 01 og 02.
+
+**PyCaret-miljø:** Notebook 03 krever PyCaret, som har avhengigheter som kan konflikte med TensorFlow/PyTorch. Vi anbefaler et separat miljø:
+
+```bash
+# Opprett PyCaret-miljø
+conda env create -f pycaret-environment.yml
+conda activate pycaret-elmed219
+
+# Start Jupyter
+jupyter notebook
+```
+
+**Alternativ: Google Colab** – Alle notebooks kan kjøres i Colab uten lokal installasjon. PyCaret installeres automatisk ved kjøring.
 
 
 ## Eksterne ressurser
