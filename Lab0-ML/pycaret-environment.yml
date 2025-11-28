@@ -50,3 +50,4 @@ dependencies:
       # Plotly for interaktive plott
       - plotly>=5.15.0
 
+
