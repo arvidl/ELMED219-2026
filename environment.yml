@@ -44,6 +44,7 @@ dependencies:
       - plotly>=5.15.0
       - pydicom>=2.4.0
       - igraph>=0.10.0
+      - python-louvain>=0.16  # Community detection for networkx
       - keras>=2.13.0
       - tensorflow-addons>=0.21.0
       - gdown>=4.7.0
