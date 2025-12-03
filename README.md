@@ -98,10 +98,10 @@ Alt kursmateriale er åpent tilgjengelig i dette GitHub-repositoriet. Se også [
 
 | Lab | Tema | Beskrivelse |
 |:----|:-----|:------------|
-| [**Lab 0**](./Lab0-ML/README.md) | Maskinlæring | Grunnleggende maskinlæring med PyCaret – enkle eksempler og binær klassifikasjon |
-| [**Lab 1**](./Lab1-NetworkSci-PSN/README.md) | Nettverksvitenskap & PSN | Grafteori, nettverksanalyse og pasient-likhetsnettverk med NetworkX |
-| [**Lab 2**](./Lab2-DL) | Dyp læring | Nevrale nettverk og dyp læring for medisinsk bildeanalyse |
-| [**Lab 3**](./Lab3-GenAI-LLM) | Generativ AI & LLM | Store språkmodeller og generativ AI i medisin |
+| [**Lab0**](./Lab0-ML/README.md) | Maskinlæring | Grunnleggende maskinlæring med PyCaret – enkle eksempler og binær klassifikasjon |
+| [**Lab1**](./Lab1-NetworkSci-PSN/README.md) | Nettverksvitenskap & PSN | Grafteori, nettverksanalyse og pasient-likhetsnettverk med NetworkX |
+| [**Lab2**](./Lab2-DL) | Dyp læring | Nevrale nettverk og dyp læring for medisinsk bildeanalyse |
+| [**Lab3**](./Lab3-GenAI-LLM) | Generativ AI & LLM | Store språkmodeller og generativ AI i medisin |
 
 
 
