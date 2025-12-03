@@ -72,12 +72,12 @@ Alt kursmateriale er åpent tilgjengelig i dette GitHub-repositoriet. Se også [
 | Uke | Dato       | Tid           | Aktivitet                                                        | Foreleser | Sted     | Merknad       |
 |-----|------------|----------------|------------------------------------------------------------------|----------|----------|---------------|
 | 2   | Ma 05.01.2026 | 10:15–14:00    | Informasjon, motivasjon, SW-installasjon og praktisk intro   | AL       | Hist 1   |    E/B        |
-| 2   | On 07.01.2026 | 14:15–16:00    | SW-installasjon, [verktøy], [team], [prosjekt] og LAB 0        | AL       | Hist 1   |    E/B        |
-| 2   | Fr 09.01.2026 | 10:15–13:00    | Lab 0, 1                                                      | AL       | Hist 1   |    E/B        |
+| 2   | On 07.01.2026 | 14:15–16:00    | SW-installasjon, [verktøy], [team], [prosjekt] og [Lab 0](./Lab0-ML/README.md)        | AL       | Hist 1   |    E/B        |
+| 2   | Fr 09.01.2026 | 10:15–13:00    | [Lab 0](./Lab0-ML/README.md), [Lab 1](./Lab1-NetworkSci-PSN/README.md)                                                      | AL       | Hist 1   |    E/B        |
 | 3   | Ti 13.01.2026 | 09:15–13:00    | Lynkurs i AI-assistert Python-programmering                | AL       | Hist 1   |    E/B        |
-| 3   | Fr 16.01.2026 | 08:15–13:00    | Lab 2 (Dyp læring)                                         | AL       | Hist 1   |    E/B        |
+| 3   | Fr 16.01.2026 | 08:15–13:00    | [Lab 2](./Lab2-DL) (Dyp læring)                                         | AL       | Hist 1   |    E/B        |
 | 4   | Ma 19 - Sø 25 |                | TEAMPROSJEKT (samarbeid teamvis i løpet av uken)        |          |          |    E/B        |
-| 4   | Ti 20.01.2026 | 08:15–12:00    | Lab 3 (Generativ AI + Store språkmodeller)                 | AL       | Hist 1   |    E/B        |
+| 4   | Ti 20.01.2026 | 08:15–12:00    | [Lab 3](./Lab3-GenAI-LLM) (Generativ AI + Store språkmodeller)                 | AL       | Hist 1   |    E/B        |
 | 4   | Ti 20.01.2026 | 13:15–16:00    | Møtepunkt for teamprosjekt idémyldring og veiledning           | AL       | Hist 1   |    E/B        |
 | 5   | Ma 26 - Lø 31 |                | PERSONLIG PROSJEKT (på egenhånd i løpet av uken)                |          |          |     B         |
 | 5   | Ma 26.01.2026 | 10:15–12:00    | Motivasjon, demonstrasjon - bildebehandling                           | AL       | Hist 1   |     B         |
@@ -85,12 +85,23 @@ Alt kursmateriale er åpent tilgjengelig i dette GitHub-repositoriet. Se også [
 | 5   | Fr 30.01.2026 | 11:00–13:00    | HJEMMEEKSAMEN - MCQ (Inspera)                                     |          |          |  ELMED219     |
 | 6   | Ma 02 - Lø 07 |                | PERSONLIG PROSJEKT (på egenhånd i løpet av uken)                | AL       |          |     B         |
 | 7   | Ma 09 - Lø 14 |                | PERSONLIG PROSJEKT (på egenhånd i løpet av uken)                | AL       |          |     B         |
-| 7   | Ma 09.02.2026 | 08:15–10:00    | Lab4 (Beregningsorientert bildebehandling)                                  | AL       | Hist 1   |     B         |
+| 7   | Ma 09.02.2026 | 08:15–10:00    | Lab 4 (Beregningsorientert bildebehandling)                                  | AL       | Hist 1   |     B         |
 | 7   | On 11.02.2026 | 08:15–12:00    | PERSONLIG PROSJEKT - individuelle hurtigplakat-presentasjoner      | AL       | Hist 1   |     B         |
 | 8   | Ma 16.02.2026 | 08:15–10:00    | Motivasjon, demonstrasjon - modellering                          | AL       | Hist 1   |     B         |
-| 8   | Fr 20.02.2026 | 08:15–10:00    | Lab5 (Beregningsbasert modellering)                                 | AL       | Hist 1   |     B         |
+| 8   | Fr 20.02.2026 | 08:15–10:00    | Lab 5 (Beregningsbasert modellering)                                 | AL       | Hist 1   |     B         |
 | 9   | Fr 27.02.2026 | 08:15–10:00    | Oppsummering & refleksjoner                                      | AL       | Hist 1   |     B         |
 | 10  | Fr 06.03.2026 | 09:00–11:00    | HJEMMEEKSAMEN MCQ (Inspera)                                       |          |          |   BMED365     |
+
+---
+
+## 📚 Laboratorier (Labs)
+
+| Lab | Tema | Beskrivelse |
+|:----|:-----|:------------|
+| [**Lab 0**](./Lab0-ML/README.md) | Maskinlæring | Grunnleggende maskinlæring med PyCaret – enkle eksempler og binær klassifikasjon |
+| [**Lab 1**](./Lab1-NetworkSci-PSN/README.md) | Nettverksvitenskap & PSN | Grafteori, nettverksanalyse og pasient-likhetsnettverk med NetworkX |
+| [**Lab 2**](./Lab2-DL) | Dyp læring | Nevrale nettverk og dyp læring for medisinsk bildeanalyse |
+| [**Lab 3**](./Lab3-GenAI-LLM) | Generativ AI & LLM | Store språkmodeller og generativ AI i medisin |
 
 
 
@@ -126,4 +137,4 @@ _"In Vivo Imaging and Physiological Modelling"_
 |2021 |https://github.com/computational-medicine/BMED360-2021 |
 |2020 |https://github.com/computational-medicine/BMED360-2020 |
 
-Oppdatert: 2025-11-28
+Oppdatert: 2025-12-03
