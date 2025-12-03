@@ -1,0 +1,30 @@
+\babel@toc {norsk}{}\relax 
+\contentsline {section}{Grafisk abstrakt}{2}{section*.1}%
+\contentsline {section}{\numberline {1}Introduksjon}{4}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Bakgrunn}{4}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Pasient-likhetsnettverk}{4}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Mål}{4}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Metode}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Studiepopulasjon og data}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Dataforbehandling}{5}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Nettverkskonstruksjon}{5}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Analysemetoder}{5}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Community detection}{5}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Sentralitetsanalyser}{5}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Subnettverk-analyse}{6}{subsubsection.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.4.4}Feature importance}{6}{subsubsection.2.4.4}%
+\contentsline {subsubsection}{\numberline {2.4.5}Klinisk korrelasjon}{6}{subsubsection.2.4.5}%
+\contentsline {section}{\numberline {3}Resultater}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Nettverksstruktur}{6}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Community detection}{7}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Sentralitetsanalyser}{8}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}IBS vs HC subnettverk}{9}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Feature importance}{10}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Korrelasjon med symptomgrad}{10}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Grafisk oppsummering}{11}{subsection.3.7}%
+\contentsline {section}{\numberline {4}Diskusjon}{12}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Hovedfunn}{12}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Sammenheng med tidligere forskning}{13}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Styrker og begrensninger}{13}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Fremtidsperspektiver}{13}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Konklusjon}{13}{section.5}%

@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2025)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: pasient_likhetsnettverk_ibs_hjerne_kognisjon.aux
+The style file: apalike.bst
+Database file #1: pasient_likhetsnettverk_ibs_hjerne_kognisjon.bib
+You've used 9 entries,
+            1935 wiz_defined-function locations,
+            528 strings with 6410 characters,
+and the built_in function-call counts, 5601 in all, are:
+= -- 497
+> -- 427
+< -- 2
++ -- 162
+- -- 160
+* -- 589
+:= -- 999
+add.period$ -- 27
+call.type$ -- 9
+change.case$ -- 125
+chr.to.int$ -- 9
+cite$ -- 9
+duplicate$ -- 126
+empty$ -- 281
+format.name$ -- 173
+if$ -- 1024
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 9
+newline$ -- 48
+num.names$ -- 27
+pop$ -- 105
+preamble$ -- 1
+purify$ -- 125
+quote$ -- 0
+skip$ -- 93
+stack$ -- 0
+substring$ -- 357
+swap$ -- 9
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 54
+warning$ -- 0
+while$ -- 34
+width$ -- 0
+write$ -- 119

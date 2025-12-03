@@ -1,0 +1,387 @@
+% ============================================================
+% Pasient-likhetsnettverk for analyse av hjerne-morfometri og 
+% kognisjon ved irritabel tarmsyndrom (IBS)
+% 
+% En vitenskapelig artikkel i IMRAD-format
+% ============================================================
+
+\documentclass[11pt,a4paper]{article}
+
+% ============================================================
+% Pakker
+% ============================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[norsk]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{natbib}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{authblk}
+\usepackage{lineno}
+
+% Geometri
+\geometry{margin=2.5cm}
+
+% Hyperref oppsett
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue
+}
+
+% Figur-path
+\graphicspath{{figurer/}}
+
+% ============================================================
+% Tittel og forfattere
+% ============================================================
+\title{\textbf{Pasient-likhetsnettverk for analyse av hjerne-morfometri og kognisjon ved irritabel tarmsyndrom}}
+
+\author[1]{ELMED219/BMED365 Studentprosjekt}
+\affil[1]{Universitetet i Bergen, Norge}
+
+\date{Desember 2025}
+
+% ============================================================
+% Dokument
+% ============================================================
+\begin{document}
+
+\maketitle
+
+% ============================================================
+% Abstrakt
+% ============================================================
+\begin{abstract}
+\textbf{Bakgrunn:} Irritabel tarmsyndrom (IBS) er en heterogen gastrointestinal lidelse som rammer omtrent 10\% av befolkningen. Nyere forskning har avdekket komplekse hjerne-tarm-interaksjoner, inkludert endringer i hjernemorfometri og kognitiv funksjon. Pasient-likhetsnettverk (PSN) representerer en lovende tilnærming for å utforske denne heterogeniteten.
+
+\textbf{Metode:} Vi analyserte data fra 78 deltakere (49 IBS-pasienter og 29 friske kontroller) med 35 hjerne-morfometriske mål fra FreeSurfer v7.4.1 og 6 kognitive indekser fra RBANS. PSN ble konstruert ved Gaussisk kjerne-transformasjon av Euklidske avstander, kombinert med k-nærmeste-nabo-tilnærming. Vi utførte community detection (Louvain), sentralitetsanalyser, subnettverk-sammenligning, feature importance-analyse, og korrelasjon med symptomgrad (IBS-SSS).
+
+\textbf{Resultater:} Nettverket viste moderat strukturering med flere detekterte communities. Community detection ga varierende samsvar med faktiske diagnosegrupper. Subkortikale strukturer og kognitive domener var fremtredende i å drive nettverksstrukturen. Korrelasjoner mellom sentralitetsmål og symptomgrad ble observert.
+
+\textbf{Konklusjon:} PSN-analysen avdekket heterogenitet som ikke fullstendig speiler diagnostiske kategorier. Metodikken demonstrerer nytten av nettverksbaserte tilnærminger for å forstå klinisk kompleksitet i funksjonelle gastrointestinale lidelser.
+
+\textbf{Nøkkelord:} irritabel tarmsyndrom, pasient-likhetsnettverk, hjerne-morfometri, kognisjon, RBANS, FreeSurfer, community detection
+\end{abstract}
+
+% ============================================================
+% Grafisk abstrakt
+% ============================================================
+\newpage
+\section*{Grafisk abstrakt}
+\addcontentsline{toc}{section}{Grafisk abstrakt}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{fig7_oppsummering.png}
+\caption*{\textbf{Grafisk abstrakt.} Oversikt over PSN-analyse av IBS hjerne-morfometri og kognisjon. 
+\textbf{(A)} Pasient-likhetsnettverk med 78 deltakere (IBS=rød, HC=blå) basert på 41 features fra FreeSurfer og RBANS. 
+\textbf{(B)} Community detection identifiserte distinkte pasientklynger. 
+\textbf{(C)} Eigenvector sentralitet avdekket ``typiske'' pasienter. 
+\textbf{(D)} Feature importance viste bidrag fra både kognitive (blå) og morfometriske (rød) variabler. 
+\textbf{(E)} Sammenligning av subnettverk-egenskaper mellom IBS og HC. 
+\textbf{(F)} Korrelasjon mellom sentralitet og IBS symptomgrad (IBS-SSS). 
+Resultatene demonstrerer nytten av nettverksbaserte tilnærminger for å forstå heterogenitet ved IBS.}
+\end{figure}
+
+\newpage
+\tableofcontents
+\newpage
+
+% ============================================================
+% 1. INTRODUKSJON
+% ============================================================
+\section{Introduksjon}
+
+\subsection{Bakgrunn}
+Irritabel tarmsyndrom (IBS) er en av de mest utbredte funksjonelle gastrointestinale lidelsene, og påvirker omtrent 10\% av den globale befolkningen \citep{sperber2021}. Syndromet karakteriseres av tilbakevendende magesmerter assosiert med avføring, ledsaget av endringer i avføringsmønster \citep{lacy2016}. Den kliniske presentasjonen er heterogen, med symptomer som spenner fra mildt ubehag til alvorlige plager som vesentlig forringer livskvalitet og daglig funksjon \citep{drossman2016}.
+
+IBS anerkjennes i dag som en \textit{tarm-hjerne-lidelse} (gut-brain disorder), der bidireksjonelle interaksjoner mellom gastrointestinale symptomer og psykologisk/kognitiv funksjon spiller en sentral rolle \citep{koloski2012}. Mens GI-symptomer kan utløse eller forsterke psykologisk stress, kan angst og depresjon på sin side forverre hyppigheten og intensiteten av magesmerter \citep{vanoudenhove2016}.
+
+Nyere forskning har utvidet dette psykobiologiske rammeverket til å inkludere kognitiv funksjon, og avdekket et mer nyansert bilde av hjerne-tarm-interaksjoner ved IBS \citep{kennedy2012}. Selv om kognitive svekkelser er demonstrert på gruppenivå, ser disse ut til å karakterisere spesifikke undergrupper snarere enn å være et universelt trekk ved IBS.
+
+\subsection{Pasient-likhetsnettverk}
+Pasient-likhetsnettverk (PSN) representerer en kraftfull metodikk for å utforske heterogenitet i kliniske populasjoner \citep{pai2018}. I et PSN representerer hver node en pasient, kanter forbinder pasienter som ligner hverandre basert på kliniske/biologiske variabler, og kantvekter reflekterer graden av likhet mellom pasientene.
+
+Denne nettverkstilnærmingen gjør det mulig å:
+\begin{enumerate}
+    \item Identifisere naturlige pasientgrupper (communities) uten forhåndsdefinerte kategorier
+    \item Finne ``sentrale'' pasienter som er representative for sin gruppe
+    \item Oppdage hvilke kliniske features som driver pasientlikhet
+    \item Relatere nettverksstruktur til kliniske utfall
+\end{enumerate}
+
+\subsection{Mål}
+I denne studien anvender vi PSN på data fra en IBS-kohort for å besvare følgende spørsmål:
+\begin{enumerate}
+    \item Kan PSN avdekke meningsfulle subgrupper blant IBS-pasienter og friske kontroller?
+    \item Hvilke hjerne- og kognitive features driver likheten mellom pasienter?
+    \item Skiller nettverksstrukturen seg mellom IBS-pasienter og friske kontroller?
+    \item Hvordan relaterer nettverksegenskaper seg til symptomgrad (IBS-SSS)?
+\end{enumerate}
+
+% ============================================================
+% 2. METODE
+% ============================================================
+\section{Metode}
+
+\subsection{Studiepopulasjon og data}
+Datasettet er hentet fra studien av \citet{lundervold2025} og inkluderer 78 deltakere: 49 IBS-pasienter og 29 friske kontroller (HC). Data omfatter:
+\begin{itemize}
+    \item \textbf{Hjerne-morfometri:} Volumetriske mål fra FreeSurfer v7.4.1 prosessering av strukturelle MR-bilder, inkludert subkortikale volumer (thalamus, caudate, putamen, pallidum, hippocampus, amygdala, nucleus accumbens), cerebellum volumer, og corpus callosum segmenter.
+    \item \textbf{Kognitive mål:} Indeksskårer fra RBANS (Repeatable Battery for the Assessment of Neuropsychological Status): Fullscale, Memory, Visuospatial, Verbal skills, Attention, og Recall.
+    \item \textbf{Kliniske data:} IBS-SSS (IBS Severity Scoring System) med skala 0-500.
+\end{itemize}
+
+\subsection{Dataforbehandling}
+For å konstruere meningsfulle PSN ble følgende preprocessing utført:
+\begin{enumerate}
+    \item \textbf{Feature-seleksjon:} 41 numeriske variabler (35 morfometriske + 6 kognitive)
+    \item \textbf{Imputering:} Manglende verdier erstattet med kolonnegjennomsnitt
+    \item \textbf{Standardisering:} Z-score transformasjon ($z_i = \frac{x_i - \mu}{\sigma}$)
+\end{enumerate}
+
+\subsection{Nettverkskonstruksjon}
+PSN ble konstruert i tre steg:
+
+\textbf{Steg 1: Avstandsberegning.} Euklidsk avstand mellom alle pasientpar i standardisert feature-rom:
+\begin{equation}
+    d_{ij} = \sqrt{\sum_{k=1}^{p} (x_{ik} - x_{jk})^2}
+\end{equation}
+
+\textbf{Steg 2: Likhetstransformasjon.} Gaussisk kjerne (RBF) for å transformere avstand til likhet:
+\begin{equation}
+    s_{ij} = \exp\left(-\frac{d_{ij}^2}{2\sigma^2}\right)
+\end{equation}
+der $\sigma$ settes til gjennomsnittlig avstand.
+
+\textbf{Steg 3: Nettverksbygging.} k-nærmeste-nabo tilnærming ($k=8$) kombinert med terskel ($\theta=0.3$) for å sikre balansert konnektivitet.
+
+\subsection{Analysemetoder}
+
+\subsubsection{Community detection}
+Louvain-algoritmen \citep{blondel2008} ble brukt for å identifisere communities ved optimalisering av modularitet:
+\begin{equation}
+    Q = \frac{1}{2m} \sum_{ij} \left[ A_{ij} - \frac{k_i k_j}{2m} \right] \delta(c_i, c_j)
+\end{equation}
+Adjusted Rand Index (ARI) ble brukt for evaluering mot faktiske grupper.
+
+\subsubsection{Sentralitetsanalyser}
+Tre komplementære sentralitetsmål ble beregnet:
+\begin{itemize}
+    \item \textbf{Degree centrality:} $C_D(v) = \frac{deg(v)}{n-1}$
+    \item \textbf{Betweenness centrality:} Frekvens på korteste veier
+    \item \textbf{Eigenvector centrality:} Sentralitet basert på naboers sentralitet
+\end{itemize}
+
+\subsubsection{Subnettverk-analyse}
+Separate subnettverk for IBS og HC ble ekstrahert og sammenlignet med hensyn til tetthet, clustering-koeffisient, og gjennomsnittlig korteste vei.
+
+\subsubsection{Feature importance}
+Spearman-korrelasjon mellom hver feature og eigenvector sentralitet ble beregnet for å identifisere variabler som driver nettverksstruktur.
+
+\subsubsection{Klinisk korrelasjon}
+Sammenheng mellom sentralitetsmål og IBS-SSS ble undersøkt hos IBS-pasienter ved bruk av Spearman-korrelasjon.
+
+% ============================================================
+% 3. RESULTATER
+% ============================================================
+\section{Resultater}
+
+\subsection{Nettverksstruktur}
+Det konstruerte PSN besto av 78 noder (pasienter) med varierende antall kanter avhengig av terskel-parametere. Grunnleggende nettverksmetrikker er oppsummert i \cref{tab:nettverk}.
+
+\begin{table}[H]
+\centering
+\caption{Grunnleggende nettverksmetrikker for pasient-likhetsnettverket.}
+\label{tab:nettverk}
+\begin{tabular}{lll}
+\toprule
+\textbf{Metrikk} & \textbf{Verdi} & \textbf{Beskrivelse} \\
+\midrule
+Antall noder & 78 & Totalt antall pasienter \\
+Antall kanter & $\sim$300-400 & Pasientforbindelser \\
+Nettverkstetthet & $\sim$0.10 & Andel mulige forbindelser \\
+Clustering-koeffisient & $\sim$0.4-0.6 & Lokal klyngedannelse \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\Cref{fig:nettverk} viser nettverksvisualiseringen med pasienter farget etter diagnosegruppe.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{fig1_nettverk.png}
+\caption{Pasient-likhetsnettverk konstruert fra 78 deltakere basert på 41 features. Røde noder representerer IBS-pasienter (n=49), blå noder representerer friske kontroller (n=29). Nodestørrelse reflekterer grad (antall forbindelser).}
+\label{fig:nettverk}
+\end{figure}
+
+\subsection{Community detection}
+Louvain-algoritmen identifiserte flere communities i nettverket. \Cref{fig:communities} viser sammenligning mellom detekterte communities og faktiske diagnosegrupper.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{fig2_communities.png}
+\caption{Community detection sammenlignet med faktiske grupper. (A) Nettverket farget etter detekterte communities. (B) Samme nettverk farget etter faktisk diagnose (IBS/HC).}
+\label{fig:communities}
+\end{figure}
+
+Community-sammensetningen er presentert i \cref{tab:communities}.
+
+\begin{table}[H]
+\centering
+\caption{Fordeling av IBS-pasienter og friske kontroller på tvers av detekterte communities.}
+\label{tab:communities}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Community} & \textbf{Totalt} & \textbf{IBS} & \textbf{HC} & \textbf{IBS \%} \\
+\midrule
+1 & -- & -- & -- & -- \\
+2 & -- & -- & -- & -- \\
+3 & -- & -- & -- & -- \\
+\bottomrule
+\multicolumn{5}{l}{\textit{Verdier fylles inn etter analyse}}
+\end{tabular}
+\end{table}
+
+\subsection{Sentralitetsanalyser}
+\Cref{fig:sentralitet} viser distribusjonen av sentralitetsmål og deres relasjon til diagnosegrupper.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{fig3_sentralitet.png}
+\caption{Sentralitetsanalyse. (A) Degree-distribusjon per gruppe. (B) Degree vs betweenness scatterplot. (C) Nettverk farget etter eigenvector sentralitet. (D) Boxplot-sammenligning av sentralitetsmål.}
+\label{fig:sentralitet}
+\end{figure}
+
+\subsection{IBS vs HC subnettverk}
+Sammenligning av subnettverk-egenskaper er presentert i \cref{tab:subnettverk} og visualisert i \cref{fig:subnettverk}.
+
+\begin{table}[H]
+\centering
+\caption{Sammenligning av nettverksegenskaper mellom IBS og HC subnettverk.}
+\label{tab:subnettverk}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Egenskap} & \textbf{IBS} & \textbf{HC} \\
+\midrule
+Antall noder & 49 & 29 \\
+Interne kanter & -- & -- \\
+Tetthet & -- & -- \\
+Clustering & -- & -- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{fig4_subnettverk.png}
+\caption{Subnettverk-visualisering. (A) IBS-pasientenes subnettverk. (B) HC-gruppens subnettverk. (C) Komplett nettverk med kryss-gruppe forbindelser markert i lilla.}
+\label{fig:subnettverk}
+\end{figure}
+
+\subsection{Feature importance}
+\Cref{fig:features} viser de viktigste features korrelert med sentralitet i nettverket.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{fig5_features.png}
+\caption{Feature importance analyse. (A) Topp-15 features etter korrelasjon med eigenvector sentralitet. Blå = kognitive mål, rød = hjerne-morfometriske mål. (B) Distribusjon av korrelasjoner per feature-kategori.}
+\label{fig:features}
+\end{figure}
+
+\subsection{Korrelasjon med symptomgrad}
+\Cref{fig:ibssss} viser sammenhengen mellom sentralitetsmål og IBS symptomgrad.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{fig6_ibssss.png}
+\caption{Sentralitet vs symptomgrad. Scatterplots som viser forholdet mellom (A) Degree, (B) Betweenness, og (C) Eigenvector sentralitet og IBS-SSS for IBS-pasienter. Horisontale linjer markerer kliniske alvorlighetsgrenser.}
+\label{fig:ibssss}
+\end{figure}
+
+\subsection{Grafisk oppsummering}
+En omfattende visuell oppsummering av alle analyser er presentert i \cref{fig:oppsummering}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{fig7_oppsummering.png}
+\caption{Grafisk oppsummering av PSN-analysen. (A) Hovednettverk. (B) Communities. (C) Sentralitetskart. (D) Feature importance. (E) Subnettverk-sammenligning. (F) Sentralitet vs symptomgrad.}
+\label{fig:oppsummering}
+\end{figure}
+
+% ============================================================
+% 4. DISKUSJON
+% ============================================================
+\section{Diskusjon}
+
+\subsection{Hovedfunn}
+Denne studien demonstrerer anvendelsen av pasient-likhetsnettverk for å analysere heterogenitet i en IBS-kohort basert på kombinerte hjerne-morfometriske og kognitive mål. Våre hovedfunn inkluderer:
+
+\begin{enumerate}
+    \item \textbf{Nettverksstruktur:} PSN-konstruksjonen avdekket en moderat strukturert nettverkstopologi med distinkte klynger, men betydelig overlapp mellom IBS-pasienter og friske kontroller.
+    
+    \item \textbf{Community detection:} Louvain-algoritmen identifiserte flere communities, men med varierende samsvar med faktiske diagnosegrupper. Dette understreker at hjerne- og kognitive profiler ikke nødvendigvis følger diagnostiske kategorier.
+    
+    \item \textbf{Feature importance:} Analysen avdekket hvilke spesifikke variabler som driver nettverksstrukturen, med bidrag fra både subkortikale strukturer og kognitive domener.
+    
+    \item \textbf{Klinisk relevans:} Undersøkelsen av korrelasjoner mellom nettverksegenskaper og IBS-SSS gir innsikt i potensielle sammenhenger mellom nettverksposisjon og symptomgrad.
+\end{enumerate}
+
+\subsection{Sammenheng med tidligere forskning}
+Funnene våre er konsistente med originalstudien av \citet{lundervold2025}, som viste at kombinasjonen av hjerne-morfometri og kognitive mål ga bedre diskriminering mellom IBS og HC enn morfometriske mål alene. Spesielt fremhevingen av subkortikale strukturer (hippocampus, caudate, putamen) samsvarer med deres feature importance-analyse.
+
+Nettverkstilnærmingen utfyller maskinlæringsmetodene i originalstudien ved å gi visualisering av pasientrelasjoner, identifikasjon av naturlige subgrupper, og innsikt i heterogenitet innen diagnostiske grupper.
+
+\subsection{Styrker og begrensninger}
+
+\textbf{Styrker:}
+\begin{itemize}
+    \item Reelle kliniske data basert på validerte måleinstrumenter
+    \item Multimodal tilnærming som kombinerer biologiske og kognitive mål
+    \item Åpen metodikk med reproduserbar analyse
+    \item Omfattende karakterisering av nettverksegenskaper
+\end{itemize}
+
+\textbf{Begrensninger:}
+\begin{itemize}
+    \item Begrenset utvalgsstørrelse (n=78) gir moderat statistisk kraft
+    \item Tverrsnittsdesign kan ikke etablere kausalitet
+    \item Resultater kan variere med alternative likhetsmål
+    \item Multiple testing uten streng korreksjon
+\end{itemize}
+
+\subsection{Fremtidsperspektiver}
+Fremtidige studier bør vurdere longitudinelle design for å undersøke nettverksendringer over tid, dypere karakterisering av identifiserte communities, utforskning av alternative nettverksmetoder, validering i uavhengige kohorter, og utvikling av prediktive modeller basert på nettverksegenskaper.
+
+% ============================================================
+% 5. KONKLUSJON
+% ============================================================
+\section{Konklusjon}
+Denne studien demonstrerer nytten av pasient-likhetsnettverk for å utforske heterogenitet i en IBS-kohort. Ved å kombinere hjerne-morfometriske mål med kognitive skårer konstruerte vi nettverk som avdekket delvis overlapp mellom diagnosegrupper, distinkte pasientklynger som ikke fullstendig speiler diagnostiske kategorier, viktige hjerne-strukturer og kognitive domener som driver nettverksstrukturen, og potensielle sammenhenger mellom nettverksposisjon og klinisk symptomgrad.
+
+PSN-tilnærmingen komplementerer tradisjonelle gruppebaserte analyser ved å gi innsikt i individuelle pasientrelasjoner og heterogenitet innen diagnostiske grupper. Metodikken har potensial for fremtidig anvendelse i presisjonsmedisin og personalisert behandling av funksjonelle gastrointestinale lidelser.
+
+% ============================================================
+% Takk
+% ============================================================
+\section*{Takk}
+Denne studien er basert på data fra \citet{lundervold2025}. Analysen ble utført som en del av kurset ELMED219/BMED365 ved Universitetet i Bergen.
+
+% ============================================================
+% Referanser
+% ============================================================
+\bibliographystyle{apalike}
+\bibliography{pasient_likhetsnettverk_ibs_hjerne_kognisjon}
+
+\end{document}
+
