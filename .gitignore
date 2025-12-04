@@ -31,6 +31,19 @@ flagged
 
 
 
+# Lab2-DL genererte filer og data (lastes ned automatisk ved kjøring)
+Lab2-DL/data/MNIST/
+Lab2-DL/notebooks/mnist_images/
+Lab2-DL/notebooks/bonn_eeg_data/
+Lab2-DL/notebooks/catboost_info/
+Lab2-DL/notebooks/*.joblib
+Lab2-DL/notebooks/*.npy
+Lab2-DL/notebooks/*.csv
+Lab2-DL/notebooks/data/
+
+# Lab2-DL store mediafiler (kan streames fra YouTube)
+Lab2-DL/assets/*.mp4
+
 # Old stuff
 2024-Project
 2024-Lab0-ML
