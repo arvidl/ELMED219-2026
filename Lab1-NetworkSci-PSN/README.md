@@ -21,6 +21,19 @@ Etter å ha gjennomført denne labben skal du kunne:
 
 ---
 
+## 🐍 Ny til Python?
+
+Hvis du har lite eller ingen erfaring med Python-programmering, anbefaler vi at du først gjennomfører [**Lynkurs i AI-assistert Python-programmering**](../Lab-Lynkurs/README.md). Dette lynkurset gir deg:
+
+- Praktisk introduksjon til Python og Google Colab
+- Grunnleggende Python-syntaks (variabler, datatyper, lister)
+- Erfaring med å bruke AI-verktøy (Gemini/ChatGPT) som programmeringspartner
+- Smakebiter fra både Lab 0 (maskinlæring) og Lab 1 (nettverk)
+
+Lynkurset er spesielt designet for medisinstudenter uten programmeringserfaring.
+
+---
+
 ## 🤖 AI-assistert læring
 
 <img src="../assets/GPT-MedAI.png" width="500"><br>

@@ -74,7 +74,7 @@ Alt kursmateriale er åpent tilgjengelig i dette GitHub-repositoriet. Se også [
 | 2   | Ma 05.01.2026 | 10:15–14:00    | Informasjon, motivasjon, SW-installasjon og praktisk intro   | AL       | Hist 1   |    E/B        |
 | 2   | On 07.01.2026 | 14:15–16:00    | SW-installasjon, [verktøy], [team], [prosjekt] og [Lab 0](./Lab0-ML/README.md)        | AL       | Hist 1   |    E/B        |
 | 2   | Fr 09.01.2026 | 10:15–13:00    | [Lab 0](./Lab0-ML/README.md), [Lab 1](./Lab1-NetworkSci-PSN/README.md)                                                      | AL       | Hist 1   |    E/B        |
-| 3   | Ti 13.01.2026 | 09:15–13:00    | Lynkurs i AI-assistert Python-programmering                | AL       | Hist 1   |    E/B        |
+| 3   | Ti 13.01.2026 | 09:15–13:00    | [Lynkurs i AI-assistert Python-programmering](./Lab-Lynkurs/README.md)                | AL       | Hist 1   |    E/B        |
 | 3   | Fr 16.01.2026 | 08:15–13:00    | [Lab 2](./Lab2-DL) (Dyp læring)                                         | AL       | Hist 1   |    E/B        |
 | 4   | Ma 19 - Sø 25 |                | TEAMPROSJEKT (samarbeid teamvis i løpet av uken)        |          |          |    E/B        |
 | 4   | Ti 20.01.2026 | 08:15–12:00    | [Lab 3](./Lab3-GenAI-LLM) (Generativ AI + Store språkmodeller)                 | AL       | Hist 1   |    E/B        |
@@ -98,12 +98,61 @@ Alt kursmateriale er åpent tilgjengelig i dette GitHub-repositoriet. Se også [
 
 | Lab | Tema | Beskrivelse |
 |:----|:-----|:------------|
+| [**Lynkurs**](./Lab-Lynkurs/README.md) | AI-assistert Python | Introduksjon til Python-programmering med AI-verktøy (Google Colab + Gemini/ChatGPT) |
 | [**Lab0**](./Lab0-ML/README.md) | Maskinlæring | Grunnleggende maskinlæring med PyCaret – enkle eksempler og binær klassifikasjon |
 | [**Lab1**](./Lab1-NetworkSci-PSN/README.md) | Nettverksvitenskap & PSN | Grafteori, nettverksanalyse og pasient-likhetsnettverk med NetworkX |
 | [**Lab2**](./Lab2-DL) | Dyp læring | Nevrale nettverk og dyp læring for medisinsk bildeanalyse |
 | [**Lab3**](./Lab3-GenAI-LLM) | Generativ AI & LLM | Store språkmodeller og generativ AI i medisin |
 
+---
 
+## 💻 Kjøre Jupyter Notebooks
+
+Alle notebooks i kurset kan kjøres **gratis** på flere måter. Vi anbefaler Google Colab som hovedplattform, men det finnes gode alternativer.
+
+### Anbefalt: Google Colab
+
+[Google Colab](https://colab.research.google.com) er en gratis, skybasert tjeneste som lar deg kjøre Jupyter Notebooks direkte i nettleseren – uten installasjon.
+
+**Fordeler:**
+- Ingen installasjon nødvendig
+- Innebygd AI-assistanse (Gemini)
+- Gratis tilgang til GPU/TPU for tyngre beregninger
+- Enkel deling og samarbeid
+
+**Krav:** Du trenger en **Google-konto**. Hvis du ikke har en, kan du opprette en gratis på [accounts.google.com](https://accounts.google.com).
+
+### Alternativer (uten Google-konto)
+
+Hvis du ikke har eller ikke ønsker en Google-konto, finnes det flere gratis alternativer:
+
+| Plattform | Konto kreves? | Fordeler | Ulemper |
+|-----------|---------------|----------|---------|
+| **[Kaggle Notebooks](https://www.kaggle.com/code)** | Ja (Kaggle-konto) | Gratis GPU, stort ML-community | Krever registrering |
+| **[Binder](https://mybinder.org)** | Nei | Ingen registrering, åpner direkte fra GitHub | Kan være treg oppstart, tidsbegrenset økt |
+| **[JupyterLite](https://jupyter.org/try-jupyter/lab/)** | Nei | Kjører helt i nettleseren | Begrenset funksjonalitet, ikke alle pakker |
+| **Lokal installasjon** | Nei | Full kontroll, fungerer offline | Krever installasjon av Conda/Python |
+
+### Lokal installasjon med Conda
+
+For de som foretrekker å jobbe lokalt, kan du installere Jupyter på din egen maskin:
+
+```bash
+# 1. Last ned og installer Miniconda fra https://docs.conda.io/en/latest/miniconda.html
+
+# 2. Opprett kursmiljøet
+conda env create -f environment.yml
+conda activate elmed219-2026
+
+# 3. Start Jupyter
+jupyter notebook
+```
+
+Se [environment.yml](./environment.yml) for fullstendig liste over pakker som brukes i kurset.
+
+> 💡 **Tips:** Uansett hvilken plattform du velger, er alt kursmateriale gratis og åpent tilgjengelig. Velg den løsningen som passer best for deg!
+
+---
 
 ### Tidligere versjoner av ELMED219-kurset
 _"Artificial intelligence and computational medicine"_
@@ -137,4 +186,4 @@ _"In Vivo Imaging and Physiological Modelling"_
 |2021 |https://github.com/computational-medicine/BMED360-2021 |
 |2020 |https://github.com/computational-medicine/BMED360-2020 |
 
-Oppdatert: 2025-12-03
+Oppdatert: 2025-12-04

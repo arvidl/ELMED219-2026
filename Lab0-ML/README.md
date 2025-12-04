@@ -2,11 +2,39 @@
 
 I denne første laben får vi en introduksjon til **maskinlæring**: hva det er og hva det brukes til. Vår tilnærming vil være praktisk, ved bruk av Python og scikit-learn-biblioteket.
 
-## Læringsmål
+---
 
-- Definere sentrale maskinlæringskonsepter og identifisere passende bruksområder
-- Implementere og evaluere grunnleggende maskinlæringsmodeller ved hjelp av scikit-learn
-- Opprette, endre og dele Jupyter Notebooks for dataanalyse
+## 🎯 Læringsmål
+
+Etter å ha gjennomført denne labben skal du kunne:
+
+| Tema | Læringsmål |
+|------|-----------|
+| **ML-konsepter** | Definere sentrale maskinlæringsbegreper (features, labels, trening, testing) og skille mellom veiledet (supervised)og ikke-veiledet (unsupervised) læring |
+| **Klassifisering** | Forstå klassifiseringsoppgaven og hvordan den skiller seg fra regresjon |
+| **Dataoppdeling** | Forklare hvorfor vi deler data i trenings- og testsett, og bruke `train_test_split` |
+| **Modelltrening** | Trene enkle klassifikasjonsmodeller (beslutningstre, logistisk regresjon, k-NN) med scikit-learn |
+| **Evaluering** | Beregne og tolke evalueringsmetrikker som nøyaktighet (accuracy), presisjon, sensitivitet (recall) og F1-score |
+| **Forvirringsmatrise** | Lese og tolke en forvirringsmatrise (confusion matrix) for å forstå modellens feil |
+| **ROC-kurve** | Forstå ROC-kurven og AUC som mål på modellkvalitet |
+| **Kryssvalidering** | Bruke kryssvalidering for mer robust evaluering av modeller |
+| **AutoML** | Bruke PyCaret for rask prototyping og modellsammenligning |
+| **Medisinsk kontekst** | Forstå spesielle hensyn ved bruk av ML i medisin (TRIPOD, overtilpasning, generaliserbarhet) |
+
+---
+
+## 🐍 Ny til Python?
+
+Hvis du har lite eller ingen erfaring med Python-programmering, anbefaler vi at du først gjennomfører [**Lynkurs i AI-assistert Python-programmering**](../Lab-Lynkurs/README.md). Dette lynkurset gir deg:
+
+- Praktisk introduksjon til Python og Google Colab
+- Grunnleggende Python-syntaks (variabler, datatyper, lister)
+- Erfaring med å bruke AI-verktøy (Gemini/ChatGPT) som programmeringspartner
+- Smakebiter fra både Lab 0 og Lab 1
+
+Lynkurset er spesielt designet for medisinstudenter uten programmeringserfaring.
+
+---
 
 ## Ressurser
 
