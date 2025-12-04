@@ -41,6 +41,13 @@ Lab2-DL/notebooks/*.npy
 Lab2-DL/notebooks/*.csv
 Lab2-DL/notebooks/data/
 
+# Lab2-DL modeller og treningsdata (fra AI-og-helse)
+Lab2-DL/notebooks/*.pth
+Lab2-DL/notebooks/*.pkl
+Lab2-DL/modeller/
+Lab2-DL/notebooks/tmp/
+Lab2-DL/notebooks/modeller/
+
 # Lab2-DL store mediafiler (kan streames fra YouTube)
 Lab2-DL/assets/*.mp4
 

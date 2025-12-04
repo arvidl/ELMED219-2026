@@ -1,6 +1,6 @@
 # Lab 2: Dyp læring (DL)
 
-I denne labben utforsker vi konsepter og anvendelser av **dyp læring** (deep learning) i medisin og biomedisinsk forskning. Materialet er inspirert av og lenker til arbeidet til fremragende undervisere og forskere som [Grant Sanderson](https://www.3blue1brown.com/about), [Daniel Bourke](https://www.mrdbourke.com/about) og [Andrej Karpathy](https://karpathy.ai).
+I denne labben utforsker vi konsepter og anvendelser av **dyp læring** (deep learning) i medisin og biomedisinsk forskning.
 
 ---
 
@@ -10,58 +10,93 @@ Etter å ha gjennomført denne labben skal du kunne:
 
 | Tema | Læringsmål |
 |------|-----------|
-| **Nevrale nettverk** | Forklare hva et nevralt nettverk er og hvordan det lærer fra data |
-| **Dyp læring** | Skille mellom tradisjonell maskinlæring og dyp læring, og forstå når dyp læring er fordelaktig |
-| **MLP** | Forstå arkitekturen til et multilags perseptron (MLP) og hvordan det brukes til klassifisering |
-| **CNN** | Forklare hvordan konvolusjonelle nevrale nettverk (CNN) fungerer og hvorfor de er effektive for bildeanalyse |
-| **PyTorch** | Bruke PyTorch til å bygge og trene enkle nevrale nettverk |
-| **Trening** | Forstå treningsprosessen: forward pass, loss-funksjon, backpropagation og optimalisering |
-| **MNIST** | Gjennomføre en komplett klassifiseringsoppgave på MNIST-datasettet |
-| **Medisinsk kontekst** | Forstå hvordan dyp læring anvendes i medisinsk bildeanalyse |
+| **Nevrale nettverk** | Forklare hva et nevralt nettverk er, sammenligne biologiske og kunstige nevroner |
+| **Læring** | Forstå backpropagation, gradient descent og treningsprosessen |
+| **MLP** | Bygge og trene et multilags perseptron for klassifisering |
+| **CNN** | Forklare hvordan konvolusjonelle nevrale nettverk fungerer for bildeanalyse |
+| **PyTorch** | Bruke PyTorch til å bygge og trene nevrale nettverk |
+| **Medisinsk AI** | Anvende dyp læring på medisinske data (hjertesykdom, EKG, MR) |
+| **Forklarbar AI** | Bruke Grad-CAM for å forstå modellbeslutninger |
 
 ---
 
-## Prioriteringsguide for studenter
+## Prioriteringsguide
 
-Notebooks er organisert etter prioritet. **Start med kjerne-notebooks** og gå videre etter tid og interesse:
+Notebooks er organisert i **6 deler (A-F)** med tydelig prioritering. **Start med kjerne-materialet** og gå videre etter tid og interesse.
 
-| Prioritet | Notebook | Beskrivelse | Estimert tid |
-|:---------:|:---------|:------------|:------------:|
-| **1 (kjerne)** | [00a-CNN-basics](notebooks/00a-CNN-basics.ipynb) | Konseptuell introduksjon til CNN med medisinske analogier | 30 min |
-| **1 (kjerne)** | [03-MNIST-MLP](notebooks/03-MNIST-Classification-with-MLP.ipynb) | Praktisk dyp læring: klassifisering med MLP | 45 min |
-| **2 (anbefalt)** | [04-MNIST-CNN](notebooks/04-MNIST-Classification-with-CNN.ipynb) | CNN i praksis på MNIST | 45 min |
-| **2 (anbefalt)** | [00b-Pytorch-Lightning](notebooks/00b-Pytorch-Lightning-basics.ipynb) | Grunnleggende PyTorch og Lightning | 45 min |
-| **3 (valgfri)** | [01-MNIST-collect](notebooks/01-MNIST-collect-organize.ipynb) | Datainnsamling og -organisering | 30 min |
-| **3 (valgfri)** | [02-MNIST-RF](notebooks/02-MNIST-Classification-with-Random-Forest.ipynb) | ML baseline med Random Forest | 30 min |
-| **4 (avansert)** | [06-TabPFN-explore](notebooks/06-TabPFN-explore.ipynb) | Dyp læring på tabelldata | 60 min |
-| **4 (avansert)** | [07-TabPFN-neuro](notebooks/07-TabPFN-neuro.ipynb) | TabPFN anvendt i nevrovitenskap | 60 min |
+### Anbefalt læringssti for medisinstudenter
+
+```
+1. Start med Del B (NN-teori) → Grunnleggende forståelse
+2. Fortsett med Del A kjerne → Praktisk hands-on med MNIST
+3. Deretter Del C og D → CNN i praksis og medisinsk bildeanalyse
+4. Valgfritt: Del E og F etter interesse
+```
 
 ---
 
-## Ressurser
+## Oversikt over notebooks
 
-### Lysbilder
+### DEL A: MNIST-grunnlaget (fra ELMED219)
 
-<a href="https://docs.google.com/presentation/d/e/2PACX-1vRUu4XSPSOL6nHyeIpbJATMKvu4lWcjosw5sWUG3iDlNWbHTK-6MRj3VfxepE9Vw2CDM25dikA8XFuU/pub?start=false&loop=false&delayms=3000"><img src="./assets/Lab2_slide0_2025.png" width="400"></a>
+| Prioritet | Notebook | Beskrivelse | Colab |
+|:---------:|:---------|:------------|:------|
+| **1** | [A1-CNN-intro](notebooks/A1-CNN-intro.ipynb) | Konseptuell intro til CNN med medisinske analogier | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab2-DL/notebooks/A1-CNN-intro.ipynb) |
+| 3 | [A2-PyTorch-Lightning](notebooks/A2-PyTorch-Lightning.ipynb) | Introduksjon til PyTorch og Lightning | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab2-DL/notebooks/A2-PyTorch-Lightning.ipynb) |
+| 3 | [A3-MNIST-datasamling](notebooks/A3-MNIST-datasamling.ipynb) | Datainnsamling og organisering | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab2-DL/notebooks/A3-MNIST-datasamling.ipynb) |
+| 3 | [A4-MNIST-Random-Forest](notebooks/A4-MNIST-Random-Forest.ipynb) | ML baseline med Random Forest | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab2-DL/notebooks/A4-MNIST-Random-Forest.ipynb) |
+| **1** | [A5-MNIST-MLP](notebooks/A5-MNIST-MLP.ipynb) | Din første dyplæringsmodell (MLP) | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab2-DL/notebooks/A5-MNIST-MLP.ipynb) |
+| **1** | [A6-MNIST-CNN](notebooks/A6-MNIST-CNN.ipynb) | MNIST med CNN | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab2-DL/notebooks/A6-MNIST-CNN.ipynb) |
 
-### Notebooks
+### DEL B: Nevrale nettverk – Teori og medisinsk anvendelse
 
-| Notebook | Beskrivelse | Colab |
-|:---------|:------------|:------|
-| [00a-CNN-basics.ipynb](notebooks/00a-CNN-basics.ipynb) | Kort introduksjon til **CNN** for medisinstudenter – AI-assistert notebook | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab2-DL/notebooks/00a-CNN-basics.ipynb) |
-| [00b-Pytorch-Lightning-basics.ipynb](notebooks/00b-Pytorch-Lightning-basics.ipynb) | Kort introduksjon til **PyTorch** og **Lightning** for medisinstudenter | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab2-DL/notebooks/00b-Pytorch-Lightning-basics.ipynb) |
-| [01-MNIST-collect-organize.ipynb](notebooks/01-MNIST-collect-organize.ipynb) | MNIST datainnsamling, inspeksjon og organisering | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab2-DL/notebooks/01-MNIST-collect-organize.ipynb) |
-| [02-MNIST-Classification-with-Random-Forest.ipynb](notebooks/02-MNIST-Classification-with-Random-Forest.ipynb) | MNIST-klassifisering med Random Forest (baseline) | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab2-DL/notebooks/02-MNIST-Classification-with-Random-Forest.ipynb) |
-| [03-MNIST-Classification-with-MLP.ipynb](notebooks/03-MNIST-Classification-with-MLP.ipynb) | MNIST-klassifisering med multilags perseptron (MLP) | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab2-DL/notebooks/03-MNIST-Classification-with-MLP.ipynb) |
-| [04-MNIST-Classification-with-CNN.ipynb](notebooks/04-MNIST-Classification-with-CNN.ipynb) | MNIST-klassifisering med konvolusjonelt nevralt nettverk (CNN) | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab2-DL/notebooks/04-MNIST-Classification-with-CNN.ipynb) |
-| [06-TabPFN-explore.ipynb](notebooks/06-TabPFN-explore.ipynb) | Utforskning av dyp læring på tabelldata med TabPFN | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab2-DL/notebooks/06-TabPFN-explore.ipynb) |
-| [07-TabPFN-neuro.ipynb](notebooks/07-TabPFN-neuro.ipynb) | TabPFN anvendt i nevrovitenskap | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab2-DL/notebooks/07-TabPFN-neuro.ipynb) |
+| Prioritet | Notebook | Beskrivelse | Colab |
+|:---------:|:---------|:------------|:------|
+| **1** | [B1-nn-intro](notebooks/B1-nn-intro.ipynb) | Nevrale nettverk i menneske og maskin | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab2-DL/notebooks/B1-nn-intro.ipynb) |
+| **1** | [B2-læring-i-nn](notebooks/B2-læring-i-nn.ipynb) | Hvordan nevrale nettverk lærer | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab2-DL/notebooks/B2-læring-i-nn.ipynb) |
+| **1** | [B3-hjertesykdom-klassifikasjon](notebooks/B3-hjertesykdom-klassifikasjon.ipynb) | Klassifisering av hjertesykdom (UCI) | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab2-DL/notebooks/B3-hjertesykdom-klassifikasjon.ipynb) |
+| **1** | [B4-EKG-arytmi-CNN](notebooks/B4-EKG-arytmi-CNN.ipynb) | EKG arytmi-klassifikasjon med CNN | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab2-DL/notebooks/B4-EKG-arytmi-CNN.ipynb) |
 
-### Eksternt materiale: Hjernesvulst-segmentering
+### DEL C: CNN Bildeklassifikasjon
 
-| Notebook | Beskrivelse | Colab |
-|:---------|:------------|:------|
-| [05-BrainTumor-Segmentation](https://nbviewer.org/github/MMIV-ML/fastMONAI/blob/master/nbs/10d_tutorial_multiclass_segmentation.ipynb) | Hjernesvulst-segmentering fra multiparametrisk MRI (fastMONAI) | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MMIV-ML/fastMONAI/blob/master/nbs/10d_tutorial_multiclass_segmentation.ipynb) |
+| Prioritet | Notebook | Beskrivelse | Colab |
+|:---------:|:---------|:------------|:------|
+| **2** | [C1-cnn-miljø-arkitektur](notebooks/C1-cnn-miljø-arkitektur.ipynb) | Miljøoppsett og CNN-arkitektur | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab2-DL/notebooks/C1-cnn-miljø-arkitektur.ipynb) |
+| **2** | [C2-cnn-trening](notebooks/C2-cnn-trening.ipynb) | Trening og lagring av modell | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab2-DL/notebooks/C2-cnn-trening.ipynb) |
+| **2** | [C3-cnn-testing-gradcam](notebooks/C3-cnn-testing-gradcam.ipynb) | Testing, evaluering og Grad-CAM | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab2-DL/notebooks/C3-cnn-testing-gradcam.ipynb) |
+| **2** | [C4-cnn-konklusjon](notebooks/C4-cnn-konklusjon.ipynb) | Oppsummering og veien videre | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab2-DL/notebooks/C4-cnn-konklusjon.ipynb) |
+
+### DEL D: Medisinsk bildeanalyse
+
+| Prioritet | Notebook | Beskrivelse | Colab |
+|:---------:|:---------|:------------|:------|
+| **2** | [D1-MR-demens-klassifikasjon](notebooks/D1-MR-demens-klassifikasjon.ipynb) | MRI-bildeanalyse for demens-deteksjon | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab2-DL/notebooks/D1-MR-demens-klassifikasjon.ipynb) |
+
+### DEL E: Emosjonsanalyse
+
+| Prioritet | Notebook | Beskrivelse | Colab |
+|:---------:|:---------|:------------|:------|
+| 3 | [E1-emosjoner-bygging](notebooks/E1-emosjoner-bygging.ipynb) | Emosjonsklassifikasjon del 1 (bygging) | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab2-DL/notebooks/E1-emosjoner-bygging.ipynb) |
+| 3 | [E2-emosjoner-trening](notebooks/E2-emosjoner-trening.ipynb) | Emosjonsklassifikasjon del 2 (trening) | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab2-DL/notebooks/E2-emosjoner-trening.ipynb) |
+| 3 | [E3-emosjoner-evaluering](notebooks/E3-emosjoner-evaluering.ipynb) | Emosjonsklassifikasjon del 3 (evaluering) | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab2-DL/notebooks/E3-emosjoner-evaluering.ipynb) |
+
+### DEL F: TabPFN – Dyp læring på tabelldata (avansert)
+
+| Prioritet | Notebook | Beskrivelse | Colab |
+|:---------:|:---------|:------------|:------|
+| 4 | [F1-TabPFN-intro](notebooks/F1-TabPFN-intro.ipynb) | Utforskning av TabPFN | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab2-DL/notebooks/F1-TabPFN-intro.ipynb) |
+| 4 | [F2-TabPFN-neuro](notebooks/F2-TabPFN-neuro.ipynb) | TabPFN i nevrovitenskap | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab2-DL/notebooks/F2-TabPFN-neuro.ipynb) |
+
+---
+
+## Prioritetsnivåer
+
+| Prioritet | Beskrivelse | Estimert tid |
+|:---------:|:------------|:------------:|
+| **1 (kjerne)** | Essensielt for læringsmålene – alle bør gjennomføre | 4-5 timer |
+| **2 (anbefalt)** | Viktig utdyping, spesielt CNN og medisinsk bildeanalyse | 3-4 timer |
+| **3 (valgfri)** | Supplerende materiale etter interesse | 2-3 timer |
+| **4 (avansert)** | For de som vil gå dypere inn i moderne metoder | 1-2 timer |
 
 ---
 
@@ -69,17 +104,13 @@ Notebooks er organisert etter prioritet. **Start med kjerne-notebooks** og gå v
 
 ### Google Colab (anbefalt)
 
-Alle notebooks kan kjøres direkte i Google Colab uten lokal installasjon:
-
 1. Klikk på Colab-badgen ved notebooken du vil kjøre
 2. Logg inn med Google-konto
 3. Kjør cellene med `Shift+Enter`
 
-**Merk:** MNIST-datasettet (~12 MB) lastes ned automatisk ved første kjøring.
+**Merk:** Data lastes ned automatisk ved kjøring av notebooks.
 
 ### Lokal kjøring
-
-For lokal kjøring, bruk conda-miljøet fra rotkatalogen:
 
 ```bash
 conda env create -f environment.yml
@@ -89,34 +120,43 @@ jupyter notebook
 
 ---
 
-## Læringsmotivasjon – se disse videoene
+## Læringsressurser
 
-Sortert etter varighet (korteste først):
+### Videoer (sortert etter varighet)
 
 | Video | Forfatter | Varighet |
 |:------|:----------|:--------:|
 | [What is Deep Learning?](https://youtu.be/6M5VXKLf4D4) | Simplilearn | 6 min |
-| [What is backpropagation really doing?](https://youtu.be/Ilg3gGewQ5U) | 3Blue1Brown | 13 min |
 | [But what is a neural network?](https://youtu.be/aircAruvnKk) | 3Blue1Brown | 19 min |
-| [Gradient descent, how neural networks learn](https://youtu.be/IHZwWFHWa-w) | 3Blue1Brown | 21 min |
-| [But what is a convolution?](https://youtu.be/KuXjwB4LzSA) | 3Blue1Brown | 23 min |
-| [Building a neural network FROM SCRATCH](https://youtu.be/w8yWXqWQYmU) | Samson Zhang | 31 min |
-| [Deep Learning State of the Art (2019)](https://youtu.be/53YvP6gdD7U) | Lex Fridman (MIT) | 46 min |
-| [MIT 6.S191: Intro to Deep Learning](https://youtu.be/QDX-1M5Nj7s) | Alexander Amini | 58 min |
+| [What is backpropagation?](https://youtu.be/Ilg3gGewQ5U) | 3Blue1Brown | 13 min |
 | [Building micrograd](https://youtu.be/VMj-3S1tku0) | Andrej Karpathy | 2.5 t |
-| [Deep Learning Crash Course](https://youtu.be/CzBLfz89_60) | Simplilearn | 5.5 t |
-| [Learn PyTorch in a day](https://youtu.be/Z_ikDlimN6A) | Daniel Bourke | 25 t |
 
-### Anbefalte kurs (for videre fordypning)
+### Kurs og ressurser
 
-- [MIT 6.S191: Introduction to Deep Learning](http://introtodeeplearning.com) – Komplett kurs med slides og lab-materiale
-- [Stanford CS231n: CNNs for Visual Recognition](http://vision.stanford.edu/teaching/cs231n) – Klassisk kurs om CNN og bildegjenkjenning
-- [Learn PyTorch](https://learnpytorch.io) – Omfattende PyTorch-tutorial av Daniel Bourke
+- [MIT 6.S191: Introduction to Deep Learning](http://introtodeeplearning.com)
+- [Stanford CS231n: CNNs for Visual Recognition](http://vision.stanford.edu/teaching/cs231n)
+- [Learn PyTorch](https://learnpytorch.io)
+- [fastMONAI](https://fastmonai.no) – Bergen-basert medisinsk AI
 
 ---
 
-## AI-assistent
+## Struktur
 
-<img src="../assets/GPT-MedAI.png" width="500">
+```
+Lab2-DL/
+├── README.md
+├── assets/           # Slides og illustrasjoner
+├── data/             # Eksempelbilder
+├── ressurser/        # Figurer og illustrasjoner
+└── notebooks/
+    ├── A1-A6         # MNIST-grunnlaget
+    ├── B1-B4         # NN-teori og medisinsk anvendelse
+    ├── C1-C4         # CNN bildeklassifikasjon
+    ├── D1            # Medisinsk MR-analyse
+    ├── E1-E3         # Emosjonsanalyse
+    └── F1-F2         # TabPFN (avansert)
+```
 
-Har du tilgang til ChatGPT Plus? Prøv [**Medical AI Assistant (UiBmed)**](https://chat.openai.com/g/g-d90dfN17H-medical-ai-assistant-uibmed-elmed219-bmed365) – en spesialtilpasset GPT for ELMED219 og BMED365.
+---
+
+Utviklet av Arvid Lundervold, Universitetet i Bergen.
