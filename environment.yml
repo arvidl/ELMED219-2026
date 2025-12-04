@@ -79,5 +79,6 @@ dependencies:
       - antspyx>=0.6.0         # Avansert bilderegistrering (ANTs i Python)
       - tokenizers>=0.20.0     # Hurtig tokenisering for NLP/LLM
       - gradio>=4.0.0          # Lag enkle web-UI for ML-modeller
+      - wfdb>=4.1.0            # PhysioNet-data (EKG fra MIT-BIH, etc.)
 
 # Merk: google-colab er kun tilgjengelig i Google Colab-miljøet
