@@ -39,7 +39,9 @@ Lab2-DL/notebooks/catboost_info/
 Lab2-DL/notebooks/*.joblib
 Lab2-DL/notebooks/*.npy
 Lab2-DL/notebooks/*.csv
+Lab2-DL/notebooks/*.csv.gz
 Lab2-DL/notebooks/data/
+Lab2-DL/notebooks/mnist_data/
 
 # Lab2-DL modeller og treningsdata (fra AI-og-helse)
 Lab2-DL/notebooks/*.pth
