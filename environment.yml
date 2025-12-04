@@ -75,6 +75,7 @@ dependencies:
       - keras>=2.13.0          # Høynivå DL-API (kjører på TensorFlow)
       - tensorflow-addons>=0.21.0  # Ekstra lag og funksjoner for TensorFlow
       - gdown>=4.7.0           # Last ned fra Google Drive
+      - kaggle>=1.5.0          # Kaggle API for datasettnedlasting
       - pyradiomics>=3.0.0     # Radiomics: trekke ut features fra bilder
       - antspyx>=0.6.0         # Avansert bilderegistrering (ANTs i Python)
       - tokenizers>=0.20.0     # Hurtig tokenisering for NLP/LLM
