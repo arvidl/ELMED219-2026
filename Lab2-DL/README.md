@@ -81,7 +81,7 @@ Notebooks er organisert i **6 deler (A-F)** med tydelig prioritering. **Start me
 | 3 | [E2-emosjoner-trening](notebooks/E2-emosjoner-trening.ipynb) | Emosjonsklassifikasjon del 2 (trening) | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab2-DL/notebooks/E2-emosjoner-trening.ipynb) |
 | 3 | [E3-emosjoner-evaluering](notebooks/E3-emosjoner-evaluering.ipynb) | Emosjonsklassifikasjon del 3 (evaluering) | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab2-DL/notebooks/E3-emosjoner-evaluering.ipynb) |
 
-### DEL F: TabPFN – Dyp læring på tabelldata (avansert)
+### DEL F: TabPFN – Dyplæring på tabelldata (avansert)
 
 | Prioritet | Notebook | Beskrivelse | Colab |
 |:---------:|:---------|:------------|:------|
