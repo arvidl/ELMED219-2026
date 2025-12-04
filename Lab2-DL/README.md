@@ -1,6 +1,6 @@
-# Lab 2: Dyp læring (DL)
+# Lab 2: Dyplæring (DL)
 
-I denne labben utforsker vi konsepter og anvendelser av **dyp læring** (deep learning) i medisin og biomedisinsk forskning.
+I denne labben utforsker vi konsepter og anvendelser av **dyplæring** (deep learning) i medisin og biomedisinsk forskning.
 
 ---
 
@@ -15,7 +15,7 @@ Etter å ha gjennomført denne labben skal du kunne:
 | **MLP** | Bygge og trene et multilags perseptron for klassifisering |
 | **CNN** | Forklare hvordan konvolusjonelle nevrale nettverk fungerer for bildeanalyse |
 | **PyTorch** | Bruke PyTorch til å bygge og trene nevrale nettverk |
-| **Medisinsk AI** | Anvende dyp læring på medisinske data (hjertesykdom, EKG, MR) |
+| **Medisinsk AI** | Anvende dyplæring på medisinske data (hjertesykdom, EKG, MR) |
 | **Forklarbar AI** | Bruke Grad-CAM for å forstå modellbeslutninger |
 
 ---
