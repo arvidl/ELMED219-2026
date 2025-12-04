@@ -35,6 +35,7 @@ flagged
 Lab2-DL/data/MNIST/
 Lab2-DL/data/flowers/
 Lab2-DL/data/ecg/
+Lab2-DL/data/oasis_mri_sample/
 Lab2-DL/notebooks/mnist_images/
 Lab2-DL/notebooks/bonn_eeg_data/
 Lab2-DL/notebooks/catboost_info/

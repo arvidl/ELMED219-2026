@@ -83,5 +83,6 @@ dependencies:
       - opencv-python>=4.8.0   # Bildebehandling (cv2) for CNN og Grad-CAM
       - medmnist>=3.0.0        # Standardiserte medisinske bildedatasett (28×28)
       - timm>=0.9.0            # PyTorch Image Models (ViT, EfficientNet, etc.)
+      - torchviz>=0.0.2        # Visualisering av PyTorch-modellgrafer
 
 # Merk: google-colab er kun tilgjengelig i Google Colab-miljøet
