@@ -64,10 +64,26 @@ dependencies:
   - pillow>=10.0.0       # Bildebibliotek (PNG, JPEG lesing/skriving)
 
   # ─────────────────────────────────────────────────────────────────────────
+  # TABPFN - Dyp læring på tabelldata (Lab2-DL: F1 og F2)
+  # Prior-Data Fitted Networks for små medisinske datasett
+  # ─────────────────────────────────────────────────────────────────────────
+  - pytorch>=2.0.0             # Kreves av TabPFN (allerede over, men viktig)
+  
+  # ─────────────────────────────────────────────────────────────────────────
   # PIP-PAKKER
   # Pakker som ikke finnes i conda eller har bedre pip-versjoner
   # ─────────────────────────────────────────────────────────────────────────
   - pip:
+      # TabPFN v2.5 - Tabulær dyp læring
+      - tabpfn>=2.0.0            # TabPFN v2.5 for klassifikasjon og regresjon
+      - tabpfn-extensions>=0.1.0 # Post-hoc ensembler, SHAP, hyperparametertuning
+      - torch-geometric>=2.4.0   # Grafbaserte utvidelser for TabPFN
+      - hyperopt>=0.2.7          # Hyperparameteroptimalisering
+      - ucimlrepo>=0.0.6         # UCI ML Repository datasett (DARWIN, etc.)
+      - shap>=0.44.0             # SHAP-verdier for modelltolkning
+      - catboost>=1.2.0          # Baseline: Gradient boosting
+      - xgboost>=2.0.0           # Baseline: Gradient boosting
+      
       - plotly>=5.15.0         # Interaktive grafer (zoom, hover)
       - pydicom>=2.4.0         # Les DICOM-filer (røntgen, CT, MR)
       - igraph>=0.10.0         # Rask grafanalyse (alternativ til networkx)
