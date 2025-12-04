@@ -65,6 +65,7 @@ Notebooks er organisert i **6 deler (A-F)** med tydelig prioritering. **Start me
 | **2** | [C2-cnn-trening](notebooks/C2-cnn-trening.ipynb) | Trening og lagring av modell | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab2-DL/notebooks/C2-cnn-trening.ipynb) |
 | **2** | [C3-cnn-testing-gradcam](notebooks/C3-cnn-testing-gradcam.ipynb) | Testing, evaluering og Grad-CAM | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab2-DL/notebooks/C3-cnn-testing-gradcam.ipynb) |
 | **2** | [C4-cnn-konklusjon](notebooks/C4-cnn-konklusjon.ipynb) | Oppsummering og veien videre | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab2-DL/notebooks/C4-cnn-konklusjon.ipynb) |
+| 📝 | [C4a-cnn-konklusjon-losninger](notebooks/C4a-cnn-konklusjon-losninger.ipynb) | **Løsningsforslag** med MedMNIST, ViT og etikk | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arvidl/ELMED219-2026/blob/main/Lab2-DL/notebooks/C4a-cnn-konklusjon-losninger.ipynb) |
 
 ### DEL D: Medisinsk bildeanalyse
 
@@ -151,7 +152,7 @@ Lab2-DL/
 └── notebooks/
     ├── A1-A6         # MNIST-grunnlaget
     ├── B1-B4         # NN-teori og medisinsk anvendelse
-    ├── C1-C4         # CNN bildeklassifikasjon
+    ├── C1-C4(a)      # CNN bildeklassifikasjon + løsninger
     ├── D1            # Medisinsk MR-analyse
     ├── E1-E3         # Emosjonsanalyse
     └── F1-F2         # TabPFN (avansert)

@@ -80,5 +80,8 @@ dependencies:
       - tokenizers>=0.20.0     # Hurtig tokenisering for NLP/LLM
       - gradio>=4.0.0          # Lag enkle web-UI for ML-modeller
       - wfdb>=4.1.0            # PhysioNet-data (EKG fra MIT-BIH, etc.)
+      - opencv-python>=4.8.0   # Bildebehandling (cv2) for CNN og Grad-CAM
+      - medmnist>=3.0.0        # Standardiserte medisinske bildedatasett (28×28)
+      - timm>=0.9.0            # PyTorch Image Models (ViT, EfficientNet, etc.)
 
 # Merk: google-colab er kun tilgjengelig i Google Colab-miljøet
