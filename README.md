@@ -1,6 +1,6 @@
 # ELMED219: Kunstig intelligens og beregningsorientert medisin (2026)
 
-_(Innholdet for våren 2026 er under revisjon og oppdatering)_
+_MERK: Innholdet for våren 2026 er under løpende revisjon og oppdatering frem til kursstart ..._
 
 <img src="./assets/GPT-MedAI.png" width="500"> <br>
 Hvis du har et abonnement på [ChatGPT Plus](https://openai.com/blog/chatgpt-plus), kan du også prøve [**Medical AI Assistant (UiBmed - ELMED219 & BMED365)**](https://chat.openai.com/g/g-d90dfN17H-medical-ai-assistant-uibmed-elmed219-bmed365) og se om du kan få svar på noen av spørsmålene dine.
