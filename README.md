@@ -1,5 +1,7 @@
 # ELMED219: Kunstig intelligens og beregningsorientert medisin (2026)
 
+_(Innholdet for våren 2026 er under revisjon og oppdatering)_
+
 <img src="./assets/GPT-MedAI.png" width="500"> <br>
 Hvis du har et abonnement på [ChatGPT Plus](https://openai.com/blog/chatgpt-plus), kan du også prøve [**Medical AI Assistant (UiBmed - ELMED219 & BMED365)**](https://chat.openai.com/g/g-d90dfN17H-medical-ai-assistant-uibmed-elmed219-bmed365) og se om du kan få svar på noen av spørsmålene dine.
 
@@ -101,7 +103,7 @@ Alt kursmateriale er åpent tilgjengelig i dette GitHub-repositoriet. Se også [
 | [**Lynkurs**](./Lab-Lynkurs/README.md) | AI-assistert Python | Introduksjon til Python-programmering med AI-verktøy (Google Colab + Gemini/ChatGPT) |
 | [**Lab0**](./Lab0-ML/README.md) | Maskinlæring | Grunnleggende maskinlæring med PyCaret – enkle eksempler og binær klassifikasjon |
 | [**Lab1**](./Lab1-NetworkSci-PSN/README.md) | Nettverksvitenskap & PSN | Grafteori, nettverksanalyse og pasient-likhetsnettverk med NetworkX |
-| [**Lab2**](./Lab2-DL) | Dyp læring | Nevrale nettverk og dyp læring for medisinsk bildeanalyse |
+| [**Lab2**](./Lab2-DL) | Dyplæring | Nevrale nettverk og dyp læring for medisinsk bildeanalyse |
 | [**Lab3**](./Lab3-GenAI-LLM) | Generativ AI & LLM | Store språkmodeller og generativ AI i medisin |
 | [**Teamprosjekt**](./Team-prosjekt) | Presisjonsmedisin & Glioblastom | Forskningsplan for kvantitativ avbildning og AI ved hjernesvulst (felles med BMED365) |
 
@@ -187,4 +189,4 @@ _"In Vivo Imaging and Physiological Modelling"_
 |2021 |https://github.com/computational-medicine/BMED360-2021 |
 |2020 |https://github.com/computational-medicine/BMED360-2020 |
 
-Oppdatert: 2025-12-04 (Teamprosjekt lagt til)
+Oppdatert: 2025-12-05 (Teamprosjekt og Dyplæring oppdatert)
