@@ -60,3 +60,7 @@ Lab2-DL/assets/*.mp4
 # Old stuff
 2024-Project
 2024-Lab0-ML
+
+# Bonn EEG - track kun zip-filer, ignorer utpakkede mapper
+Lab2-DL/data/bonn_eeg_data/setA/
+Lab2-DL/data/bonn_eeg_data/setE/
