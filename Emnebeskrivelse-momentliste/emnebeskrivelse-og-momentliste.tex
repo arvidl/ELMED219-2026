@@ -365,11 +365,18 @@ Lab 3 dekker generativ AI og store språkmodeller (LLM) med fokus på medisinsk 
 06 & \textcolor{recommendedcolor}{Viktig} & AI-etikk i medisin & 60 min \\
 \midrule
 07 & \textcolor{optionalcolor}{Valgfri} & Trustworthy AI & 60 min \\
-08 & \textcolor{optionalcolor}{Valgfri} & Nevrosymbolsk AI & 60 min \\
+08 & \textcolor{optionalcolor}{Valgfri} & Nevrosymbolsk AI + Agentisk AI & 90 min \\
 09 & \textcolor{optionalcolor}{Valgfri} & ChatGPT/Claude API & 60 min \\
 \bottomrule
 \end{tabular}
 \end{table}
+
+\textbf{NB:} Notebook 08 (Nevrosymbolsk AI) inneholder en omfattende \textbf{case study om hjernesvulster (gliom)} som demonstrerer:
+\begin{itemize}[nosep]
+    \item Nevrosymbolsk klassifikasjon basert på WHO 2021 CNS-klassifikasjon
+    \item Integrasjon av MRI-analyse (nevral) med kunnskapsgrafer (symbolsk)
+    \item Agentisk AI som orkestrerer klinisk arbeidsflyt
+\end{itemize}
 
 \textbf{Læringsmål:}
 \begin{itemize}[nosep]
@@ -377,7 +384,8 @@ Lab 3 dekker generativ AI og store språkmodeller (LLM) med fokus på medisinsk 
     \item Anvende prompt engineering-teknikker (zero-shot, few-shot, CoT)
     \item Vurdere XAI-metoder som SHAP og LIME
     \item Diskutere AI-etikk, bias, og EU AI Act
-    \item Kjenne til nevrosymbolske tilnærminger
+    \item Forstå nevrosymbolsk integrasjon av nevrale og symbolske metoder
+    \item Beskrive agentisk AI og dens rolle i klinisk beslutningsstøtte
 \end{itemize}
 
 \subsection{Teamprosjekt: Presisjonsmedisin ved glioblastom}
@@ -395,6 +403,16 @@ Oppgaven går ut på å \textbf{skrive en forskningsplan} -- ikke å faktisk gje
     \item Maskinlæringsteknikker (segmentering, klassifisering)
     \item Datahåndteringsplan og etiske betraktninger
 \end{enumerate}
+
+\begin{infobox}[Relevant bakgrunn: Gliom-casestudien]
+Notebook 08 i Lab 3 inneholder en omfattende nevrosymbolsk AI-casestudie for gliomklassifikasjon basert på WHO 2021 CNS-klassifikasjon. Denne demonstrerer:
+\begin{itemize}[nosep]
+    \item Integrasjon av MRI-segmentering (BraTS) med molekylære markører (IDH, MGMT, 1p/19q)
+    \item Kunnskapsgrafer for behandlingsanbefalinger
+    \item Agentisk AI for orkestrering av klinisk arbeidsflyt
+\end{itemize}
+Studenter kan bruke denne som inspirasjon for teamprosjektet.
+\end{infobox}
 
 \textbf{Rapportstruktur:}
 \begin{itemize}[nosep]
@@ -639,7 +657,7 @@ V & A08 & Kjenne til GDPR-relevante aspekter ved AI \\
 U & A09 & Diskutere algoritmisk rettferdighet (fairness) \\
 \end{longtable}
 
-\subsection{Nevrosymbolsk AI}
+\subsection{Nevrosymbolsk AI og Agentisk AI}
 
 \begin{longtable}{@{}clp{9cm}@{}}
 \toprule
@@ -655,8 +673,14 @@ U & A09 & Diskutere algoritmisk rettferdighet (fairness) \\
 U & S01 & Kontrastere symbolsk og konneksjonistisk AI \\
 U & S02 & Forklare konseptet \emph{nevrosymbolsk integrasjon} \\
 U & S03 & Beskrive hva en \emph{kunnskapsgraf} er \\
-U & S04 & Kjenne til medisinske ontologier (SNOMED CT, ICD) \\
+U & S04 & Kjenne til medisinske ontologier (SNOMED CT, ICD, WHO CNS-klassifikasjon) \\
 U & S05 & Diskutere potensielle fordeler med nevrosymbolsk AI i medisin \\
+U & S06 & Beskrive hvordan nevrosymbolsk AI kan kombinere MRI-analyse (nevral) med WHO-klassifikasjon (symbolsk) for gliomdiagnostikk \\
+U & S07 & Forklare hvordan kunnskapsgrafer kan validere nevrale prediksjoner \\
+U & S08 & Definere \emph{agentisk AI} og dens kjerneegenskaper (planlegging, verktøybruk, refleksjon) \\
+U & S09 & Beskrive hvordan en AI-agent kan orkestrere en klinisk arbeidsflyt (PACS, litteratursøk, biobank) \\
+U & S10 & Forklare konseptet \emph{human-in-the-loop} i agentiske systemer \\
+U & S11 & Diskutere etiske utfordringer med autonome AI-agenter i helsevesenet \\
 \end{longtable}
 
 \subsection{Medisinsk bildeanalyse}
@@ -767,6 +791,14 @@ Medical AI GPT & ChatGPT Plus & Tilpasset for ELMED219/BMED365 \\
     \item \citet{vaswani2017attention}: Transformer-arkitekturen
     \item \citet{singhal2023large}: LLM og klinisk kunnskap
     \item \citet{morley2020ethics}: Etikk i AI og helse
+    \item \citet{garcez2020neurosymbolic}: Nevrosymbolsk AI -- den tredje bølgen
+    \item \citet{louis2021who}: WHO 2021 CNS-klassifikasjon (gliomer)
+\end{itemize}
+
+\textbf{Avansert (valgfritt):}
+\begin{itemize}[nosep]
+    \item \citet{nicholson2020knowledge}: Kunnskapsgrafer i biomedisin
+    \item \citet{xi2023rise}: Agentisk AI med store språkmodeller
 \end{itemize}
 
 % =====================================================================
@@ -810,6 +842,8 @@ Følgende emner kan bli dekket i eksamen:
     \item Ligningen $y \approx f(\mathbf{X}, \theta)$
     \item ML i diagnostikk
     \item AI-etikk og regulering
+    \item Nevrosymbolsk AI
+    \item Agentisk AI
 \end{itemize}
 \end{multicols}
 
