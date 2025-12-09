@@ -101,5 +101,16 @@ dependencies:
       - medmnist>=3.0.0        # Standardiserte medisinske bildedatasett (28×28)
       - timm>=0.9.0            # PyTorch Image Models (ViT, EfficientNet, etc.)
       - torchviz>=0.0.2        # Visualisering av PyTorch-modellgrafer
+      
+      # ─────────────────────────────────────────────────────────────────────────
+      # GENERATIV AI / LLM (Lab3-GenAI-LLM)
+      # Verktøy for store språkmodeller og prompt engineering
+      # ─────────────────────────────────────────────────────────────────────────
+      - tiktoken>=0.5.0        # OpenAI tokenizer (tokenisering av tekst)
+      - transformers>=4.35.0   # HuggingFace Transformers (modeller, pipeline)
+      # Valgfritt for API-bruk (notebook 09):
+      - openai>=1.0.0          # OpenAI API (ChatGPT)
+      - anthropic>=0.18.0      # Anthropic API (Claude)
+      - python-dotenv>=1.0.0   # Miljøvariabler fra .env-fil
 
 # Merk: google-colab er kun tilgjengelig i Google Colab-miljøet
