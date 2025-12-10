@@ -18,6 +18,8 @@
 \usepackage{fontawesome5}
 \usepackage{listings}
 \usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, urlcolor=blue}
 
 % Kodeformatering
 \definecolor{codebg}{rgb}{0.95,0.95,0.92}
@@ -54,7 +56,20 @@
 
 % Innholdsfortegnelse
 \begin{frame}{Oversikt}
-    \tableofcontents
+    \begin{enumerate}
+        \item \textbf{Jupyter Notebooks og Google Colab}
+        (\href{https://jupyter.org/}{Jupyter}, \href{https://colab.research.google.com/}{Colab})
+        \item \textbf{Python-grunnleggende}
+        (\href{https://numpy.org/}{NumPy}, \href{https://pandas.pydata.org/}{Pandas}, \href{https://matplotlib.org/}{Matplotlib})
+        \item \textbf{Maskinlæring med scikit-learn}
+        (\href{https://scikit-learn.org/}{scikit-learn})
+        \item \textbf{Nettverksanalyse med NetworkX}
+        (\href{https://networkx.org/}{NetworkX})
+        \item \textbf{Dyplæring med PyTorch}
+        (\href{https://pytorch.org/}{PyTorch})
+        \item \textbf{AI-verktøy og LaTeX}
+        (\href{https://chat.openai.com/}{ChatGPT}, \href{https://gemini.google.com/}{Gemini}, \href{https://claude.ai/}{Claude}, \href{https://www.overleaf.com/}{Overleaf})
+    \end{enumerate}
 \end{frame}
 
 % =====================================================================
@@ -87,8 +102,8 @@
         \item ``New notebook'' eller åpne fra GitHub
     \end{enumerate}
     
-    \begin{block}{Tips}
-        Aktiver GPU: Runtime $\rightarrow$ Change runtime type $\rightarrow$ GPU
+    \begin{block}{\footnotesize Tips}
+        \footnotesize Aktiver GPU: Runtime $\rightarrow$ Change runtime type $\rightarrow$ GPU
     \end{block}
 \end{frame}
 
@@ -245,9 +260,9 @@ plt.show()
         \end{column}
     \end{columns}
     
-    \vspace{0.3cm}
-    \begin{block}{Seaborn}
-        \texttt{import seaborn as sns} -- Penere visualiseringer med enkel kode!
+    \vspace{0.2cm}
+    \begin{block}{\footnotesize \href{https://seaborn.pydata.org/}{Seaborn}}
+        \footnotesize \texttt{import seaborn as sns} -- Penere visualiseringer med enkel kode!
     \end{block}
 \end{frame}
 
@@ -256,7 +271,7 @@ plt.show()
 % =====================================================================
 \section{Nettverksanalyse med NetworkX}
 
-\begin{frame}[fragile]{F07: Bruke NetworkX for enkel nettverksanalyse}
+\begin{frame}[fragile]{F07: Bruke \href{https://networkx.org/}{NetworkX} for enkel nettverksanalyse}
     \textbf{Opprett og manipuler grafer:}
     \begin{lstlisting}[language=Python]
 import networkx as nx
@@ -285,9 +300,9 @@ plt.show()
 % =====================================================================
 \section{Dyplæring med PyTorch}
 
-\begin{frame}[fragile]{F08: Bygge og trene en modell med PyTorch}
+\begin{frame}[fragile]{F08: Bygge og trene en modell med \href{https://pytorch.org/}{PyTorch}}
     \textbf{Enkel MLP i PyTorch:}
-    \begin{lstlisting}[language=Python]
+    \begin{lstlisting}[language=Python,basicstyle=\ttfamily\scriptsize]
 import torch
 import torch.nn as nn
 
@@ -297,7 +312,7 @@ class SimpleMLP(nn.Module):
         self.fc1 = nn.Linear(input_size, hidden_size)
         self.relu = nn.ReLU()
         self.fc2 = nn.Linear(hidden_size, num_classes)
-    
+
     def forward(self, x):
         out = self.fc1(x)
         out = self.relu(out)
@@ -306,9 +321,9 @@ class SimpleMLP(nn.Module):
 
 model = SimpleMLP(784, 128, 10)  # MNIST-eksempel
     \end{lstlisting}
-    
-    \begin{block}{Lab 2}
-        Full trening med loss, optimizer, og treningsløkke gjennomgås i Lab 2.
+
+    \begin{block}{\footnotesize Lab 2}
+        \footnotesize Full trening med loss, optimizer, og treningsløkke gjennomgås i Lab 2.
     \end{block}
 \end{frame}
 
@@ -317,64 +332,120 @@ model = SimpleMLP(784, 128, 10)  # MNIST-eksempel
 % =====================================================================
 \section{AI-verktøy og LaTeX}
 
-\begin{frame}{F09: Bruke AI-verktøy (ChatGPT, Gemini) som kodehjelp}
-    \textbf{AI som programmeringspartner:}
-    
-    \vspace{0.3cm}
-    \textbf{Nyttige bruksområder:}
-    \begin{itemize}
-        \item \faCode~\textbf{Forklare kode:} ``Hva gjør denne funksjonen?''
-        \item \faBug~\textbf{Feilsøking:} ``Hvorfor får jeg denne feilmeldingen?''
-        \item \faLightbulb~\textbf{Forslag:} ``Hvordan kan jeg gjøre dette mer effektivt?''
-        \item \faBook~\textbf{Dokumentasjon:} ``Hvilke parametre tar denne funksjonen?''
-        \item \faPuzzlePiece~\textbf{Generere kode:} ``Skriv en funksjon som...''
-    \end{itemize}
-    
-    \vspace{0.3cm}
-    \textbf{Tips for effektiv bruk:}
-    \begin{enumerate}
-        \item Vær \textbf{spesifikk} i spørsmålene
-        \item Inkluder \textbf{kontekst} (feilmelding, kodeeksempel)
-        \item \textbf{Verifiser} alltid AI-generert kode
-        \item Bruk som \textbf{læringsverktøy}, ikke bare kopier
-    \end{enumerate}
-    
-    \begin{alertblock}{Gemini i Colab}
-        Gemini er integrert direkte i Google Colab -- bruk det!
-    \end{alertblock}
+\begin{frame}{F09: Bruke AI-verktøy (\href{https://chat.openai.com/}{ChatGPT}, \href{https://gemini.google.com/}{Gemini}, \href{https://claude.ai/}{Claude}) som kodehjelp}
+    \begin{columns}[T]
+        \begin{column}{0.52\textwidth}
+            \textbf{Nyttige bruksområder:}
+            \begin{itemize}
+                \item \faCode~\textbf{Forklare kode:} ``Hva gjør denne funksjonen?''
+                \item \faBug~\textbf{Feilsøking:} ``Hvorfor får jeg feilmeldingen?''
+                \item \faLightbulb~\textbf{Forslag:} ``Gjør dette mer effektivt?''
+                \item \faPuzzlePiece~\textbf{Generere kode:} ``Skriv en funksjon...''
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.45\textwidth}
+            \textbf{Tips for effektiv bruk:}
+            \begin{enumerate}
+                \item Vær \textbf{spesifikk} i spørsmålene
+                \item Inkluder \textbf{kontekst}
+                \item \textbf{Verifiser} alltid AI-kode
+                \item Bruk som \textbf{læringsverktøy}
+            \end{enumerate}
+        \end{column}
+    \end{columns}
+
+    \vspace{0.1cm}
+    \begin{block}{\footnotesize AI-drevne IDE-er (Integrated Development Environment)}
+        \scriptsize
+        \textbf{IDE} = Editor + kompilator + debugger + verktøy i ett.
+        \textbf{AI-drevet IDE} = IDE med LLM-agenter som kan planlegge, skrive, teste og validere kode autonomt.\\
+        \textit{Betydning for medisinsk/biomedisinsk forskning:} Senker terskelen for å utvikle analyseverktøy, akselererer prototyping av ML-modeller, og muliggjør raskere oversettelse fra forskning til klinikk.\\[3pt]
+        \begin{tabular}{@{}ll@{}}
+        \href{https://www.cursor.com/}{Cursor}, \href{https://windsurf.com/}{Windsurf} & Editor med agenter, plan mode \\
+        \href{https://antigravity.dev/}{Google Antigravity} & Agent-first, multi-modell (Gemini 3) \\
+        \href{https://replit.com/}{Replit Agent} & Sky-basert IDE med AI-agent \\
+        \href{https://lovable.dev/}{Lovable} & Naturlig språk $\rightarrow$ full-stack app \\
+        \href{https://github.com/features/copilot}{GitHub Copilot}, \href{https://www.jetbrains.com/ai/}{JetBrains AI} & AI-assistenter i eksisterende IDE-er
+        \end{tabular}
+    \end{block}
 \end{frame}
 
-\begin{frame}[fragile]{F10: Skrive enkle dokumenter med LaTeX/Overleaf}
+\begin{frame}[fragile]{F10: Skrive dokumenter med \href{https://www.latex-project.org/}{LaTeX}/\href{https://www.overleaf.com/}{Overleaf}}
     \begin{columns}[T]
-        \begin{column}{0.48\textwidth}
-            \textbf{LaTeX = profesjonelt dokumentformat}
+        \begin{column}{0.28\textwidth}
+            \textbf{\href{http://www.bibtex.org/}{BibTeX} (.bib-fil):}
+            \begin{lstlisting}[language=TeX,basicstyle=\ttfamily\tiny]
+@article{smith2024,
+  author  = {Smith, J.},
+  title   = {AI in Medicine},
+  journal = {Nature Med.},
+  year    = {2024},
+  volume  = {30},
+  pages   = {123--130},
+  doi     = {10.1038/s41591-
+             024-01234-5}
+}
 
-            \vspace{0.2cm}
-            \textbf{Hvorfor LaTeX?}
-            \begin{itemize}
-                \item Standard i akademisk publisering
-                \item Utmerket for formler og figurer
-                \item Versjonskontroll (tekst-basert)
-            \end{itemize}
-
-            \vspace{0.2cm}
-            \begin{block}{\footnotesize Overleaf}
-                \footnotesize \texttt{overleaf.com} -- Online LaTeX-editor, samarbeid i sanntid
-            \end{block}
+@book{bishop2006,
+  author    = {Bishop, C.},
+  title     = {Pattern Recog.},
+  publisher = {Springer},
+  year      = {2006},
+  isbn      = {978-0387310732}
+}
+            \end{lstlisting}
+            \tiny I tekst: \texttt{\textbackslash cite\{smith2024\}}
         \end{column}
-        \begin{column}{0.48\textwidth}
-            \textbf{Grunnleggende struktur:}
-            \begin{lstlisting}[language=TeX,basicstyle=\ttfamily\scriptsize]
+        \begin{column}{0.40\textwidth}
+            \textbf{IMRAD-struktur:}
+            \begin{lstlisting}[language=TeX,basicstyle=\ttfamily\tiny,literate={å}{{\aa}}1]
 \documentclass{article}
-\usepackage[utf8]{inputenc}
-\title{Min rapport}
-\author{Student}
+\usepackage{graphicx,booktabs}
 \begin{document}
+\title{Tittel}
+\author{Forfatter}
 \maketitle
-\section{Introduksjon}
-Tekst her...
+\begin{abstract} ... \end{abstract}
+% Innledning
+\section{Introduction}
+Bakgrunn og mål \cite{smith2024}.
+% Materiale og metoder
+\section{Methods}
+Datainnsamling og analyse.
+% Resultater
+\section{Results}
+\begin{table}[h]
+\begin{tabular}{lcc} \toprule
+Modell & AUC & F1 \\ \midrule
+CNN & 0.92 & 0.88 \\ \bottomrule
+\end{tabular}
+\caption{Resultater}\label{tab:1}
+\end{table}
+% Diskusjon
+\section{Discussion}
+Implikasjoner og begrensninger.
+\bibliography{refs}
 \end{document}
             \end{lstlisting}
+        \end{column}
+        \begin{column}{0.30\textwidth}
+            \textbf{Tidsskrift m/LaTeX:}
+            \tiny
+            \begin{itemize}
+                \item \href{https://journals.plos.org/plosmedicine/s/latex}{PLOS Medicine}
+                \item \href{https://www.nature.com/nature/for-authors/formatting-guide}{Nature / Nat. Med.}
+                \item \href{https://academic.oup.com/bioinformatics/pages/instructions_for_authors}{Bioinformatics}
+                \item \href{https://www.thelancet.com/pb/assets/raw/Lancet/authors/tl-info-for-authors.pdf}{The Lancet}
+                \item \href{https://www.bmj.com/about-bmj/resources-authors}{BMJ}
+                \item \href{https://www.elsevier.com/researcher/author/policies-and-guidelines/latex-instructions}{Elsevier (mange)}
+                \item \href{https://www.springer.com/gp/livingreviews/latex-templates}{Springer Nature}
+                \item \href{https://www.mdpi.com/authors/latex}{MDPI (open access)}
+                \item \href{https://ieee-dataport.org/sites/default/files/analysis/27/IEEE-Reference-Guide.pdf}{IEEE JBHI}
+                \item \href{https://www.jmlr.org/format/format.html}{JMLR}
+                \item \href{https://www.frontiersin.org/guidelines/author-guidelines}{Frontiers}
+            \end{itemize}
+            \vspace{0.05cm}
+            \scriptsize \href{https://www.overleaf.com/gallery/tagged/academic-journal}{Overleaf Gallery}
         \end{column}
     \end{columns}
 \end{frame}
