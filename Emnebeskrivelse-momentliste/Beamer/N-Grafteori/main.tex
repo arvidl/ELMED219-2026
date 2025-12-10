@@ -15,6 +15,8 @@
 \usepackage{booktabs}
 \usepackage{amsmath}
 \usepackage{fontawesome5}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, urlcolor=blue}
 
 % =====================================================================
 % TEMA OG FARGER
@@ -46,7 +48,27 @@
 
 % ---------------------------------------------------------------------
 \begin{frame}{Oversikt}
-    \tableofcontents
+    \begin{enumerate}
+        \item \textbf{Grunnleggende grafteori}
+        \begin{itemize}
+            \item N01: Hva er en graf? (Noder og kanter)
+            \item N02: Rettet vs. ikke-rettet graf
+            \item N03: Vektet vs. ikke-vektet graf
+            \item N04: Nabomatrise (adjacency matrix)
+        \end{itemize}
+        \item \textbf{Sentralitetsmål}
+        \begin{itemize}
+            \item N05: Degree Centrality (grad-sentralitet)
+            \item N06: Betweenness Centrality (mellomliggenhet)
+            \item N07: Eigenvector Centrality (egenvektor-sentralitet)
+            \item N08: Clustering Coefficient (klyngekoeffisient)
+        \end{itemize}
+        \item \textbf{Community detection og verktøy}
+        \begin{itemize}
+            \item N09: Community Detection og Louvain-algoritmen
+            \item N10: NetworkX-biblioteket for Python
+        \end{itemize}
+    \end{enumerate}
 \end{frame}
 
 % =====================================================================
@@ -104,15 +126,15 @@
 % ---------------------------------------------------------------------
 % N02
 % ---------------------------------------------------------------------
-\begin{frame}{N02: Rettet vs. urettet graf}
+\begin{frame}{N02: Rettet vs. ikke-rettet graf}
     
     \begin{columns}
         \begin{column}{0.48\textwidth}
-            \textbf{\faArrowsAltH\ Urettet graf:}
+            \textbf{\faArrowsAltH\ Ikke-rettet graf:}
             \begin{itemize}
                 \item Kantene har ingen retning
                 \item $A - B$ betyr gjensidig forbindelse
-                \item Eksempel: Vennskap
+                \item Eksempel: Pasient-likhetsnettverk (PSN)
             \end{itemize}
             
             \begin{center}
@@ -132,7 +154,7 @@
             \begin{itemize}
                 \item Kantene har retning
                 \item $A \rightarrow B \neq B \rightarrow A$
-                \item Eksempel: Twitter-følgere
+                \item Eksempel: Gen-regulatoriske nettverk
             \end{itemize}
             
             \begin{center}
@@ -148,10 +170,16 @@
         \end{column}
     \end{columns}
     
-    \vspace{5mm}
+    \vspace{2mm}
     
-    \begin{block}{Medisinsk kontekst}
-        PSN (pasient-likhetsnettverk) er vanligvis \textbf{urettet}: likhet mellom A og B er symmetrisk.
+    \begin{block}{\footnotesize \href{https://en.wikipedia.org/wiki/Directed_acyclic_graph}{Rettet asyklisk graf (DAG)}}
+        \footnotesize En rettet graf \textbf{uten sykler} (ingen sti $A \rightarrow \cdots \rightarrow A$). Brukes i kausal inferens, Bayesianske nettverk, og arbeidsflytsystemer.
+    \end{block}
+    
+    \vspace{1mm}
+    
+    \begin{block}{\footnotesize Medisinsk kontekst}
+        \footnotesize PSN (pasient-likhetsnettverk) er vanligvis \textbf{ikke-rettet}: likhet mellom pasient A og B er symmetrisk.
     \end{block}
     
 \end{frame}
@@ -159,11 +187,11 @@
 % ---------------------------------------------------------------------
 % N03
 % ---------------------------------------------------------------------
-\begin{frame}{N03: Vektet vs. uvektet graf}
+\begin{frame}{N03: Vektet vs. ikke-vektet graf}
     
     \begin{columns}
         \begin{column}{0.48\textwidth}
-            \textbf{Uvektet graf:}
+            \textbf{Ikke-vektet graf:}
             \begin{itemize}
                 \item Alle kanter er ``like''
                 \item Binær: forbindelse eller ikke
@@ -184,26 +212,29 @@
             \textbf{Vektet graf:}
             \begin{itemize}
                 \item Kanter har numeriske vekter
-                \item Representerer styrke/avstand
+                \item Representerer styrke/avstand/likhet
             \end{itemize}
             
             \begin{center}
                 \begin{tikzpicture}[scale=0.7]
                     \node[draw, circle, fill=uibblue!30] (A) at (0,1) {A};
                     \node[draw, circle, fill=uibblue!30] (B) at (2.5,1) {B};
-                    \node[draw, circle, fill=uibblue!30] (C) at (1.25,0) {C};
+                    \node[draw, circle, fill=uibblue!30] (C) at (1.25,-0.3) {C};
                     \draw[thick, line width=3pt, uibblue!60] (A) -- (B) node[midway, above] {\small 0.9};
-                    \draw[thick, line width=1pt, uibblue!30] (A) -- (C) node[midway, left] {\small 0.3};
+                    \draw[thick, line width=1pt, uibblue!30] (A) -- (C) node[midway, below left] {\small 0.3};
                 \end{tikzpicture}
             \end{center}
         \end{column}
     \end{columns}
     
-    \vspace{5mm}
+    \vspace{3mm}
     
-    \begin{block}{I PSN}
-        Vekten representerer \textbf{likhet} mellom pasienter. \\
-        Høyere vekt = mer like pasienter.
+    \begin{block}{I PSN (pasient-likhetsnettverk)}
+        \footnotesize
+        Vekten representerer \textbf{likhet (similaritet)} mellom pasienter, beregnet fra kliniske variabler.\\[2pt]
+        \textbf{Høyere vekt} ($w$) = mer like pasienter (lignende symptomer, biomarkører, forløp, BMI, samme kjønn, \ldots).\\
+        \textbf{Lavere vekt} = mindre like pasienter.\\
+        Ofte brukes en \textbf{terskelverdi} for å filtrere bort svake koblinger (f.eks. $w < 0.5$).
     \end{block}
     
 \end{frame}
@@ -211,23 +242,27 @@
 % ---------------------------------------------------------------------
 % N04
 % ---------------------------------------------------------------------
-\begin{frame}{N04: Nabomatrise (adjacency matrix)}
+\begin{frame}{N04: Nabomatrise (\href{https://en.wikipedia.org/wiki/Adjacency_matrix}{adjacency matrix})}
     
     \begin{columns}
         \begin{column}{0.4\textwidth}
             \begin{center}
-                \begin{tikzpicture}[scale=0.8]
-                    \node[draw, circle, fill=uibblue!30] (1) at (0,2) {1};
-                    \node[draw, circle, fill=uibblue!30] (2) at (2,2) {2};
-                    \node[draw, circle, fill=uibblue!30] (3) at (2,0) {3};
-                    \node[draw, circle, fill=uibblue!30] (4) at (0,0) {4};
+                \begin{tikzpicture}[scale=0.75]
+                    \node[draw, circle, fill=uibred!50] (1) at (1.5,2.2) {1};
+                    \node[draw, circle, fill=uibblue!30] (2) at (0,1.2) {2};
+                    \node[draw, circle, fill=uibblue!40] (3) at (3,1.2) {3};
+                    \node[draw, circle, fill=uibblue!30] (4) at (0.5,0) {4};
+                    \node[draw, circle, fill=uibblue!30] (5) at (2.5,0) {5};
                     
                     \draw[thick] (1) -- (2);
+                    \draw[thick] (1) -- (3);
                     \draw[thick] (1) -- (4);
-                    \draw[thick] (2) -- (3);
-                    \draw[thick] (3) -- (4);
+                    \draw[thick] (2) -- (4);
+                    \draw[thick] (3) -- (5);
                 \end{tikzpicture}
             \end{center}
+            \scriptsize
+            deg: 1$\rightarrow$3, 2$\rightarrow$2, 3$\rightarrow$2, 4$\rightarrow$2, 5$\rightarrow$1
         \end{column}
         
         \begin{column}{0.55\textwidth}
@@ -235,22 +270,23 @@
             
             \[
             A = \begin{pmatrix}
-            0 & 1 & 0 & 1 \\
-            1 & 0 & 1 & 0 \\
-            0 & 1 & 0 & 1 \\
-            1 & 0 & 1 & 0
+            0 & 1 & 1 & 1 & 0 \\
+            1 & 0 & 0 & 1 & 0 \\
+            1 & 0 & 0 & 0 & 1 \\
+            1 & 1 & 0 & 0 & 0 \\
+            0 & 0 & 1 & 0 & 0
             \end{pmatrix}
             \]
             
             \begin{itemize}
-                \item $A_{ij} = 1$ hvis kant mellom $i$ og $j$
+                \item $A_{ij} = 1$ hvis kant mellom node $i$ og $j$
                 \item $A_{ij} = 0$ ellers
-                \item Symmetrisk for urettede grafer
+                \item Symmetrisk for ikke-rettede grafer
             \end{itemize}
         \end{column}
     \end{columns}
     
-    \vspace{5mm}
+    \vspace{3mm}
     
     \begin{block}{Vektet graf}
         I vektet graf: $A_{ij} = w_{ij}$ (vekten av kanten)
@@ -265,7 +301,7 @@
 % ---------------------------------------------------------------------
 % N05
 % ---------------------------------------------------------------------
-\begin{frame}{N05: Degree Centrality (grad-sentralitet)}
+\begin{frame}{N05: \href{https://en.wikipedia.org/wiki/Degree_centrality}{Degree Centrality} (grad-sentralitet)}
     
     \begin{columns}
         \begin{column}{0.5\textwidth}
@@ -277,7 +313,7 @@
                 (normalisert: delt på maks mulige naboer)
             \end{block}
             
-            \vspace{3mm}
+            \vspace{2mm}
             
             \textbf{Tolkning:}
             \begin{itemize}
@@ -290,11 +326,11 @@
         \begin{column}{0.45\textwidth}
             \begin{center}
                 \begin{tikzpicture}[scale=0.8]
-                    \node[draw, circle, fill=uibred!60, minimum size=1.2cm] (A) at (1.5,1.5) {\small 4};
-                    \node[draw, circle, fill=uibblue!30, minimum size=0.8cm] (B) at (0,2.5) {\small 1};
-                    \node[draw, circle, fill=uibblue!30, minimum size=0.8cm] (C) at (3,2.5) {\small 1};
-                    \node[draw, circle, fill=uibblue!40, minimum size=0.9cm] (D) at (0,0.5) {\small 2};
-                    \node[draw, circle, fill=uibblue!30, minimum size=0.8cm] (E) at (3,0.5) {\small 1};
+                    \node[draw, circle, fill=uibred!60, minimum size=1.2cm] (A) at (1.5,1.5) {A};
+                    \node[draw, circle, fill=uibblue!30, minimum size=0.8cm] (B) at (0,2.5) {B};
+                    \node[draw, circle, fill=uibblue!30, minimum size=0.8cm] (C) at (3,2.5) {C};
+                    \node[draw, circle, fill=uibblue!40, minimum size=0.9cm] (D) at (0,0.5) {D};
+                    \node[draw, circle, fill=uibblue!30, minimum size=0.8cm] (E) at (3,0.5) {E};
                     
                     \draw[thick] (A) -- (B);
                     \draw[thick] (A) -- (C);
@@ -304,14 +340,23 @@
                 \end{tikzpicture}
             \end{center}
             
-            \textit{Node A har degree 4 (hub)}
+            \scriptsize
+            \begin{tabular}{lcc}
+            Node & deg & $C_D$ (norm.) \\
+            \hline
+            A & 4 & 1.00 \\
+            B & 2 & 0.50 \\
+            C & 1 & 0.25 \\
+            D & 2 & 0.50 \\
+            E & 1 & 0.25
+            \end{tabular}
         \end{column}
     \end{columns}
     
-    \vspace{3mm}
+    \vspace{1mm}
     
-    \begin{block}{Medisinsk relevans}
-        I PSN: Pasienter med høy degree ligner på mange andre $\rightarrow$ ``typiske'' pasienter
+    \begin{block}{\footnotesize Medisinsk relevans}
+        \footnotesize I PSN: Pasienter med høy grad-sentralitet ligner på mange andre $\rightarrow$ ``typiske'' pasienter.
     \end{block}
     
 \end{frame}
@@ -319,7 +364,7 @@
 % ---------------------------------------------------------------------
 % N06
 % ---------------------------------------------------------------------
-\begin{frame}{N06: Betweenness Centrality (mellomliggenhet)}
+\begin{frame}{N06: \href{https://en.wikipedia.org/wiki/Betweenness_centrality}{Betweenness Centrality} (mellomliggenhet)}
     
     \begin{columns}
         \begin{column}{0.5\textwidth}
@@ -331,7 +376,7 @@
                 $\sigma_{st}$ = antall korteste stier fra $s$ til $t$
             \end{block}
             
-            \vspace{3mm}
+            \vspace{2mm}
             
             \textbf{Tolkning:}
             \begin{itemize}
@@ -343,28 +388,44 @@
         
         \begin{column}{0.45\textwidth}
             \begin{center}
-                \begin{tikzpicture}[scale=0.7]
+                \begin{tikzpicture}[scale=0.65]
                     % Left cluster
-                    \node[draw, circle, fill=uibblue!30] (A) at (0,2) {};
-                    \node[draw, circle, fill=uibblue!30] (B) at (0,1) {};
-                    \node[draw, circle, fill=uibblue!30] (C) at (0,0) {};
+                    \node[draw, circle, fill=uibblue!30] (A) at (0,2.2) {A};
+                    \node[draw, circle, fill=uibblue!30] (C) at (-0.5,1) {C};
+                    \node[draw, circle, fill=uibblue!30] (D) at (0,-0.2) {D};
                     
                     % Bridge
-                    \node[draw, circle, fill=uibred!60, minimum size=1cm] (X) at (2,1) {\small B};
+                    \node[draw, circle, fill=uibred!60, minimum size=1cm] (B) at (2,1) {B};
                     
                     % Right cluster
-                    \node[draw, circle, fill=uibblue!30] (D) at (4,2) {};
-                    \node[draw, circle, fill=uibblue!30] (E) at (4,1) {};
-                    \node[draw, circle, fill=uibblue!30] (F) at (4,0) {};
+                    \node[draw, circle, fill=uibblue!30] (E) at (4,2.2) {E};
+                    \node[draw, circle, fill=uibblue!30] (F) at (4.5,1) {F};
+                    \node[draw, circle, fill=uibblue!30] (G) at (4,-0.2) {G};
                     
-                    \draw[thick] (A) -- (B) -- (C);
-                    \draw[thick] (A) -- (X) -- (B);
-                    \draw[thick] (C) -- (X);
-                    \draw[thick] (X) -- (D);
-                    \draw[thick] (X) -- (E);
-                    \draw[thick] (D) -- (E) -- (F);
+                    % Left cluster edges
+                    \draw[thick] (A) -- (C);
+                    \draw[thick] (C) -- (D);
+                    % Bridge connections
+                    \draw[thick] (A) -- (B);
+                    \draw[thick] (C) -- (B);
+                    \draw[thick] (D) -- (B);
+                    % Right cluster edges
+                    \draw[thick] (B) -- (E);
+                    \draw[thick] (B) -- (F);
+                    \draw[thick] (E) -- (F);
+                    \draw[thick] (F) -- (G);
                 \end{tikzpicture}
             \end{center}
+            
+            \scriptsize
+            \begin{tabular}{cc|cc}
+            Node & $C_B$ & Node & $C_B$ \\
+            \hline
+            A & 0.0 & E & 0.0 \\
+            B & \textbf{15.0} & F & 2.0 \\
+            C & 1.0 & G & 0.0 \\
+            D & 0.0 & & 
+            \end{tabular}
             
             \textit{Node B er bro mellom to clusters}
         \end{column}
@@ -375,13 +436,13 @@
 % ---------------------------------------------------------------------
 % N07
 % ---------------------------------------------------------------------
-\begin{frame}{N07: Eigenvector Centrality}
+\begin{frame}{N07: \href{https://en.wikipedia.org/wiki/Eigenvector_centrality}{Eigenvector Centrality} (egenvektor-sentralitet)}
     
     \begin{block}{Idé}
         En node er viktig hvis den er koblet til \textbf{andre viktige noder}
     \end{block}
     
-    \vspace{3mm}
+    \vspace{2mm}
     
     \begin{columns}
         \begin{column}{0.55\textwidth}
@@ -390,9 +451,9 @@
             x_i = \frac{1}{\lambda} \sum_{j \in N(i)} x_j
             \]
             
-            Eller i matriseform: $\mathbf{Ax} = \lambda \mathbf{x}$
+            Matriseform: $\mathbf{Ax} = \lambda \mathbf{x}$ (\href{https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors}{egenvektor}-ligning)
             
-            \vspace{3mm}
+            \vspace{2mm}
             
             \textbf{Forskjell fra degree:}
             \begin{itemize}
@@ -404,11 +465,11 @@
         \begin{column}{0.4\textwidth}
             \begin{center}
                 \begin{tikzpicture}[scale=0.7]
-                    \node[draw, circle, fill=uibred!60, minimum size=1.2cm] (A) at (1.5,2) {};
-                    \node[draw, circle, fill=uibred!40, minimum size=1cm] (B) at (0,1) {};
-                    \node[draw, circle, fill=uibred!40, minimum size=1cm] (C) at (3,1) {};
-                    \node[draw, circle, fill=uibblue!30, minimum size=0.7cm] (D) at (0,0) {};
-                    \node[draw, circle, fill=uibblue!30, minimum size=0.7cm] (E) at (3,0) {};
+                    \node[draw, circle, fill=uibred!60, minimum size=1.2cm] (A) at (1.5,2) {A};
+                    \node[draw, circle, fill=uibred!40, minimum size=1cm] (B) at (0,1) {B};
+                    \node[draw, circle, fill=uibred!40, minimum size=1cm] (C) at (3,1) {C};
+                    \node[draw, circle, fill=uibblue!30, minimum size=0.7cm] (D) at (0,0) {D};
+                    \node[draw, circle, fill=uibblue!30, minimum size=0.7cm] (E) at (3,0) {E};
                     
                     \draw[thick] (A) -- (B);
                     \draw[thick] (A) -- (C);
@@ -421,10 +482,10 @@
         \end{column}
     \end{columns}
     
-    \vspace{3mm}
+    \vspace{1mm}
     
-    \begin{block}{Kjent anvendelse}
-        Google PageRank er en variant av eigenvector centrality!
+    \begin{block}{\footnotesize Kjent anvendelse}
+        \footnotesize \href{https://en.wikipedia.org/wiki/PageRank}{Google PageRank} er en variant av eigenvector centrality!
     \end{block}
     
 \end{frame}
@@ -432,7 +493,7 @@
 % ---------------------------------------------------------------------
 % N08
 % ---------------------------------------------------------------------
-\begin{frame}{N08: Clustering Coefficient (klyngekoeffisient)}
+\begin{frame}{N08: \href{https://en.wikipedia.org/wiki/Clustering_coefficient}{Clustering Coefficient} (klyngekoeffisient)}
     
     \begin{block}{Definisjon}
         Hvor mye naboene til en node er koblet til hverandre
@@ -441,7 +502,7 @@
         \]
     \end{block}
     
-    \vspace{3mm}
+    \vspace{2mm}
     
     \begin{columns}
         \begin{column}{0.48\textwidth}
@@ -475,10 +536,10 @@
         \end{column}
     \end{columns}
     
-    \vspace{3mm}
+    \vspace{1mm}
     
-    \begin{block}{Medisinsk relevans}
-        Høy clustering i PSN kan indikere tette pasientsubgrupper
+    \begin{block}{\footnotesize Medisinsk relevans}
+        \footnotesize Høy clustering i PSN kan indikere tette pasientsubgrupper (fenotyper).
     \end{block}
     
 \end{frame}
@@ -490,13 +551,13 @@
 % ---------------------------------------------------------------------
 % N09
 % ---------------------------------------------------------------------
-\begin{frame}{N09: Community Detection og Louvain-algoritmen}
+\begin{frame}{N09: \href{https://en.wikipedia.org/wiki/Community_structure}{Community Detection} og \href{https://en.wikipedia.org/wiki/Louvain_method}{Louvain-algoritmen}}
     
     \begin{block}{Community Detection}
         Identifisere \textbf{grupper} (communities) av tett koblede noder
     \end{block}
     
-    \vspace{3mm}
+    \vspace{2mm}
     
     \begin{columns}
         \begin{column}{0.5\textwidth}
@@ -508,13 +569,14 @@
                 \item Aggreger og repeter hierarkisk
             \end{enumerate}
             
-            \vspace{3mm}
+            \vspace{2mm}
             
-            \textbf{Modularitet $Q$:}
-            \begin{itemize}
-                \item Måler kvalitet på inndeling
-                \item $Q > 0.3$: god struktur
-            \end{itemize}
+            \textbf{\href{https://en.wikipedia.org/wiki/Modularity_(networks)}{Modularitet} $Q$:}
+            \footnotesize
+            \[
+            Q = \frac{1}{2m}\sum_{ij}\left[A_{ij} - \frac{k_i k_j}{2m}\right]\delta(c_i, c_j)
+            \]
+            \scriptsize $i,j$=noder, $A_{ij}$=nabomatrise, $m$=kanter, $k_i$=grad av node $i$, $c_i$=gruppe til node $i$, $\delta$=1 hvis $c_i=c_j$. $Q > 0.3$: god struktur.
         \end{column}
         
         \begin{column}{0.45\textwidth}
@@ -554,13 +616,13 @@
 % ---------------------------------------------------------------------
 % N10
 % ---------------------------------------------------------------------
-\begin{frame}{N10: NetworkX-biblioteket for Python}
+\begin{frame}{N10: \href{https://networkx.org/}{NetworkX}-biblioteket for Python}
     
     \begin{block}{NetworkX}
         Python-bibliotek for å opprette, manipulere og analysere grafer
     \end{block}
     
-    \vspace{3mm}
+    \vspace{2mm}
     
     \textbf{Vanlige operasjoner:}
     
@@ -571,9 +633,11 @@
             \texttt{\small G = nx.Graph()} \\
             \texttt{\small G.add\_edge('A', 'B', weight=0.8)} \\
             \texttt{\small G.add\_edge('B', 'C', weight=0.5)} \\[2mm]
-            \texttt{\small \# Sentralitet} \\
+            \texttt{\small \# Sentralitetsmål} \\
             \texttt{\small nx.degree\_centrality(G)} \\
-            \texttt{\small nx.betweenness\_centrality(G)}
+            \texttt{\small nx.betweenness\_centrality(G)} \\
+            \texttt{\small nx.eigenvector\_centrality(G)} \\
+            \texttt{\small nx.clustering(G)}
         \end{column}
         
         \begin{column}{0.48\textwidth}
@@ -582,16 +646,14 @@
             \texttt{\small partition = louvain.best\_partition(G)} \\[2mm]
             \texttt{\small \# Visualisering} \\
             \texttt{\small nx.draw(G, with\_labels=True)} \\[2mm]
-            \texttt{\small \# Fra nabomatrise} \\
-            \texttt{\small G = nx.from\_numpy\_array(A)}
+            \texttt{\small \# Fra nabomatrise (numpy)} \\
+            \texttt{\small G = nx.from\_numpy\_array(A)} \\[2mm]
+            \texttt{\small \# Grafegenskaper} \\
+            \texttt{\small G.number\_of\_nodes()} \\
+            \texttt{\small G.number\_of\_edges()} \\
+            \texttt{\small nx.density(G)}
         \end{column}
     \end{columns}
-    
-    \vspace{5mm}
-    
-    \begin{block}{Ressurser}
-        Dokumentasjon: \url{https://networkx.org/documentation/}
-    \end{block}
     
 \end{frame}
 
@@ -604,9 +666,9 @@
         \begin{column}{0.48\textwidth}
             \textbf{Grafteori-grunnlag:}
             \begin{itemize}
-                \item Graf = noder + kanter
-                \item Rettet vs. urettet
-                \item Vektet vs. uvektet
+                \item Graf $G = (V, E)$: noder ($V$) + kanter ($E$)
+                \item Rettet vs. ikke-rettet
+                \item Vektet vs. ikke-vektet
                 \item Nabomatrise-representasjon
             \end{itemize}
             
@@ -632,8 +694,8 @@
             
             \textbf{Verktøy:}
             \begin{itemize}
-                \item NetworkX (Python)
-                \item Integrasjon med numpy/pandas
+                \item \href{https://networkx.org/}{NetworkX} (Python)
+                \item Integrasjon med \href{https://numpy.org/}{NumPy}/\href{https://pandas.pydata.org/}{Pandas}
             \end{itemize}
         \end{column}
     \end{columns}
