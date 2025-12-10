@@ -2,7 +2,7 @@
 % ELMED219: Nevrale nettverk og dyplæring
 % Beamer-presentasjon - Momentliste D01-D13
 % =====================================================================
-\documentclass[aspectratio=169, 11pt]{beamer}
+\documentclass[aspectratio=169, 10pt]{beamer}
 
 % =====================================================================
 % PAKKER
@@ -21,42 +21,19 @@
 % TEMA OG FARGER
 % =====================================================================
 \usetheme{Madrid}
-\usecolortheme{default}
+\usecolortheme{beaver}
 
-% UiB-farger
+% Farger for TikZ-diagrammer
 \definecolor{uibblue}{RGB}{0, 61, 115}
 \definecolor{uibred}{RGB}{175, 28, 44}
-\definecolor{lightgray}{RGB}{245, 245, 245}
-
-\setbeamercolor{palette primary}{bg=uibblue, fg=white}
-\setbeamercolor{palette secondary}{bg=uibblue!80, fg=white}
-\setbeamercolor{palette tertiary}{bg=uibblue!60, fg=white}
-\setbeamercolor{palette quaternary}{bg=uibblue, fg=white}
-\setbeamercolor{structure}{fg=uibblue}
-\setbeamercolor{section in toc}{fg=uibblue}
-\setbeamercolor{frametitle}{fg=uibblue, bg=lightgray}
-\setbeamercolor{title}{fg=white, bg=uibblue}
-\setbeamercolor{block title}{bg=uibblue, fg=white}
-\setbeamercolor{block body}{bg=lightgray, fg=black}
-\setbeamercolor{block title alerted}{bg=uibred, fg=white}
-\setbeamercolor{block body alerted}{bg=uibred!10, fg=black}
-
-% Fjern navigasjonssymboler
-\setbeamertemplate{navigation symbols}{}
-
-% Enkel footer med sidetall
-\setbeamertemplate{footline}{
-    \hfill\insertframenumber/\inserttotalframenumber\hspace{2mm}\vspace{2mm}
-}
 
 % =====================================================================
 % TITTELINFO
 % =====================================================================
-\title[D: Dyplæring]{Nevrale nettverk og Dyplæring}
-\subtitle{Momentliste D01--D13}
-\author{ELMED219 / BMED365}
-\institute{Universitetet i Bergen}
-\date{Våren 2026}
+\title{Nevrale nettverk og Dyplæring}
+\subtitle{ELMED219: Momentliste D01--D13}
+\author{ELMED219}
+\date{Vår 2026}
 
 % =====================================================================
 % DOKUMENT
@@ -186,43 +163,31 @@
 \end{frame}
 
 \begin{frame}{D03: Forklare hva en aktiveringsfunksjon er (ReLU, sigmoid)}
-    \textbf{Hvorfor aktiveringsfunksjoner?}
-    \begin{itemize}
-        \item Uten dem: Hele nettverket = lineær transformasjon
-        \item Introduserer \textbf{ikke-linearitet} -- kan lære komplekse mønstre
-    \end{itemize}
-    
-    \vspace{0.3cm}
+    \textbf{Hvorfor aktiveringsfunksjoner?} Uten dem: Hele nettverket = lineær transformasjon. Introduserer \textbf{ikke-linearitet}.
+
+    \vspace{0.2cm}
     \begin{columns}[T]
         \begin{column}{0.48\textwidth}
-            \textbf{Sigmoid:}
-            \[
-            \sigma(z) = \frac{1}{1 + e^{-z}}
-            \]
+            \textbf{Sigmoid:} $\sigma(z) = \frac{1}{1 + e^{-z}}$
             \begin{itemize}
                 \item Output: $(0, 1)$
-                \item Historisk populær
                 \item Problem: \textit{vanishing gradients}
                 \item Brukes i output for binær klassifisering
             \end{itemize}
         \end{column}
         \begin{column}{0.48\textwidth}
-            \textbf{ReLU (Rectified Linear Unit):}
-            \[
-            \text{ReLU}(z) = \max(0, z)
-            \]
+            \textbf{ReLU:} $\text{ReLU}(z) = \max(0, z)$
             \begin{itemize}
                 \item Output: $[0, \infty)$
                 \item Moderne standard for skjulte lag
-                \item Rask å beregne
-                \item Unngår vanishing gradients
+                \item Rask, unngår vanishing gradients
             \end{itemize}
         \end{column}
     \end{columns}
-    
-    \vspace{0.3cm}
-    \begin{block}{Softmax (for multi-klasse output)}
-        $\text{softmax}(z_i) = \frac{e^{z_i}}{\sum_j e^{z_j}}$ -- gir sannsynlighetsfordeling over klasser
+
+    \vspace{0.2cm}
+    \begin{block}{\footnotesize Softmax (multi-klasse output)}
+        \footnotesize $\text{softmax}(z_i) = \frac{e^{z_i}}{\sum_j e^{z_j}}$ -- gir sannsynlighetsfordeling over klasser
     \end{block}
 \end{frame}
 
@@ -365,13 +330,10 @@
         \end{column}
     \end{columns}
     
-    \vspace{0.3cm}
-    \begin{block}{Velge riktig loss}
-        \begin{tabular}{ll}
-            Regresjon & $\rightarrow$ MSE eller MAE \\
-            Binær klassifisering & $\rightarrow$ Binary Cross-Entropy \\
-            Multi-klasse klassifisering & $\rightarrow$ Categorical Cross-Entropy
-        \end{tabular}
+    \vspace{0.2cm}
+    \begin{block}{\footnotesize Velge riktig loss}
+        \footnotesize
+        \textbf{Regresjon:} MSE/MAE \quad \textbf{Binær:} Binary CE \quad \textbf{Multi-klasse:} Categorical CE
     \end{block}
 \end{frame}
 
@@ -463,43 +425,43 @@
 
 \begin{frame}{D10: Beskrive pooling-lag og deres funksjon}
     \textbf{Pooling = nedskalering av feature maps}
-    
-    \vspace{0.3cm}
-    \textbf{Vanligste type: Max pooling}
-    \begin{itemize}
-        \item Velger \textbf{maksverdi} i hvert område (f.eks. $2 \times 2$)
-        \item Reduserer romlig størrelse med faktor 2
-    \end{itemize}
-    
-    \vspace{0.3cm}
+
+    \vspace{0.2cm}
     \begin{columns}[T]
-        \begin{column}{0.48\textwidth}
+        \begin{column}{0.55\textwidth}
+            \textbf{Vanligste type: Max pooling}
+            \begin{itemize}
+                \item Velger \textbf{maksverdi} i hvert område (f.eks. $2 \times 2$)
+                \item Reduserer romlig størrelse med faktor 2
+            \end{itemize}
+
+            \vspace{0.2cm}
             \textbf{Fordeler med pooling:}
             \begin{itemize}
-                \item \textbf{Reduserer beregning} -- færre parametre i neste lag
-                \item \textbf{Translasjonsinvarians} -- litt skift i bildet påvirker ikke output
+                \item \textbf{Reduserer beregning} -- færre parametre
+                \item \textbf{Translasjonsinvarians} -- litt skift påvirker ikke output
                 \item \textbf{Unngår overfitting} -- abstraherer bort detaljer
             \end{itemize}
         \end{column}
-        \begin{column}{0.48\textwidth}
+        \begin{column}{0.42\textwidth}
             \textbf{Eksempel ($2 \times 2$ max pool):}
             \begin{center}
-                \footnotesize
                 $\begin{bmatrix} 1 & 3 \\ 2 & 4 \end{bmatrix} \rightarrow 4$
-                
+
                 \vspace{0.2cm}
                 $\begin{bmatrix} 5 & 1 \\ 0 & 2 \end{bmatrix} \rightarrow 5$
             \end{center}
+
+            \vspace{0.2cm}
+            \begin{block}{\footnotesize Andre pooling-typer}
+                \footnotesize
+                \begin{itemize}
+                    \item \textbf{Average:} Gjennomsnitt
+                    \item \textbf{Global avg:} Feature map $\rightarrow$ én verdi
+                \end{itemize}
+            \end{block}
         \end{column}
     \end{columns}
-    
-    \vspace{0.3cm}
-    \begin{block}{Andre pooling-typer}
-        \begin{itemize}
-            \item \textbf{Average pooling:} Gjennomsnitt i stedet for max
-            \item \textbf{Global average pooling:} Hele feature map $\rightarrow$ én verdi
-        \end{itemize}
-    \end{block}
 \end{frame}
 
 % =====================================================================

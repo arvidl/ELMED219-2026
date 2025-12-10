@@ -2,7 +2,7 @@
 % ELMED219: Praktiske ferdigheter
 % Beamer-presentasjon - Momentliste F01-F10
 % =====================================================================
-\documentclass[aspectratio=169, 11pt]{beamer}
+\documentclass[aspectratio=169, 10pt]{beamer}
 
 % =====================================================================
 % PAKKER
@@ -17,57 +17,30 @@
 \usepackage{amsmath}
 \usepackage{fontawesome5}
 \usepackage{listings}
+\usepackage{xcolor}
 
 % Kodeformatering
+\definecolor{codebg}{rgb}{0.95,0.95,0.92}
 \lstset{
-    basicstyle=\ttfamily\small,
+    basicstyle=\ttfamily\footnotesize,
     breaklines=true,
     frame=single,
-    backgroundcolor=\color{lightgray},
-    keywordstyle=\color{uibblue},
-    stringstyle=\color{uibred},
+    backgroundcolor=\color{codebg},
 }
 
 % =====================================================================
 % TEMA OG FARGER
 % =====================================================================
 \usetheme{Madrid}
-\usecolortheme{default}
-
-% UiB-farger
-\definecolor{uibblue}{RGB}{0, 61, 115}
-\definecolor{uibred}{RGB}{175, 28, 44}
-\definecolor{lightgray}{RGB}{245, 245, 245}
-
-\setbeamercolor{palette primary}{bg=uibblue, fg=white}
-\setbeamercolor{palette secondary}{bg=uibblue!80, fg=white}
-\setbeamercolor{palette tertiary}{bg=uibblue!60, fg=white}
-\setbeamercolor{palette quaternary}{bg=uibblue, fg=white}
-\setbeamercolor{structure}{fg=uibblue}
-\setbeamercolor{section in toc}{fg=uibblue}
-\setbeamercolor{frametitle}{fg=uibblue, bg=lightgray}
-\setbeamercolor{title}{fg=white, bg=uibblue}
-\setbeamercolor{block title}{bg=uibblue, fg=white}
-\setbeamercolor{block body}{bg=lightgray, fg=black}
-\setbeamercolor{block title alerted}{bg=uibred, fg=white}
-\setbeamercolor{block body alerted}{bg=uibred!10, fg=black}
-
-% Fjern navigasjonssymboler
-\setbeamertemplate{navigation symbols}{}
-
-% Enkel footer med sidetall
-\setbeamertemplate{footline}{
-    \hfill\insertframenumber/\inserttotalframenumber\hspace{2mm}\vspace{2mm}
-}
+\usecolortheme{beaver}
 
 % =====================================================================
 % TITTELINFO
 % =====================================================================
-\title[F: Praktiske ferdigheter]{Praktiske Ferdigheter}
-\subtitle{Momentliste F01--F10}
-\author{ELMED219 / BMED365}
-\institute{Universitetet i Bergen}
-\date{Våren 2026}
+\title{Praktiske Ferdigheter}
+\subtitle{ELMED219: Momentliste F01--F10}
+\author{ELMED219}
+\date{Vår 2026}
 
 % =====================================================================
 % DOKUMENT
@@ -372,36 +345,38 @@ model = SimpleMLP(784, 128, 10)  # MNIST-eksempel
 \end{frame}
 
 \begin{frame}[fragile]{F10: Skrive enkle dokumenter med LaTeX/Overleaf}
-    \textbf{LaTeX = profesjonelt dokumentformat}
-    
-    \vspace{0.3cm}
-    \textbf{Hvorfor LaTeX?}
-    \begin{itemize}
-        \item Standard i akademisk publisering
-        \item Utmerket for formler og figurer
-        \item Versjonskontroll (tekst-basert)
-    \end{itemize}
-    
-    \vspace{0.3cm}
-    \textbf{Grunnleggende struktur:}
-    \begin{lstlisting}[language=TeX]
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+            \textbf{LaTeX = profesjonelt dokumentformat}
+
+            \vspace{0.2cm}
+            \textbf{Hvorfor LaTeX?}
+            \begin{itemize}
+                \item Standard i akademisk publisering
+                \item Utmerket for formler og figurer
+                \item Versjonskontroll (tekst-basert)
+            \end{itemize}
+
+            \vspace{0.2cm}
+            \begin{block}{\footnotesize Overleaf}
+                \footnotesize \texttt{overleaf.com} -- Online LaTeX-editor, samarbeid i sanntid
+            \end{block}
+        \end{column}
+        \begin{column}{0.48\textwidth}
+            \textbf{Grunnleggende struktur:}
+            \begin{lstlisting}[language=TeX,basicstyle=\ttfamily\scriptsize]
 \documentclass{article}
 \usepackage[utf8]{inputenc}
-
 \title{Min rapport}
 \author{Student}
-\date{Januar 2026}
-
 \begin{document}
 \maketitle
 \section{Introduksjon}
 Tekst her...
 \end{document}
-    \end{lstlisting}
-    
-    \begin{block}{Overleaf}
-        \texttt{overleaf.com} -- Online LaTeX-editor, ingen installasjon, samarbeid i sanntid
-    \end{block}
+            \end{lstlisting}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 % =====================================================================

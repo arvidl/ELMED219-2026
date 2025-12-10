@@ -2,7 +2,7 @@
 % ELMED219: Medisinsk bildeanalyse
 % Beamer-presentasjon - Momentliste B01-B06
 % =====================================================================
-\documentclass[aspectratio=169, 11pt]{beamer}
+\documentclass[aspectratio=169, 10pt]{beamer}
 
 % =====================================================================
 % PAKKER
@@ -21,42 +21,15 @@
 % TEMA OG FARGER
 % =====================================================================
 \usetheme{Madrid}
-\usecolortheme{default}
-
-% UiB-farger
-\definecolor{uibblue}{RGB}{0, 61, 115}
-\definecolor{uibred}{RGB}{175, 28, 44}
-\definecolor{lightgray}{RGB}{245, 245, 245}
-
-\setbeamercolor{palette primary}{bg=uibblue, fg=white}
-\setbeamercolor{palette secondary}{bg=uibblue!80, fg=white}
-\setbeamercolor{palette tertiary}{bg=uibblue!60, fg=white}
-\setbeamercolor{palette quaternary}{bg=uibblue, fg=white}
-\setbeamercolor{structure}{fg=uibblue}
-\setbeamercolor{section in toc}{fg=uibblue}
-\setbeamercolor{frametitle}{fg=uibblue, bg=lightgray}
-\setbeamercolor{title}{fg=white, bg=uibblue}
-\setbeamercolor{block title}{bg=uibblue, fg=white}
-\setbeamercolor{block body}{bg=lightgray, fg=black}
-\setbeamercolor{block title alerted}{bg=uibred, fg=white}
-\setbeamercolor{block body alerted}{bg=uibred!10, fg=black}
-
-% Fjern navigasjonssymboler
-\setbeamertemplate{navigation symbols}{}
-
-% Enkel footer med sidetall
-\setbeamertemplate{footline}{
-    \hfill\insertframenumber/\inserttotalframenumber\hspace{2mm}\vspace{2mm}
-}
+\usecolortheme{beaver}
 
 % =====================================================================
 % TITTELINFO
 % =====================================================================
-\title[B: Bildeanalyse]{Medisinsk Bildeanalyse}
-\subtitle{Momentliste B01--B06}
-\author{ELMED219 / BMED365}
-\institute{Universitetet i Bergen}
-\date{Våren 2026}
+\title{Medisinsk Bildeanalyse}
+\subtitle{ELMED219: Momentliste B01--B06}
+\author{ELMED219}
+\date{Vår 2026}
 
 % =====================================================================
 % DOKUMENT
@@ -187,34 +160,40 @@
 
 \begin{frame}{B04: Kjenne til BraTS-utfordringen for hjernesvulstsegmentering}
     \textbf{BraTS = Brain Tumor Segmentation Challenge}
-    
-    \vspace{0.3cm}
-    \textbf{Hva er BraTS?}
-    \begin{itemize}
-        \item Årlig internasjonal konkurranse siden 2012
-        \item Benchmark for AI-segmentering av hjernesvulster
-        \item Multiparametrisk MRI (T1, T1+Gd, T2, FLAIR)
-    \end{itemize}
-    
-    \vspace{0.3cm}
-    \textbf{Segmenteringsoppgave:}
-    \begin{itemize}
-        \item \textbf{Whole tumor (WT):} All tumorvev
-        \item \textbf{Tumor core (TC):} Aktiv + nekrotisk
-        \item \textbf{Enhancing tumor (ET):} Kun kontrastoppladende del
-    \end{itemize}
-    
-    \vspace{0.3cm}
-    \textbf{Betydning:}
-    \begin{itemize}
-        \item Standardisert datasett for sammenligning
-        \item Driver fremskritt innen medisinsk AI
-        \item Grunnlag for klinisk translasjon
-    \end{itemize}
-    
-    \begin{block}{Relevans for Teamprosjekt}
-        BraTS er direkte relevant for glioblastom-prosjektet -- studenter kan referere til BraTS-arkitekturer og resultater.
-    \end{block}
+
+    \vspace{0.2cm}
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+            \textbf{Hva er BraTS?}
+            \begin{itemize}
+                \item Årlig internasjonal konkurranse siden 2012
+                \item Benchmark for AI-segmentering av hjernesvulster
+                \item Multiparametrisk MRI (T1, T1+Gd, T2, FLAIR)
+            \end{itemize}
+
+            \vspace{0.2cm}
+            \textbf{Segmenteringsoppgave:}
+            \begin{itemize}
+                \item \textbf{Whole tumor (WT):} All tumorvev
+                \item \textbf{Tumor core (TC):} Aktiv + nekrotisk
+                \item \textbf{Enhancing tumor (ET):} Kontrastoppladende
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.48\textwidth}
+            \textbf{Betydning:}
+            \begin{itemize}
+                \item Standardisert datasett for sammenligning
+                \item Driver fremskritt innen medisinsk AI
+                \item Grunnlag for klinisk translasjon
+            \end{itemize}
+
+            \vspace{0.2cm}
+            \begin{block}{\footnotesize Relevans for Teamprosjekt}
+                \footnotesize
+                BraTS er direkte relevant for glioblastom-prosjektet -- studenter kan referere til BraTS-arkitekturer.
+            \end{block}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 % =====================================================================
