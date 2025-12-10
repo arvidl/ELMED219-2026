@@ -121,7 +121,7 @@
     \end{block}
 \end{frame}
 
-\begin{frame}{G03: Beskrive transformer-arkitekturen (encoder-decoder)}
+\begin{frame}{G03: Beskrive transformer-arkitekturen (\href{https://en.wikipedia.org/wiki/Transformer_(deep_learning_architecture)\#Encoder}{encoder}-\href{https://en.wikipedia.org/wiki/Transformer_(deep_learning_architecture)\#Decoder}{decoder})}
     \textbf{Transformer-arkitekturen (\href{https://arxiv.org/abs/1706.03762}{Vaswani et al., 2017}):}
 
     \begin{columns}[T]
@@ -145,7 +145,7 @@
             \textbf{Full encoder-decoder:}
             \begin{itemize}
                 \item Oversettelse, oppsummering
-                \item \href{https://arxiv.org/abs/1910.10683}{T5}, BART
+                \item \href{https://arxiv.org/abs/1910.10683}{T5}, \href{https://arxiv.org/abs/2210.11416}{Flan-T5}
             \end{itemize}
         \end{column}
         \begin{column}{0.42\textwidth}
@@ -175,33 +175,36 @@
     \textbf{Tokens = tekstens ``atomer''}
     \begin{itemize}
         \item LLM-er leser ikke bokstaver eller ord -- de leser \textbf{tokens}
-        \item Token $\approx$ delord, ca. 4 tegn per token i gjennomsnitt
+        \item Token $\approx$ delord, ca. 4 tegn per token (for engelsk/norsk)
     \end{itemize}
 
-    \vspace{0.2cm}
+    \vspace{0.15cm}
     \textbf{Tokenisering -- eksempel:}
     \begin{center}
+        \footnotesize
         \texttt{``Pasienten har diabetes''} $\rightarrow$ \texttt{[``Pas'', ``ient'', ``en'', `` har'', `` diab'', ``etes'']}
     \end{center}
 
-    \vspace{0.2cm}
+    \vspace{0.1cm}
     \begin{columns}[T]
         \begin{column}{0.48\textwidth}
-            \textbf{\href{https://en.wikipedia.org/wiki/Byte_pair_encoding}{Byte Pair Encoding (BPE)}:}
+            \textbf{\href{https://en.wikipedia.org/wiki/Byte_pair_encoding}{BPE} og språkforskjeller:}
+            \footnotesize
             \begin{itemize}
-                \item Vanlig tokeniseringsmetode
                 \item Bygger vokabular iterativt
-                \item Balanserer mellom tegn og ord
                 \item GPT-4: ca. 100 000 tokens
+                \item \textbf{Kinesisk:} Hvert tegn $\approx$ 1--2 tokens
+                \item Forenklet/tradisjonell: Ulike tokens
             \end{itemize}
         \end{column}
         \begin{column}{0.48\textwidth}
             \textbf{Viktig å vite:}
+            \footnotesize
             \begin{itemize}
-                \item Lange ord = flere tokens
-                \item Sjeldne ord splittes mer
+                \item Lange/sjeldne ord = flere tokens
                 \item Påvirker kostnad og hastighet
-                \item \texttt{tiktoken} (OpenAI) for telling
+                \item \href{https://github.com/openai/tiktoken}{\texttt{tiktoken}} (OpenAI) for telling
+                \item Ulike modeller = ulike tokenizers
             \end{itemize}
         \end{column}
     \end{columns}
@@ -255,11 +258,11 @@
 \begin{frame}{G06: Forklare hva \href{https://en.wikipedia.org/wiki/Softmax_function\#Softmax_temperature}{temperatur} betyr i tekstgenerering}
     \textbf{Temperatur = kontroll over ``kreativitet''}
 
-    \vspace{0.2cm}
+    \vspace{0.15cm}
     \textbf{Teknisk:}
     \begin{itemize}
         \item Skalerer logits før softmax: $p_i = \frac{e^{z_i/T}}{\sum_j e^{z_j/T}}$
-        \item Påvirker sannsynlighetsfordelingen over neste token
+        \item \textbf{Effekt:} Lav $T$ $\rightarrow$ skarpere fordeling (høyeste logit dominerer); Høy $T$ $\rightarrow$ flatere fordeling (mer tilfeldighet)
     \end{itemize}
 
     \vspace{0.2cm}
@@ -298,30 +301,33 @@
 \begin{frame}{G07: Anvende \href{https://en.wikipedia.org/wiki/Zero-shot_learning}{zero-shot} prompting}
     \textbf{Zero-shot = ingen eksempler} -- be modellen løse oppgaven \textbf{uten å vise eksempler}
 
-    \vspace{0.15cm}
+    \vspace{0.1cm}
     \begin{columns}[T]
         \begin{column}{0.55\textwidth}
             \textbf{Eksempler på zero-shot prompts:}
             \begin{block}{\footnotesize Zero-shot prompts}
                 \scriptsize
-                \texttt{Klassifiser symptom som akutt/kronisk:} \\
-                \texttt{``Hodepine i 3 måneder.''} \\[3pt]
-                \texttt{Oppsummer denne journalnotaten i 3 setninger.} \\[3pt]
-                \texttt{Oversett til pasientvennlig språk:} \\
-                \texttt{``Bilateral pneumoni med hypoksemi.''}
+                \begin{enumerate}
+                    \item \texttt{Klassifiser symptom som akutt/kronisk: ``Hodepine i 3 mnd''}
+                    \item \texttt{Oppsummer journalnotatet i 3 setninger.}
+                    \item \texttt{Oversett til pasientvennlig språk: ``Bilateral pneumoni''}
+                    \item \texttt{Ekstraher alle medikamenter fra denne teksten.}
+                    \item \texttt{Er denne lab-verdien unormal? Hb 8.2 g/dL}
+                \end{enumerate}
             \end{block}
-
-            \vspace{0.1cm}
+        \end{column}
+        \begin{column}{0.42\textwidth}
             \textbf{Når fungerer zero-shot?}
+            \footnotesize
             \begin{itemize}
                 \item Modellen har sett lignende oppgaver
                 \item Oppgaven er tydelig definert
             \end{itemize}
-        \end{column}
-        \begin{column}{0.42\textwidth}
+
+            \vspace{0.1cm}
             \begin{alertblock}{\footnotesize Begrensninger}
-                \footnotesize
-                For spesialiserte oppgaver kan zero-shot gi dårlige resultater. Da trengs \textbf{few-shot} eksempler.
+                \scriptsize
+                For spesialiserte oppgaver kan zero-shot gi dårlige resultater. Da trengs \textbf{few-shot}.
             \end{alertblock}
         \end{column}
     \end{columns}
@@ -428,13 +434,14 @@
     \textbf{Hallusinering = modellen ``finner på'' feil informasjon}
     \begin{itemize}
         \item LLM-er genererer tekst som \textit{høres} riktig ut, men er \textit{faktisk feil}
-        \item Ikke uvitenhet -- modellen presenterer usannheter med overbevisning
+        \item Også kalt \href{https://en.wikipedia.org/wiki/Confabulation_(neural_networks)}{\textit{konfabulering}} -- begge termer brukes i litteraturen
     \end{itemize}
 
-    \vspace{0.2cm}
+    \vspace{0.15cm}
     \begin{columns}[T]
         \begin{column}{0.55\textwidth}
             \textbf{Typer hallusinasjoner:}
+            \footnotesize
             \begin{itemize}
                 \item \textbf{Faktiske feil:} Feil statistikk, datoer, navn
                 \item \textbf{Oppdiktede kilder:} Referanser som ikke eksisterer
@@ -452,7 +459,7 @@
         \end{column}
     \end{columns}
 
-    \vspace{0.15cm}
+    \vspace{0.1cm}
     \begin{alertblock}{\footnotesize Implikasjoner i medisin}
         \footnotesize
         Feil dosering kan være livstruende. \textbf{Alltid verifiser} mot pålitelige kilder! LLM = beslutningsstøtte, \textbf{ikke} erstatning for fagkunnskap.
@@ -479,31 +486,26 @@
         \end{tabular}
     \end{center}
 
-    \vspace{0.15cm}
+    \vspace{0.1cm}
     \begin{columns}[T]
-        \begin{column}{0.55\textwidth}
-            \textbf{Medisinsk anvendelse:}
-            \footnotesize
-            \begin{itemize}
-                \item \textbf{Journaloppsummering} -- Nøkkelinformasjon
-                \item \textbf{Litteratursøk} -- Relevante artikler
-                \item \textbf{Differensialdiagnostikk} -- Klinisk støtte
-            \end{itemize}
-        \end{column}
-        \begin{column}{0.42\textwidth}
+        \begin{column}{0.48\textwidth}
             \textbf{Lokale modeller:}
-            \footnotesize
+            \scriptsize
             \begin{itemize}
                 \item \href{https://ollama.ai/}{Ollama}, \href{https://lmstudio.ai/}{LM Studio}
-                \item Destillering, kvantisering
+                \item \href{https://en.wikipedia.org/wiki/Knowledge_distillation}{Destillering}: Liten modell lærer fra stor
+                \item \href{https://en.wikipedia.org/wiki/Quantization_(signal_processing)\#Neural_network_quantization}{Kvantisering}: Redusert presisjon (16$\rightarrow$4 bit)
                 \item GDPR-vennlig, offline
             \end{itemize}
         \end{column}
+        \begin{column}{0.48\textwidth}
+            \begin{block}{\scriptsize \href{https://chat.uib.no/}{chat.uib.no}}
+                \scriptsize
+                \textbf{Styrker:} GDPR-ok, ingen datalagring, gratis for UiB\\
+                \textbf{Svakheter:} Eldre modell, begrenset kontekst, ikke multimodal
+            \end{block}
+        \end{column}
     \end{columns}
-
-    \begin{block}{\footnotesize \href{https://chat.uib.no/}{chat.uib.no}}
-        \footnotesize UiB har egen AI-tjeneste med GDPR-hensyn for studenter og ansatte.
-    \end{block}
 \end{frame}
 
 \begin{frame}{G13: Forklare konseptet \href{https://en.wikipedia.org/wiki/Foundation_model}{grunnmodell (foundation model)}}
@@ -558,11 +560,13 @@
 
     \vspace{0.15cm}
     \begin{block}{\footnotesize Medisinsk anvendelse}
-        \footnotesize
+        \scriptsize
         \begin{itemize}
             \item Koble LLM til retningslinjer, \href{https://www.felleskatalogen.no/}{Felleskatalogen}, \href{https://www.uptodate.com/}{UpToDate}
             \item Svare basert på pasientjournal (med tilganger)
             \item Reduserer hallusinering ved å forankre svar i kilder
+            \item Klinisk beslutningsstøtte med oppdatert evidens
+            \item Søk i institusjons-spesifikke prosedyrer og protokoller
         \end{itemize}
     \end{block}
 \end{frame}
