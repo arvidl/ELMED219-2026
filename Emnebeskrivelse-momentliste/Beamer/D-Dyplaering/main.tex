@@ -73,7 +73,7 @@
                 \item \textbf{Inputs} $x_1, x_2, \ldots$: Mottar data
                 \item \textbf{Vekter} $w_1, w_2, \ldots$: Synapsestyrke
                 \item \textbf{Sum:} $z = \sum w_i x_i + b$
-                \item \textbf{Aktivering:} $a = f(z)$
+                \item \textbf{Aktivering:} $a = f(z)$ \small(f = aktiveringsfunksjon)
                 \item Matematisk forenkling
             \end{itemize}
         \end{column}
@@ -187,7 +187,7 @@
 
     \vspace{0.2cm}
     \begin{block}{\footnotesize Softmax (multi-klasse output)}
-        \footnotesize $\text{softmax}(z_i) = \frac{e^{z_i}}{\sum_j e^{z_j}}$ -- gir sannsynlighetsfordeling over klasser
+        \footnotesize $\text{softmax}(z_i) = \frac{e^{z_i}}{\sum_j e^{z_j}}$ -- gir sannsynlighetsfordeling over klasser (summerer til 1)
     \end{block}
 \end{frame}
 
@@ -200,7 +200,7 @@
     \textbf{Forward propagation = fremoverberegning}
     
     \begin{enumerate}
-        \item \textbf{Input:} Data $\mathbf{x}$ legges inn i inputlaget
+        \item \textbf{Input:} Data $\mathbf{x}$ (features) legges inn i inputlaget
         \item \textbf{For hvert lag:}
         \begin{itemize}
             \item Beregn vektet sum: $z^{(l)} = W^{(l)} \cdot a^{(l-1)} + b^{(l)}$
@@ -240,7 +240,7 @@
     \begin{enumerate}
         \item \textbf{Beregn feil:} Sammenlign prediksjon $\hat{y}$ med fasit $y$
         \item \textbf{Propager bakover:} Hvor mye bidro hver vekt til feilen?
-        \item \textbf{Kjerederegelen:} Deriver feil m.h.p. hver vekt i nettverket
+        \item \textbf{Kjerneregelen:} Deriver feil m.h.p. hver vekt i nettverket
         \item \textbf{Oppdater vekter:} Juster for å redusere feil
     \end{enumerate}
     
@@ -253,7 +253,7 @@
     \begin{block}{Matematisk (forenklet)}
         $\frac{\partial L}{\partial w} = \frac{\partial L}{\partial \hat{y}} \cdot \frac{\partial \hat{y}}{\partial z} \cdot \frac{\partial z}{\partial w}$
         
-        \small (Kjerederegelen propagerer gradienter bakover gjennom nettverket)
+        \small (Kjerneregelen for derivasjon propagerer gradienter bakover gjennom nettverket)
     \end{block}
 \end{frame}
 
@@ -291,9 +291,9 @@
         \end{column}
     \end{columns}
     
-    \vspace{0.3cm}
-    \begin{block}{Epoch}
-        En \textbf{epoch} = én gjennomgang av hele treningsdatasettet
+    \vspace{0.2cm}
+    \begin{block}{\footnotesize Epoch}
+        \footnotesize En \textbf{epoch} = én gjennomgang av hele treningsdatasettet
     \end{block}
 \end{frame}
 
@@ -417,9 +417,9 @@
         \end{column}
     \end{columns}
     
-    \vspace{0.3cm}
-    \begin{block}{Vektdeling}
-        Samme filter brukes over hele bildet $\rightarrow$ dramatisk færre parametre enn fullt koblet nettverk.
+    \vspace{0.2cm}
+    \begin{block}{\footnotesize Vektdeling}
+        \footnotesize Samme filter brukes over hele bildet $\rightarrow$ dramatisk færre parametre enn fullt koblet nettverk.
     \end{block}
 \end{frame}
 
@@ -440,7 +440,7 @@
             \begin{itemize}
                 \item \textbf{Reduserer beregning} -- færre parametre
                 \item \textbf{Translasjonsinvarians} -- litt skift påvirker ikke output
-                \item \textbf{Unngår overfitting} -- abstraherer bort detaljer
+                \item \textbf{Unngår overtilpasning} (overfitting)
             \end{itemize}
         \end{column}
         \begin{column}{0.42\textwidth}
@@ -492,7 +492,7 @@
                 \item Typisk dropout rate: 0.2--0.5
                 \item Fordeler:
                 \begin{itemize}
-                    \item Reduserer \textbf{overfitting}
+                    \item Reduserer \textbf{overtilpasning}
                     \item Tvinger nettverk til å være robust
                     \item Fungerer som ensemble
                 \end{itemize}
@@ -503,7 +503,7 @@
     
     \vspace{0.5cm}
     \begin{block}{Regulariseringsteknikker}
-        Både batch normalization og dropout hjelper med å unngå overfitting og forbedre generaliseringsevne.
+        Både batch normalization og dropout hjelper med å unngå overtilpasning og forbedre generaliseringsevne.
     \end{block}
 \end{frame}
 
@@ -524,12 +524,12 @@
     \end{enumerate}
     
     \vspace{0.3cm}
-    \begin{alertblock}{Hvorfor fungerer det?}
-        Tidlige lag lærer \textbf{generelle features} (kanter, teksturer) som er nyttige for mange oppgaver. Kun de siste lagene er oppgavespesifikke.
+    \begin{alertblock}{\footnotesize Hvorfor fungerer det?}
+        \footnotesize Tidlige lag lærer \textbf{generelle features} (kanter, teksturer) som er nyttige for mange oppgaver. Kun de siste lagene er oppgavespesifikke.
     \end{alertblock}
-    
-    \begin{block}{Eksempel i medisin}
-        Tren på millioner av naturlige bilder $\rightarrow$ Fintun på tusenvis av røntgenbilder $\rightarrow$ Bedre resultat enn å trene fra scratch!
+
+    \begin{block}{\footnotesize Eksempel i medisin}
+        \footnotesize Tren på millioner av naturlige bilder $\rightarrow$ Fintun på tusenvis av røntgenbilder $\rightarrow$ Bedre resultat enn å trene fra scratch!
     \end{block}
 \end{frame}
 

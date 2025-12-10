@@ -15,6 +15,8 @@
 \usepackage{booktabs}
 \usepackage{amsmath}
 \usepackage{fontawesome5}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, urlcolor=blue}
 
 % =====================================================================
 % TEMA OG FARGER
@@ -46,42 +48,61 @@
 
 % ---------------------------------------------------------------------
 \begin{frame}{Oversikt}
-    \tableofcontents
+    \begin{enumerate}
+        \item \textbf{Confusion Matrix} (forvirringsmatrise)
+        \begin{itemize}
+            \item E01--E02: TP, TN, FP, FN
+        \end{itemize}
+        \item \textbf{Grunnleggende metrikker}
+        \begin{itemize}
+            \item E03: Accuracy (nøyaktighet)
+            \item E04: Precision (presisjon)
+            \item E05: Recall / Sensitivity (sensitivitet)
+            \item E06: Specificity (spesifisitet)
+        \end{itemize}
+        \item \textbf{Avanserte metrikker}
+        \begin{itemize}
+            \item E07: F1-score
+            \item E08: ROC-kurven og AUC
+            \item E09: Ubalanserte datasett
+            \item E10: TRIPOD-retningslinjer
+        \end{itemize}
+    \end{enumerate}
 \end{frame}
 
 % =====================================================================
-\section{Confusion Matrix}
+\section{Confusion Matrix (forvirringsmatrise)}
 % =====================================================================
 
 % ---------------------------------------------------------------------
 % E01
 % ---------------------------------------------------------------------
 \begin{frame}{E01: Tolke en Confusion Matrix (forvirringsmatrise)}
-    
+
     \begin{columns}
         \begin{column}{0.45\textwidth}
             \begin{block}{Hva er det?}
-                En tabell som viser predikerte vs. faktiske klasser
+                Tabell: predikerte vs. faktiske klasser
             \end{block}
-            
-            \vspace{3mm}
-            
+
+            \vspace{2mm}
+
             \begin{center}
-                \begin{tikzpicture}[scale=0.8]
+                \begin{tikzpicture}[scale=0.75]
                     % Headers
-                    \node at (2, 3.5) {\textbf{Predikert}};
-                    \node at (1.5, 2.5) {\small Positiv};
-                    \node at (3, 2.5) {\small Negativ};
-                    \node[rotate=90] at (-0.7, 1.25) {\textbf{Faktisk}};
-                    \node at (0.3, 1.75) {\small Positiv};
-                    \node at (0.3, 0.75) {\small Negativ};
-                    
+                    \node at (2.25, 3.3) {\textbf{Predikert}};
+                    \node at (1.5, 2.5) {\footnotesize Positiv};
+                    \node at (3, 2.5) {\footnotesize Negativ};
+                    \node[rotate=90] at (-0.3, 1.25) {\footnotesize\textbf{Faktisk}};
+                    \node at (0.5, 1.75) {\footnotesize Pos};
+                    \node at (0.5, 0.75) {\footnotesize Neg};
+
                     % Boxes
-                    \fill[green!30] (0.8,1.3) rectangle (2.2,2.2);
-                    \fill[red!30] (2.3,1.3) rectangle (3.7,2.2);
-                    \fill[red!30] (0.8,0.3) rectangle (2.2,1.2);
-                    \fill[green!30] (2.3,0.3) rectangle (3.7,1.2);
-                    
+                    \fill[green!30] (0.9,1.3) rectangle (2.1,2.2);
+                    \fill[red!30] (2.4,1.3) rectangle (3.6,2.2);
+                    \fill[red!30] (0.9,0.3) rectangle (2.1,1.2);
+                    \fill[green!30] (2.4,0.3) rectangle (3.6,1.2);
+
                     \node at (1.5, 1.75) {\textbf{TP}};
                     \node at (3, 1.75) {\textbf{FN}};
                     \node at (1.5, 0.75) {\textbf{FP}};
@@ -143,43 +164,47 @@
 \end{frame}
 
 % =====================================================================
-\section{Grunnleggende metrikker}
+\section{Grunnleggende metrikker (Accuracy, Precision, Recall, Specificity)}
 % =====================================================================
 
 % ---------------------------------------------------------------------
 % E03
 % ---------------------------------------------------------------------
 \begin{frame}{E03: Accuracy (nøyaktighet)}
-    
+
     \begin{block}{Definisjon}
         \[
         \text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN} = \frac{\text{Korrekte prediksjoner}}{\text{Alle prediksjoner}}
         \]
     \end{block}
-    
-    \vspace{3mm}
-    
-    \textbf{Eksempel:}
-    
-    \begin{center}
-        \begin{tikzpicture}[scale=0.6]
-            \fill[green!30] (0,1) rectangle (1.5,2); \node at (0.75, 1.5) {85};
-            \fill[red!30] (1.6,1) rectangle (3.1,2); \node at (2.35, 1.5) {10};
-            \fill[red!30] (0,0) rectangle (1.5,0.9); \node at (0.75, 0.45) {5};
-            \fill[green!30] (1.6,0) rectangle (3.1,0.9); \node at (2.35, 0.45) {900};
-        \end{tikzpicture}
-    \end{center}
-    
-    \[
-    \text{Accuracy} = \frac{85 + 900}{85 + 900 + 10 + 5} = \frac{985}{1000} = 98.5\%
-    \]
-    
-    \vspace{3mm}
-    
+
+    \vspace{1mm}
+
+    \begin{columns}[T]
+        \begin{column}{0.35\textwidth}
+            \textbf{Eksempel:}
+            \begin{center}
+                \begin{tikzpicture}[scale=0.55]
+                    \fill[green!30] (0,1) rectangle (1.5,2); \node at (0.75, 1.5) {85};
+                    \fill[red!30] (1.6,1) rectangle (3.1,2); \node at (2.35, 1.5) {10};
+                    \fill[red!30] (0,0) rectangle (1.5,0.9); \node at (0.75, 0.45) {5};
+                    \fill[green!30] (1.6,0) rectangle (3.1,0.9); \node at (2.35, 0.45) {900};
+                \end{tikzpicture}
+            \end{center}
+        \end{column}
+        \begin{column}{0.6\textwidth}
+            \[
+            \text{Accuracy} = \frac{85 + 900}{85 + 900 + 10 + 5} = \frac{985}{1000} = 98.5\%
+            \]
+        \end{column}
+    \end{columns}
+
+    \vspace{2mm}
+
     \begin{alertblock}{Advarsel}
         Høy accuracy kan være misvisende ved ubalanserte datasett!
     \end{alertblock}
-    
+
 \end{frame}
 
 % ---------------------------------------------------------------------
@@ -214,7 +239,7 @@
             \[
             \text{Precision} = \frac{85}{85 + 5} = 94.4\%
             \]
-            \textit{``94\% av de flaggede pasientene er faktisk syke''}
+            \footnotesize\textit{``94\% av flaggede pasienter er faktisk syke''}
         \end{column}
     \end{columns}
     
@@ -256,12 +281,12 @@
         \end{column}
     \end{columns}
     
-    \vspace{5mm}
-    
-    \begin{block}{Andre navn}
-        Recall = Sensitivity = True Positive Rate (TPR)
+    \vspace{2mm}
+
+    \begin{block}{\footnotesize Andre navn}
+        \footnotesize Recall = Sensitivity = True Positive Rate (TPR)
     \end{block}
-    
+
 \end{frame}
 
 % ---------------------------------------------------------------------
@@ -300,17 +325,16 @@
         \end{column}
     \end{columns}
     
-    \vspace{5mm}
-    
-    \begin{alertblock}{Trade-off}
-        Høy sensitivity $\leftrightarrow$ Lav specificity (og omvendt) \\
-        Justering av terskelverdi påvirker begge
+    \vspace{2mm}
+
+    \begin{alertblock}{\footnotesize Trade-off}
+        \footnotesize Høy sensitivity $\leftrightarrow$ Lav specificity (og omvendt). Justering av terskelverdi påvirker begge.
     \end{alertblock}
-    
+
 \end{frame}
 
 % =====================================================================
-\section{Avanserte metrikker}
+\section{Avanserte metrikker (F1-score, ROC/AUC, TRIPOD)}
 % =====================================================================
 
 % ---------------------------------------------------------------------
@@ -472,8 +496,8 @@
 % ---------------------------------------------------------------------
 % E10
 % ---------------------------------------------------------------------
-\begin{frame}{E10: TRIPOD-retningslinjer}
-    
+\begin{frame}{E10: \href{https://www.tripod-statement.org/}{TRIPOD}-retningslinjer}
+
     \begin{block}{Hva er TRIPOD?}
         \textbf{T}ransparent \textbf{R}eporting of a multivariable prediction model for \textbf{I}ndividual \textbf{P}rognosis \textbf{O}r \textbf{D}iagnosis
     \end{block}
@@ -515,45 +539,48 @@
 % Oppsummering
 % ---------------------------------------------------------------------
 \begin{frame}{Oppsummering: E01--E10}
-    
-    \begin{center}
-        \begin{tikzpicture}[scale=0.7]
-            % Confusion matrix mini
-            \fill[green!30] (0,1) rectangle (1,2); \node at (0.5, 1.5) {\tiny TP};
-            \fill[red!30] (1,1) rectangle (2,2); \node at (1.5, 1.5) {\tiny FN};
-            \fill[red!30] (0,0) rectangle (1,1); \node at (0.5, 0.5) {\tiny FP};
-            \fill[green!30] (1,0) rectangle (2,1); \node at (1.5, 0.5) {\tiny TN};
-            
-            % Arrows to metrics
-            \draw[->] (2.2, 1.5) -- (3.5, 2.5);
-            \draw[->] (2.2, 0.5) -- (3.5, 0.5);
-            \draw[->] (2.2, 1) -- (3.5, 1.5);
-            
-            % Metrics
-            \node[right] at (3.5, 2.5) {\small Recall = TP/(TP+FN)};
-            \node[right] at (3.5, 1.5) {\small Precision = TP/(TP+FP)};
-            \node[right] at (3.5, 0.5) {\small Specificity = TN/(TN+FP)};
-            
-            % F1
-            \draw[->] (7.5, 2) -- (9, 1.5);
-            \node[right] at (9, 1.5) {\small F1-score};
-            
-            % AUC
-            \node[right] at (9, 0.5) {\small ROC/AUC};
-        \end{tikzpicture}
-    \end{center}
-    
+
+    \begin{columns}[T]
+        \begin{column}{0.35\textwidth}
+            \begin{center}
+                \textbf{Confusion Matrix}\\[2mm]
+                \begin{tikzpicture}[scale=0.6]
+                    \fill[green!30] (0,1) rectangle (1,2); \node at (0.5, 1.5) {\footnotesize TP};
+                    \fill[red!30] (1.1,1) rectangle (2.1,2); \node at (1.6, 1.5) {\footnotesize FN};
+                    \fill[red!30] (0,0) rectangle (1,0.9); \node at (0.5, 0.45) {\footnotesize FP};
+                    \fill[green!30] (1.1,0) rectangle (2.1,0.9); \node at (1.6, 0.45) {\footnotesize TN};
+                \end{tikzpicture}
+            \end{center}
+        \end{column}
+        \begin{column}{0.30\textwidth}
+            \textbf{Metrikker:}\\[1mm]
+            \footnotesize
+            Recall = $\frac{\text{TP}}{\text{TP}+\text{FN}}$\\[2mm]
+            Precision = $\frac{\text{TP}}{\text{TP}+\text{FP}}$\\[2mm]
+            Specificity = $\frac{\text{TN}}{\text{TN}+\text{FP}}$
+        \end{column}
+        \begin{column}{0.30\textwidth}
+            \textbf{Avansert:}\\[1mm]
+            \footnotesize
+            \textbf{F1-score:}\\
+            Kombinerer Precision + Recall\\[2mm]
+            \textbf{ROC/AUC:}\\
+            Helhetsbilde uavhengig av terskel
+        \end{column}
+    \end{columns}
+
     \vspace{3mm}
-    
-    \begin{block}{Nøkkelpunkter}
+
+    \begin{block}{\footnotesize Nøkkelpunkter}
+        \footnotesize
         \begin{itemize}
             \item Velg metrikk basert på medisinsk kontekst (FN vs. FP konsekvenser)
             \item Accuracy er ofte utilstrekkelig -- bruk F1, AUC, precision, recall
             \item ROC/AUC gir helhetsbilde uavhengig av terskelverdi
-            \item Følg TRIPOD for transparent rapportering
+            \item Følg \href{https://www.tripod-statement.org/}{TRIPOD} for transparent rapportering
         \end{itemize}
     \end{block}
-    
+
 \end{frame}
 
 \end{document}

@@ -16,6 +16,8 @@
 \usepackage{booktabs}
 \usepackage{amsmath}
 \usepackage{fontawesome5}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, urlcolor=blue}
 
 % =====================================================================
 % TEMA OG FARGER
@@ -87,31 +89,32 @@
     \end{block}
 \end{frame}
 
-\begin{frame}{B02: Kjenne til ulike MR-sekvenser (T1, T2, FLAIR)}
+\begin{frame}{B02: Kjenne til ulike MR-sekvenser (T1, T1+Gd, T2, FLAIR)}
     \textbf{Vanlige MR-sekvenser og deres kontrast:}
-    
-    \vspace{0.3cm}
+
+    \vspace{0.2cm}
     \begin{center}
-        \begin{tabular}{lp{4.5cm}p{5cm}}
+        \footnotesize
+        \begin{tabular}{lp{4cm}p{4.5cm}}
             \toprule
             \textbf{Sekvens} & \textbf{Karakteristikker} & \textbf{Klinisk bruk} \\
             \midrule
-            \textbf{T1-vektet} & CSF mørk, fett lyst, god anatomi & Anatomi, med kontrast: tumor, metastaser \\
+            \textbf{T1-vektet} & CSF mørk, fett lyst, god anatomi & Anatomi \\
+            \addlinespace
+            \textbf{T1 + Gd} & Kontrast viser blod-hjerne-barriere-brudd & Aktiv tumor, metastaser \\
             \addlinespace
             \textbf{T2-vektet} & CSF lys, patologi ofte lys & Ødem, inflammasjon, væske \\
             \addlinespace
-            \textbf{FLAIR} & T2-lik, men CSF mørk & Lesjoner nær ventrikler, MS-plakk, gliomer \\
+            \textbf{FLAIR} & T2-lik, men CSF mørk & Lesjoner nær ventrikler, MS-plakk \\
             \addlinespace
             \textbf{DWI} & Diffusjon av vannmolekyler & Akutt hjerneslag (innen minutter!) \\
-            \addlinespace
-            \textbf{T1 + Gd} & Kontrast viser blod-hjerne-barriere-brudd & Aktiv tumor, metastaser \\
             \bottomrule
         \end{tabular}
     \end{center}
-    
-    \vspace{0.3cm}
-    \begin{alertblock}{For AI-analyse}
-        Multiparametrisk MRI (flere sekvenser) gir komplementær informasjon som AI kan utnytte for bedre klassifisering.
+
+    \vspace{0.2cm}
+    \begin{alertblock}{\footnotesize For AI-analyse}
+        \footnotesize Multiparametrisk MRI (flere sekvenser) gir komplementær informasjon som AI kan utnytte for bedre klassifisering.
     \end{alertblock}
 \end{frame}
 
@@ -153,13 +156,13 @@
     \textbf{AI-metoder for segmentering:}
     \begin{itemize}
         \item \textbf{U-Net:} Klassisk encoder-decoder arkitektur (medisinsk standard)
-        \item \textbf{nnU-Net:} Selvkonfigurerende, state-of-the-art
+        \item \textbf{\href{https://github.com/MIC-DKFZ/nnUNet}{nnU-Net}:} Selvkonfigurerende, state-of-the-art
         \item \textbf{Segment Anything (SAM):} Generell segmentering
     \end{itemize}
 \end{frame}
 
 \begin{frame}{B04: Kjenne til BraTS-utfordringen for hjernesvulstsegmentering}
-    \textbf{BraTS = Brain Tumor Segmentation Challenge}
+    \textbf{\href{https://www.synapse.org/brats}{BraTS} = Brain Tumor Segmentation Challenge}
 
     \vspace{0.2cm}
     \begin{columns}[T]
@@ -202,7 +205,7 @@
 \section{Kvantitativ avbildning}
 
 \begin{frame}{B05: Beskrive radiomic features og kvantitativ avbildning}
-    \textbf{Radiomics = kvantifisering av bildeegenskaper}
+    \textbf{\href{https://pyradiomics.readthedocs.io/}{Radiomics} = kvantifisering av bildeegenskaper}
     
     \vspace{0.3cm}
     \textbf{Hva er radiomic features?}
@@ -272,7 +275,7 @@
             \end{itemize}
         \end{column}
         \begin{column}{0.48\textwidth}
-            \textbf{MONAI:}
+            \textbf{\href{https://monai.io/}{MONAI}:}
             \begin{itemize}
                 \item Medical Open Network for AI
                 \item PyTorch-basert rammeverk
@@ -290,9 +293,9 @@
         \end{column}
     \end{columns}
     
-    \vspace{0.5cm}
-    \begin{block}{Andre verktøy}
-        \textbf{3D Slicer:} Visualisering og analyse | \textbf{ITK/SimpleITK:} Bildebehandling | \textbf{Nipype:} Neuro-pipelines
+    \vspace{0.2cm}
+    \begin{block}{\footnotesize Andre verktøy}
+        \footnotesize \textbf{3D Slicer:} Visualisering og analyse | \textbf{ITK/SimpleITK:} Bildebehandling | \textbf{Nipype:} Neuro-pipelines
     \end{block}
 \end{frame}
 
@@ -305,21 +308,20 @@
     \textbf{Nøkkelpunkter:}
     \begin{itemize}
         \item \textbf{B01:} MRI-prinsipper -- magnetisering, RF-puls, relaksasjon, deteksjon
-        \item \textbf{B02:} MR-sekvenser -- T1 (anatomi), T2 (patologi), FLAIR (lesjoner), DWI (slag)
+        \item \textbf{B02:} MR-sekvenser -- T1, T1+Gd, T2, FLAIR, DWI
         \item \textbf{B03:} Segmentering -- klassifiser hver piksel, U-Net, nnU-Net
         \item \textbf{B04:} BraTS -- benchmark for hjernesvulstsegmentering
         \item \textbf{B05:} Radiomics -- kvantitative features for prediksjon
         \item \textbf{B06:} Verktøy -- nnU-Net (automatisk), MONAI (fleksibelt)
     \end{itemize}
-    
-    \vspace{0.3cm}
-    \begin{block}{Teamprosjekt-relevans}
-        Medisinsk bildeanalyse er kjernen i teamprosjektet om glioblastom. Bruk kunnskapen om MRI, segmentering og radiomics i forskningsplanen.
-    \end{block}
-    
+
     \vspace{0.2cm}
-    \begin{block}{Lab 2}
-        Praktisk erfaring med CNN for bildeanalyse, inkludert medisinsk anvendelse (MR-demens).
+    \begin{block}{\footnotesize Teamprosjekt-relevans}
+        \footnotesize Medisinsk bildeanalyse er kjernen i teamprosjektet om glioblastom. Bruk kunnskapen om MRI, segmentering og radiomics.
+    \end{block}
+
+    \begin{block}{\footnotesize Lab 2}
+        \footnotesize Praktisk erfaring med CNN for bildeanalyse, inkludert medisinsk anvendelse (MR-demens).
     \end{block}
 \end{frame}
 
