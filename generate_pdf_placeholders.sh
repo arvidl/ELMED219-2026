@@ -52,3 +52,4 @@ generate_pdf "Lab2-DL/Beamer/images" "mri_analysis" "MRI Analysis" "Futuristic m
 generate_pdf "Lab3-GenAI-LLM/Beamer/images" "transformer_attention" "Transformer Attention" "Abstract representation of Attention mechanism"
 generate_pdf "Lab3-GenAI-LLM/Beamer/images" "doctor_ai_team" "Human-AI Team" "Doctor and AI assistant collaborating"
 generate_pdf "Lab3-GenAI-LLM/Beamer/images" "xai_blackbox" "XAI Black Box" "Black Box cube cracked open revealing logic"
+

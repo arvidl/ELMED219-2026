@@ -459,3 +459,4 @@ plot_doctor_ai("Lab3-GenAI-LLM/Beamer/images/doctor_ai_team.pdf")
 plot_xai_blackbox("Lab3-GenAI-LLM/Beamer/images/xai_blackbox.pdf")
 
 print("Ferdig! Alle bilder generert med Wide Format.")
+

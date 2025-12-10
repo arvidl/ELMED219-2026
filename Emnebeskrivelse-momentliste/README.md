@@ -45,3 +45,4 @@ Mappen `figs/` er reservert for eventuelle figurer i 300 dpi kvalitet. Foreløpi
 *Sist oppdatert: Desember 2025*
 
 
+
