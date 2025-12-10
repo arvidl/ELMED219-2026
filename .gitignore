@@ -66,26 +66,57 @@ Lab2-DL/data/bonn_eeg_data/setA/
 Lab2-DL/data/bonn_eeg_data/setE/
 
 # =====================================================================
-# LaTeX auxiliary files (Emnebeskrivelse-momentliste)
-# Track: .tex, .bib, .pdf, figs/*.png, figs/*.pdf
+# LaTeX auxiliary files (global - applies to all LaTeX/Beamer projects)
+# Track: .tex, .bib, .pdf, .png, .jpg, .eps
 # Ignore: All LaTeX-generated auxiliary files
 # =====================================================================
-Emnebeskrivelse-momentliste/*.aux
-Emnebeskrivelse-momentliste/*.log
-Emnebeskrivelse-momentliste/*.out
-Emnebeskrivelse-momentliste/*.toc
-Emnebeskrivelse-momentliste/*.lof
-Emnebeskrivelse-momentliste/*.lot
-Emnebeskrivelse-momentliste/*.fls
-Emnebeskrivelse-momentliste/*.fdb_latexmk
-Emnebeskrivelse-momentliste/*.synctex.gz
-Emnebeskrivelse-momentliste/*.synctex(busy)
-Emnebeskrivelse-momentliste/*.blg
-Emnebeskrivelse-momentliste/*.bbl
-Emnebeskrivelse-momentliste/*.run.xml
-Emnebeskrivelse-momentliste/*.bcf
-Emnebeskrivelse-momentliste/*.nav
-Emnebeskrivelse-momentliste/*.snm
-Emnebeskrivelse-momentliste/*.vrb
-Emnebeskrivelse-momentliste/*.dvi
-Emnebeskrivelse-momentliste/*.ps
+
+# Core auxiliary files
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+
+# latexmk
+*.fls
+*.fdb_latexmk
+
+# SyncTeX
+*.synctex.gz
+*.synctex(busy)
+*.synctex.gz(busy)
+
+# Bibliography
+*.blg
+*.bbl
+*.run.xml
+*.bcf
+*-blx.bib
+
+# Beamer-specific
+*.nav
+*.snm
+*.vrb
+
+# Other formats
+*.dvi
+*.ps
+*.xdv
+
+# pythontex
+*.pytxcode
+
+# Misc
+*.brf
+*.idx
+*.ilg
+*.ind
+*.glo
+*.gls
+*.glg
+*.ist
+*.acn
+*.acr
+*.alg

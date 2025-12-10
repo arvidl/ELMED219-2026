@@ -1,0 +1,199 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[norsk]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{booktabs}
+
+\usetheme{Madrid}
+\usecolortheme{beaver}
+
+\title{Lab 1: Nettverksvitenskap og PSN}
+\subtitle{ELMED219-2026: Pasient-likhetsnettverk}
+\author{ELMED219}
+\date{Vår 2026}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{Oversikt}
+    \tableofcontents
+\end{frame}
+
+\section{Grafteori: Grunnlaget}
+\begin{frame}{Hva er en Graf?}
+    En graf (eller et nettverk) $G$ er et par $(V, E)$, hvor:
+    \begin{itemize}
+        \item $V$ er en mengde \textbf{noder} (vertices/nodes).
+        \item $E$ er en mengde \textbf{kanter} (edges/links), som er par av noder.
+    \end{itemize}
+    
+    $$G = (V, E)$$
+    
+    \begin{columns}
+        \column{0.6\textwidth}
+        \textbf{Typer grafer:}
+        \begin{itemize}
+            \item \textbf{Urettet:} Kanter går begge veier (vennskap).
+            \item \textbf{Rettet (Digraph):} Kanter har retning (følger på Twitter).
+            \item \textbf{Vektet:} Kanter har en styrke $w_{ij}$ (avstand, likhet).
+        \end{itemize}
+        
+        \column{0.4\textwidth}
+        \begin{block}{Prompt}
+            \scriptsize\textit{"En kompleks nettverksgraf-visualisering som representerer et Pasient-Likhetsnettverk (PSN). Noder er stiliserte ikoner av pasienter (kjønnsnøytrale). Kanter kobler sammen lignende pasienter. Noen klynger er fremhevet i ulike pastellfarger for å vise sykdoms-undertyper. Bakgrunnen er ren, veldig lys grå. Teksten 'Pasient-Likhetsnettverk' subtilt integrert nederst. 3D-render stil men ren og lesbar."}
+        \end{block}
+        \centering
+        \includegraphics[width=0.7\textwidth]{images/psn_graph.pdf}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Representasjon av Grafer}
+    Hvordan lagrer vi en graf i en datamaskin?
+    
+    \textbf{Nabomatrise (Adjacency Matrix) $A$:}
+    En $N \times N$ matrise hvor $A_{ij} = 1$ hvis det er en kant mellom node $i$ og $j$, ellers 0.
+    
+    $$
+    A = \begin{pmatrix}
+    0 & 1 & 0 & 1 \\
+    1 & 0 & 1 & 0 \\
+    0 & 1 & 0 & 1 \\
+    1 & 0 & 1 & 0 
+    \end{pmatrix}
+    $$
+    
+    \begin{itemize}
+        \item For vektede grafer inneholder $A_{ij}$ vekten $w_{ij}$.
+        \item For urettede grafer er matrisen symmetrisk ($A_{ij} = A_{ji}$).
+    \end{itemize}
+\end{frame}
+
+\section{Nettverksanalyse}
+\begin{frame}{Sentralitetsmål}
+    Hvilke noder er viktigst?
+    
+    \begin{enumerate}
+        \item \textbf{Gradsentralitet (Degree Centrality):}
+        Antall kanter knyttet til en node.
+        $$k_i = \sum_{j} A_{ij}$$
+        \textit{Tolking:} Hvor mange venner har du?
+        
+        \item \textbf{Betweenness Centrality:}
+        Hvor ofte ligger noden på den korteste stien mellom to andre noder?
+        \textit{Tolking:} Er du en brobygger mellom grupper?
+        
+        \item \textbf{Eigenvector Centrality:}
+        Viktigheten av en node avhenger av viktigheten til naboene. (Google PageRank).
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Nettverksstrukturer}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \textbf{Tilfeldige Nettverk (Random Graphs):}
+        \begin{itemize}
+            \item Kanter dannes med sannsynlighet $p$.
+            \item Kort gjennomsnittlig veilengde, men lav klynging.
+        \end{itemize}
+        
+        \textbf{Small-World Nettverk:}
+        \begin{itemize}
+            \item Høy klynging (venners venner er venner).
+            \item Kort veilengde ("Six degrees of separation").
+            \item Mange biologiske nettverk er av denne typen (hjernen!).
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{block}{Prompt}
+            \scriptsize\textit{"En glødende, gjennomsiktig menneskehjerne sett fra siden, fylt med et komplekst nettverk av glødende noder og koblinger (connectome). Nodene er lys turkis og kantene er tynne gylne linjer. Mørk bakgrunn for kontrast, passende for en dark-mode slide, eller spesifiser 'hvit bakgrunn' for standard slides. Kinematisk lyssetting, hyper-detaljert medisinsk illustrasjon."}
+        \end{block}
+        \centering
+        \includegraphics[width=0.7\textwidth]{images/brain_connectome.pdf}
+    \end{columns}
+\end{frame}
+
+\section{Pasient-likhetsnettverk (PSN)}
+\begin{frame}{Konseptet bak PSN}
+    \textbf{Idé:} I stedet for å se på hver pasient isolert, ser vi på dem som en del av et nettverk basert på likhet.
+    
+    \begin{itemize}
+        \item \textbf{Noder:} Pasienter.
+        \item \textbf{Kanter:} Likhet basert på kliniske data (blodprøver, gener, symptomer).
+    \end{itemize}
+    
+    \textbf{Anvendelse:} "Precision Medicine"
+    \begin{itemize}
+        \item Hvis pasient A responderte bra på medisin X, og pasient B er sterkt knyttet til A i nettverket...
+        \item ...da bør kanskje pasient B også få medisin X.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Konstruksjon av PSN}
+    Prosessen for å bygge et PSN fra en tabell med data:
+    
+    \begin{enumerate}
+        \item \textbf{Normalisering:} Sørg for at alle variabler er på samme skala (Z-score).
+        \item \textbf{Distansemål:} Beregn avstand $d_{ij}$ mellom pasient $i$ og $j$.
+        $$d_{ij} = \sqrt{\sum_{k=1}^{M} (x_{ik} - x_{jk})^2} \quad \text{(Euklidsk)}$$
+        \item \textbf{Likhet:} Konverter avstand til likhet $S_{ij}$.
+        $$S_{ij} = \frac{1}{1 + d_{ij}} \quad \text{eller} \quad S_{ij} = e^{-d_{ij}^2 / \sigma}$$
+        \item \textbf{Terskelverdi (Thresholding):} Behold kun de sterkeste kantene for å fjerne støy.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Subtyping av Sykdommer}
+    Mange sykdommer (Diabetes T2, Kreft, IBS) er heterogene.
+    
+    Ved å bruke \textbf{Community Detection} (f.eks. Louvain-algoritmen) på et PSN, kan vi finne naturlige undergrupper av pasienter.
+    
+    \begin{itemize}
+        \item Disse gruppene kan representere ulike fenotyper.
+        \item Hver gruppe kan ha ulik prognose eller behandlingsbehov.
+    \end{itemize}
+\end{frame}
+
+\section{Notebooks}
+\begin{frame}{Oversikt over Lab 1 Notebooks}
+    \begin{enumerate}
+        \item \textbf{01-networkx\_tutorial.ipynb}:
+        \begin{itemize}
+            \item Innføring i NetworkX biblioteket.
+            \item Lage grafer, legge til noder/kanter, beregne sentralitet.
+        \end{itemize}
+        
+        \item \textbf{02-pasient\_likhetsnettverk\_iris.ipynb}:
+        \begin{itemize}
+            \item Bruke det klassiske Iris-datasettet for å bygge et enkelt PSN.
+            \item Se om nettverket klarer å skille blomsterartene uten å vite fasiten.
+        \end{itemize}
+        
+        \item \textbf{03-pasient\_likhetsnettverk\_ibs...ipynb}:
+        \begin{itemize}
+            \item \textbf{Hovedoppgaven!} Reelle data fra en IBS-studie (Lundervold et al.).
+            \item Analysere sammenhengen mellom hjerne-data og mage-symptomer.
+        \end{itemize}
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Tips til Labben}
+    \begin{itemize}
+        \item NetworkX kan være tregt med veldig store grafer, men våre datasett er håndterbare.
+        \item Bruk \texttt{nx.draw()} for rask visualisering, men se på parametere som \texttt{node\_size} og \texttt{alpha} for å gjøre det pent.
+        \item Tenk nøye gjennom \textit{hvilke} variabler dere bruker for å beregne likhet. Inkluderer dere irrelevant støy, blir nettverket dårlig ("Curse of Dimensionality").
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Oppsummering}
+    \begin{itemize}
+        \item Grafer er kraftige verktøy for å modellere relasjoner.
+        \item PSN lar oss finne struktur i pasientpopulasjoner som ikke er synlig i en tabell.
+        \item Vi beveger oss fra "gjennomsnittspasienten" til individet i kontekst.
+    \end{itemize}
+    
+    I neste lab (Lab 2) skal vi se på en helt annen type nettverk: \textbf{Nevrale Nettverk} for dyp læring.
+\end{frame}
+
+\end{document}

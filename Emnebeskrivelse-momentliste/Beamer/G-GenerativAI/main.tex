@@ -1,0 +1,587 @@
+% =====================================================================
+% ELMED219: Generativ AI og store språkmodeller
+% Beamer-presentasjon - Momentliste G01-G14
+% =====================================================================
+\documentclass[aspectratio=169, 11pt]{beamer}
+
+% =====================================================================
+% PAKKER
+% =====================================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[norsk]{babel}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows, positioning, calc, decorations.pathreplacing}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{fontawesome5}
+
+% =====================================================================
+% TEMA OG FARGER
+% =====================================================================
+\usetheme{Madrid}
+\usecolortheme{default}
+
+% UiB-farger
+\definecolor{uibblue}{RGB}{0, 61, 115}
+\definecolor{uibred}{RGB}{175, 28, 44}
+\definecolor{lightgray}{RGB}{245, 245, 245}
+
+\setbeamercolor{palette primary}{bg=uibblue, fg=white}
+\setbeamercolor{palette secondary}{bg=uibblue!80, fg=white}
+\setbeamercolor{palette tertiary}{bg=uibblue!60, fg=white}
+\setbeamercolor{palette quaternary}{bg=uibblue, fg=white}
+\setbeamercolor{structure}{fg=uibblue}
+\setbeamercolor{section in toc}{fg=uibblue}
+\setbeamercolor{frametitle}{fg=uibblue, bg=lightgray}
+\setbeamercolor{title}{fg=white, bg=uibblue}
+\setbeamercolor{block title}{bg=uibblue, fg=white}
+\setbeamercolor{block body}{bg=lightgray, fg=black}
+\setbeamercolor{block title alerted}{bg=uibred, fg=white}
+\setbeamercolor{block body alerted}{bg=uibred!10, fg=black}
+
+% Fjern navigasjonssymboler
+\setbeamertemplate{navigation symbols}{}
+
+% Enkel footer med sidetall
+\setbeamertemplate{footline}{
+    \hfill\insertframenumber/\inserttotalframenumber\hspace{2mm}\vspace{2mm}
+}
+
+% =====================================================================
+% TITTELINFO
+% =====================================================================
+\title[G: Generativ AI]{Generativ AI og Store Språkmodeller}
+\subtitle{Momentliste G01--G14}
+\author{ELMED219 / BMED365}
+\institute{Universitetet i Bergen}
+\date{Våren 2026}
+
+% =====================================================================
+% DOKUMENT
+% =====================================================================
+\begin{document}
+
+% Tittelside
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% Innholdsfortegnelse
+\begin{frame}{Oversikt}
+    \tableofcontents
+\end{frame}
+
+% =====================================================================
+% SEKSJON: Introduksjon til Generativ AI
+% =====================================================================
+\section{Introduksjon til Generativ AI}
+
+\begin{frame}{G01: Definere generativ AI og skille fra diskriminativ AI}
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+            \textbf{Diskriminativ AI:}
+            \begin{itemize}
+                \item Lærer å \textbf{klassifisere} eller skille mellom kategorier
+                \item Modellerer $P(y|x)$ -- sannsynlighet for klasse gitt input
+                \item Eksempler: ``Er dette kreft?'', ``Hvilken sykdom?''
+                \item CNN for bildeklassifisering
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.48\textwidth}
+            \textbf{Generativ AI:}
+            \begin{itemize}
+                \item Lærer å \textbf{skape} nytt innhold
+                \item Modellerer $P(x)$ eller $P(x|y)$ -- datafordelingen selv
+                \item Eksempler: Tekst, bilder, kode, musikk
+                \item LLM, diffusjonsmodeller
+            \end{itemize}
+        \end{column}
+    \end{columns}
+    
+    \vspace{0.5cm}
+    \begin{block}{Nøkkelforskjell}
+        \begin{center}
+            \textbf{Diskriminativ:} Input $\rightarrow$ Kategori/Label \\
+            \textbf{Generativ:} Prompt/Instruksjon $\rightarrow$ Nytt innhold
+        \end{center}
+    \end{block}
+    
+    \begin{alertblock}{Medisinsk anvendelse}
+        Generativ AI: Oppsummere journaler, generere rapporter, svare på spørsmål, syntetisere treningsdata
+    \end{alertblock}
+\end{frame}
+
+% =====================================================================
+% SEKSJON: Transformer-arkitekturen
+% =====================================================================
+\section{Transformer-arkitekturen}
+
+\begin{frame}{G02: Forklare self-attention-mekanismen på et konseptuelt nivå}
+    \textbf{Self-attention: ``Hva er relevant for hva?''}
+    
+    \vspace{0.3cm}
+    \textbf{Intuisjon:}
+    \begin{itemize}
+        \item For hvert ord: Se på \textbf{alle} andre ord i setningen
+        \item Beregn en \textbf{vektet sum} basert på relevans
+        \item Fanger opp avhengigheter over lange avstander
+    \end{itemize}
+    
+    \vspace{0.3cm}
+    \textbf{Eksempel:}
+    \begin{center}
+        \textit{``Pasienten tok \textbf{medisinen}, og \textbf{den} hjalp mot smertene.''}
+    \end{center}
+    \begin{itemize}
+        \item Self-attention kobler ``den'' til ``medisinen'' (ikke ``smertene'')
+        \item Modellen lærer hvilke koblinger som gir mening
+    \end{itemize}
+    
+    \vspace{0.3cm}
+    \begin{block}{Query, Key, Value (QKV)}
+        Hvert token genererer tre vektorer: \\
+        \textbf{Query:} ``Hva leter jeg etter?'' | \textbf{Key:} ``Hva kan jeg tilby?'' | \textbf{Value:} ``Hva er innholdet mitt?''
+    \end{block}
+\end{frame}
+
+\begin{frame}{G03: Beskrive transformer-arkitekturen (encoder-decoder)}
+    \textbf{Transformer-arkitekturen (Vaswani et al., 2017):}
+    
+    \begin{columns}[T]
+        \begin{column}{0.55\textwidth}
+            \textbf{Encoder:}
+            \begin{itemize}
+                \item Prosesserer input-sekvens
+                \item Bygger kontekstrik representasjon
+                \item Brukes i: BERT, embeddings
+            \end{itemize}
+            
+            \vspace{0.3cm}
+            \textbf{Decoder:}
+            \begin{itemize}
+                \item Genererer output sekvensielt
+                \item Bruker maskert self-attention
+                \item Brukes i: GPT, Claude, Gemini
+            \end{itemize}
+            
+            \vspace{0.3cm}
+            \textbf{Full encoder-decoder:}
+            \begin{itemize}
+                \item Oversettelse, oppsummering
+                \item T5, BART
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.42\textwidth}
+            \textbf{Nøkkelkomponenter:}
+            \begin{enumerate}
+                \item Multi-head self-attention
+                \item Feed-forward nettverk
+                \item Layer normalization
+                \item Residual connections
+                \item Positional encoding
+            \end{enumerate}
+            
+            \vspace{0.3cm}
+            \begin{block}{GPT = ``Decoder-only''}
+                Store språkmodeller (LLM) bruker typisk kun decoder-delen for tekstgenerering.
+            \end{block}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% =====================================================================
+% SEKSJON: LLM-grunnleggende
+% =====================================================================
+\section{LLM-grunnleggende}
+
+\begin{frame}{G04: Forklare hva tokens er og hvordan tokenisering fungerer}
+    \textbf{Tokens = tekstens ``atomer''}
+    \begin{itemize}
+        \item LLM-er leser ikke bokstaver eller ord -- de leser \textbf{tokens}
+        \item Token $\approx$ delord, ca. 4 tegn per token i gjennomsnitt
+    \end{itemize}
+    
+    \vspace{0.3cm}
+    \textbf{Tokenisering -- eksempel:}
+    \begin{center}
+        \texttt{``Pasienten har diabetes''} $\rightarrow$ \texttt{[``Pas'', ``ient'', ``en'', `` har'', `` diab'', ``etes'']}
+    \end{center}
+    
+    \vspace{0.3cm}
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+            \textbf{Byte Pair Encoding (BPE):}
+            \begin{itemize}
+                \item Vanlig tokeniseringsmetode
+                \item Bygger vokabular iterativt
+                \item Balanserer mellom tegn og ord
+                \item GPT-4: ca. 100 000 tokens
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.48\textwidth}
+            \textbf{Viktig å vite:}
+            \begin{itemize}
+                \item Lange ord = flere tokens
+                \item Sjeldne ord splittes mer
+                \item Påvirker kostnad og hastighet
+                \item \texttt{tiktoken} (OpenAI) for telling
+            \end{itemize}
+        \end{column}
+    \end{columns}
+    
+    \begin{block}{Hvorfor tokens?}
+        Mer effektivt enn bokstaver (for kort) eller hele ord (vokabular for stort).
+    \end{block}
+\end{frame}
+
+\begin{frame}{G05: Forstå konseptet kontekstvindu (context window)}
+    \textbf{Kontekstvindu = modellens ``arbeidsminne''}
+    
+    \begin{itemize}
+        \item Maksimalt antall tokens modellen kan ``se'' samtidig
+        \item Inkluderer både input (prompt) \textbf{og} output
+    \end{itemize}
+    
+    \vspace{0.3cm}
+    \textbf{Eksempler på kontekstvinduer:}
+    \begin{center}
+        \begin{tabular}{lrl}
+            \toprule
+            Modell & Kontekst & $\approx$ Sider tekst \\
+            \midrule
+            GPT-3.5 & 4K--16K & 5--20 sider \\
+            GPT-4 & 8K--128K & 10--150 sider \\
+            Claude 3 & 200K & $\sim$250 sider \\
+            Gemini 1.5 Pro & 1M+ & Hele bøker! \\
+            \bottomrule
+        \end{tabular}
+    \end{center}
+    
+    \vspace{0.3cm}
+    \begin{alertblock}{Begrensninger}
+        \begin{itemize}
+            \item For lange tekster: Må kuttes eller deles opp
+            \item Modellen ``glemmer'' innhold utenfor vinduet
+            \item Større vindu = dyrere og tregere
+        \end{itemize}
+    \end{alertblock}
+\end{frame}
+
+\begin{frame}{G06: Forklare hva temperature betyr i tekstgenerering}
+    \textbf{Temperature = kontroll over ``kreativitet''}
+    
+    \vspace{0.3cm}
+    \textbf{Teknisk:}
+    \begin{itemize}
+        \item Skalerer logits før softmax: $p_i = \frac{e^{z_i/T}}{\sum_j e^{z_j/T}}$
+        \item Påvirker sannsynlighetsfordelingen over neste token
+    \end{itemize}
+    
+    \vspace{0.3cm}
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+            \textbf{Lav temperature (0.0--0.3):}
+            \begin{itemize}
+                \item Mer deterministisk
+                \item Velger mest sannsynlige tokens
+                \item Konsistent, ``trygt''
+                \item \faCheck~Medisinsk info, fakta
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.48\textwidth}
+            \textbf{Høy temperature (0.7--1.0+):}
+            \begin{itemize}
+                \item Mer tilfeldig/kreativ
+                \item Flere overraskende valg
+                \item Mer variasjon
+                \item \faCheck~Kreativ skriving, brainstorming
+            \end{itemize}
+        \end{column}
+    \end{columns}
+    
+    \vspace{0.3cm}
+    \begin{block}{Anbefaling for medisin}
+        Bruk \textbf{lav temperature} (0.0--0.3) for faktabaserte oppgaver. Høyere temperatur øker risiko for hallusinering.
+    \end{block}
+\end{frame}
+
+% =====================================================================
+% SEKSJON: Prompt Engineering
+% =====================================================================
+\section{Prompt Engineering}
+
+\begin{frame}{G07: Anvende zero-shot prompting}
+    \textbf{Zero-shot = ingen eksempler}
+    
+    \begin{itemize}
+        \item Be modellen løse oppgaven \textbf{uten å vise eksempler}
+        \item Baserer seg på modellens eksisterende kunnskap
+    \end{itemize}
+    
+    \vspace{0.3cm}
+    \textbf{Eksempel:}
+    \begin{block}{Zero-shot prompt}
+        \texttt{Klassifiser følgende symptom som akutt eller kronisk:} \\
+        \texttt{``Pasienten har hatt hodepine i 3 måneder.''}
+    \end{block}
+    
+    \vspace{0.3cm}
+    \textbf{Når fungerer zero-shot?}
+    \begin{itemize}
+        \item Modellen har sett lignende oppgaver i treningen
+        \item Oppgaven er tydelig og veldefinert
+        \item Domenet er godt representert i treningsdata
+    \end{itemize}
+    
+    \begin{alertblock}{Begrensninger}
+        For spesialiserte oppgaver eller uvanlige formater kan zero-shot gi dårlige resultater. Da trengs \textbf{few-shot} eksempler.
+    \end{alertblock}
+\end{frame}
+
+\begin{frame}{G08: Anvende few-shot prompting}
+    \textbf{Few-shot = noen eksempler}
+    
+    \begin{itemize}
+        \item Gi modellen \textbf{2--5 eksempler} på ønsket input-output
+        \item Modellen lærer mønsteret ``in-context''
+    \end{itemize}
+    
+    \vspace{0.3cm}
+    \begin{block}{Few-shot prompt}
+        \small
+        \texttt{Klassifiser symptomvarighet:} \\
+        \texttt{Symptom: ``Brystsmerter i 30 minutter'' → Akutt} \\
+        \texttt{Symptom: ``Ryggsmerter i 2 år'' → Kronisk} \\
+        \texttt{Symptom: ``Feber siden i går'' → Akutt} \\
+        \texttt{---} \\
+        \texttt{Symptom: ``Hodepine i 3 måneder'' →}
+    \end{block}
+    
+    \vspace{0.3cm}
+    \textbf{Tips for effektiv few-shot:}
+    \begin{itemize}
+        \item Velg \textbf{representative} eksempler
+        \item Vis \textbf{variasjonen} i mulige outputs
+        \item Hold eksemplene \textbf{konsistente} i format
+        \item Start med 3--5 eksempler, juster ved behov
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{G09: Anvende Chain-of-Thought (CoT) prompting}
+    \textbf{Chain-of-Thought = vis resonnementet}
+    
+    \begin{itemize}
+        \item Be modellen \textbf{tenke steg-for-steg}
+        \item Forbedrer ytelse på komplekse resonneringsoppgaver
+    \end{itemize}
+    
+    \vspace{0.3cm}
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+            \begin{alertblock}{Uten CoT}
+                \texttt{Bør pasienten henvises?} \\
+                \texttt{→ ``Ja''}
+            \end{alertblock}
+        \end{column}
+        \begin{column}{0.48\textwidth}
+            \begin{block}{Med CoT}
+                \texttt{Tenk steg-for-steg:} \\
+                \texttt{1. Symptomer: X, Y, Z} \\
+                \texttt{2. Alvorlighetsgrad: Moderat} \\
+                \texttt{3. Risikofaktorer: Ja, alder} \\
+                \texttt{→ Konklusjon: Bør henvises}
+            \end{block}
+        \end{column}
+    \end{columns}
+    
+    \vspace{0.3cm}
+    \textbf{Varianter:}
+    \begin{itemize}
+        \item \textbf{Zero-shot CoT:} ``Let's think step by step''
+        \item \textbf{Few-shot CoT:} Vis eksempler med resonnement
+        \item \textbf{Self-consistency:} Generer flere CoT, velg majoritetsvar
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{G10: Beskrive god praksis for systemprompts}
+    \textbf{Systemprompt = instruksjon som setter kontekst}
+    
+    \vspace{0.3cm}
+    \textbf{Elementer i et godt systemprompt:}
+    \begin{enumerate}
+        \item \textbf{Rolle:} ``Du er en medisinsk assistent...''
+        \item \textbf{Kontekst:} ``Brukeren er helsepersonell...''
+        \item \textbf{Oppførsel:} ``Svar konsist og presist...''
+        \item \textbf{Begrensninger:} ``Ikke gi diagnoser...''
+        \item \textbf{Format:} ``Svar på norsk, bruk punktlister...''
+    \end{enumerate}
+    
+    \vspace{0.3cm}
+    \begin{block}{Eksempel på systemprompt}
+        \small
+        \texttt{Du er en medisinsk AI-assistent for helsepersonell. Svar på norsk. Vær presis og evidensbasert. Henvis til kilder når mulig. Gi aldri definitive diagnoser -- foreslå differensialdiagnoser. Ved usikkerhet, si fra.}
+    \end{block}
+    
+    \vspace{0.2cm}
+    \begin{alertblock}{Tips}
+        Test og iterer på systemprompts! Små endringer kan gi stor effekt.
+    \end{alertblock}
+\end{frame}
+
+% =====================================================================
+% SEKSJON: Utfordringer med LLM
+% =====================================================================
+\section{Utfordringer med LLM}
+
+\begin{frame}{G11: Definere hallusinering og dens implikasjoner}
+    \textbf{Hallusinering = modellen ``finner på'' feil informasjon}
+    
+    \begin{itemize}
+        \item LLM-er genererer tekst som \textit{høres} riktig ut, men er \textit{faktisk feil}
+        \item Ikke uvitenhet -- modellen presenterer usannheter med overbevisning
+    \end{itemize}
+    
+    \vspace{0.3cm}
+    \textbf{Typer hallusinasjoner:}
+    \begin{itemize}
+        \item \textbf{Faktiske feil:} Feil statistikk, datoer, navn
+        \item \textbf{Oppdiktede kilder:} Referanser til artikler som ikke eksisterer
+        \item \textbf{Logiske feil:} Inkonsistente resonnementer
+        \item \textbf{Kontekstfeil:} Misforståelse av spørsmålet
+    \end{itemize}
+    
+    \vspace{0.3cm}
+    \begin{alertblock}{Implikasjoner i medisin}
+        \begin{itemize}
+            \item Feil dosering eller kontraindikasjoner kan være livstruende
+            \item \textbf{Alltid verifiser} LLM-output mot pålitelige kilder!
+            \item LLM = beslutningsstøtte, \textbf{ikke} erstatning for fagkunnskap
+        \end{itemize}
+    \end{alertblock}
+\end{frame}
+
+% =====================================================================
+% SEKSJON: Modeller og avanserte konsepter
+% =====================================================================
+\section{Modeller og avanserte konsepter}
+
+\begin{frame}{G12: Kjenne til GPT-4, Claude, Gemini og deres anvendelser}
+    \begin{center}
+        \footnotesize
+        \begin{tabular}{lp{3.5cm}p{3.5cm}p{3cm}}
+            \toprule
+            \textbf{Modell} & \textbf{Utvikler} & \textbf{Styrker} & \textbf{Anvendelse} \\
+            \midrule
+            GPT-4/4o & OpenAI & Bred kunnskap, multimodal & ChatGPT, API, Copilot \\
+            \addlinespace
+            Claude 3 & Anthropic & Langt kontekstvindu, ``trygg'' & Dokumentanalyse \\
+            \addlinespace
+            Gemini & Google & Integrert i Colab, gratis & Kodehjelp, søk \\
+            \addlinespace
+            Llama 3 & Meta & Open source, kan kjøres lokalt & Forskning, tilpasning \\
+            \bottomrule
+        \end{tabular}
+    \end{center}
+    
+    \vspace{0.3cm}
+    \textbf{Medisinsk anvendelse:}
+    \begin{itemize}
+        \item \textbf{Journaloppsummering} -- Trekk ut nøkkelinformasjon
+        \item \textbf{Litteratursøk} -- Finn relevante artikler
+        \item \textbf{Differensialdiagnostikk} -- Støtte til klinisk resonnement
+        \item \textbf{Pasientkommunikasjon} -- Forklaringer på pasientnivå
+    \end{itemize}
+    
+    \begin{block}{chat.uib.no}
+        UiB har egen AI-tjeneste med GDPR-hensyn for studenter og ansatte.
+    \end{block}
+\end{frame}
+
+\begin{frame}{G13: Forklare konseptet grunnmodell (foundation model)}
+    \textbf{Foundation model = pretrent på enorme datamengder}
+    
+    \begin{itemize}
+        \item Trent på terabytes av tekst/bilder uten spesifikk oppgave
+        \item Kan tilpasses (\textit{finetuned}) til mange forskjellige oppgaver
+        \item Koster millioner å trene fra scratch
+    \end{itemize}
+    
+    \vspace{0.3cm}
+    \textbf{Karakteristikker:}
+    \begin{enumerate}
+        \item \textbf{Stor skala:} Milliarder av parametre
+        \item \textbf{Selvveiledet læring:} Ingen labels nødvendig
+        \item \textbf{Emergente egenskaper:} Evner som ``dukker opp'' ved skala
+        \item \textbf{Tilpasningsbar:} Finetuning, prompting, RAG
+    \end{enumerate}
+    
+    \vspace{0.3cm}
+    \begin{block}{Eksempler på foundation models}
+        \textbf{Tekst:} GPT-4, Claude, Llama | \textbf{Bilder:} CLIP, DALL-E, Stable Diffusion | \textbf{Multimodal:} GPT-4V, Gemini Pro Vision
+    \end{block}
+\end{frame}
+
+\begin{frame}{G14: Beskrive RAG (Retrieval-Augmented Generation)}
+    \textbf{RAG = koble LLM til ekstern kunnskapsbase}
+    
+    \vspace{0.3cm}
+    \textbf{Problemet RAG løser:}
+    \begin{itemize}
+        \item LLM har ``frossen'' kunnskap fra treningstidspunkt
+        \item Kan hallusinere fakta
+        \item Mangler domene-spesifikk informasjon
+    \end{itemize}
+    
+    \vspace{0.3cm}
+    \textbf{Hvordan RAG fungerer:}
+    \begin{enumerate}
+        \item \textbf{Spørring:} Bruker stiller spørsmål
+        \item \textbf{Retrieval:} Hent relevante dokumenter fra database
+        \item \textbf{Augmentation:} Legg dokumenter til prompt
+        \item \textbf{Generation:} LLM svarer basert på hentet kontekst
+    \end{enumerate}
+    
+    \vspace{0.3cm}
+    \begin{block}{Medisinsk anvendelse}
+        \begin{itemize}
+            \item Koble LLM til oppdaterte retningslinjer, Felleskatalogen, UpToDate
+            \item Svare basert på pasientens journal (med nødvendige tilganger)
+            \item Reduserer hallusinering ved å forankre svar i kilder
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+% =====================================================================
+% OPPSUMMERING
+% =====================================================================
+\section*{Oppsummering}
+
+\begin{frame}{Oppsummering: Generativ AI og LLM}
+    \textbf{Grunnleggende:}
+    \begin{itemize}
+        \item G01: Generativ vs. diskriminativ AI
+        \item G02--G03: Self-attention og transformer-arkitektur
+        \item G04--G06: Tokens, kontekstvindu, temperature
+    \end{itemize}
+    
+    \textbf{Prompt engineering:}
+    \begin{itemize}
+        \item G07--G09: Zero-shot, few-shot, Chain-of-Thought
+        \item G10: Systemprompts for konsistent oppførsel
+    \end{itemize}
+    
+    \textbf{Utfordringer og avansert:}
+    \begin{itemize}
+        \item G11: Hallusinering -- kritisk i medisinsk kontekst
+        \item G12--G14: Modeller, foundation models, RAG
+    \end{itemize}
+    
+    \vspace{0.3cm}
+    \begin{block}{Lab 3 -- Praktisk erfaring}
+        Eksperimenter med prompting-teknikker, analyser tokenisering, diskuter etikk og begrensninger ved LLM i medisin.
+    \end{block}
+\end{frame}
+
+\end{document}

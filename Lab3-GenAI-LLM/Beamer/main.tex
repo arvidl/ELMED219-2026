@@ -1,0 +1,177 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[norsk]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{booktabs}
+
+\usetheme{Madrid}
+\usecolortheme{beaver}
+
+\title{Lab 3: Generativ AI og Store Språkmodeller}
+\subtitle{ELMED219-2026}
+\author{ELMED219}
+\date{Vår 2026}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{Oversikt}
+    \tableofcontents
+\end{frame}
+
+\section{Generativ AI}
+\begin{frame}{Hva er Generativ AI?}
+    Tradisjonell AI (Diskriminativ) skiller mellom klasser (Katt vs Hund).
+    \textbf{Generativ AI} skaper nye data som ligner på treningsdataene.
+    
+    \begin{itemize}
+        \item \textbf{Tekst:} ChatGPT, Claude, Gemini (LLM).
+        \item \textbf{Bilder:} DALL-E 3, Midjourney, Stable Diffusion.
+        \item \textbf{Lyd/Video:} Sora, Suno.
+    \end{itemize}
+    
+    \textbf{Foundation Models:}
+    Modeller trent på enorme mengder data som kan tilpasses mange nedstrøms oppgaver (Few-shot learning).
+\end{frame}
+
+\section{LLM & Transformers}
+\begin{frame}{Språkmodellering}
+    Kjernen i en LLM er enkel: \textbf{Prediker neste ord.}
+    
+    $$ P(w_t | w_{t-1}, w_{t-2}, ..., w_1) $$
+    
+    \begin{itemize}
+        \item Ved å lære å predikere neste ord på hele internett, lærer modellen grammatikk, fakta, resonnering og til og med koding.
+        \item \textbf{Tokenisering:} Tekst brytes ned til "tokens" (delord). "Hospital" $\rightarrow$ ["Hos", "pital"].
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Transformer-arkitekturen (2017)}
+    Det store gjennombruddet: \textbf{"Attention is All You Need"} (Vaswani et al.).
+    
+    Tidligere modeller (RNN/LSTM) leste tekst sekvensielt (glemsk).
+    Transformere leser hele setningen samtidig og bruker \textbf{Self-Attention}.
+    
+    \begin{block}{Prompt}
+        \scriptsize\textit{"En abstrakt, kunstnerisk representasjon av Transformer-arkitekturens 'Attention'-mekanisme. Glødende strømmer av tekst og kode flyter inn i et sentralt prisme og brytes om til strukturert kunnskap. Ordet 'Attention' (Oppmerksomhet) dannes av lysstrålene. Futuristisk, eterisk, nyanser av lilla og blått. Bredt format."}
+    \end{block}
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/transformer_attention.pdf}
+\end{frame}
+
+\begin{frame}{Attention Mekanismen (Matematisk)}
+    Hvert ord (Query $Q$) sjekker relevansen mot alle andre ord (Key $K$) for å hente informasjon (Value $V$).
+    
+    $$ \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V $$
+    
+    \begin{itemize}
+        \item \textbf{Query:} "Hva leter jeg etter?"
+        \item \textbf{Key:} "Hva inneholder jeg?"
+        \item \textbf{Score ($QK^T$):} Hvor godt matcher vi?
+        \item \textbf{Softmax:} Normaliser til sannsynligheter (vekter).
+        \item \textbf{Value:} Informasjonen som sendes videre.
+    \end{itemize}
+\end{frame}
+
+\section{AI i Medisin}
+\begin{frame}{Bruksområder for LLM i Helse}
+    \begin{columns}
+        \column{0.6\textwidth}
+        \begin{enumerate}
+            \item \textbf{Automatisering av dokumentasjon:}
+            Lytte til pasientsamtale og generere journalnotat automatisk (Sparer tid!).
+            
+            \item \textbf{Oppsummering:}
+            Trekke ut nøkkelinfo fra lange, komplekse journaler ("Har pasienten historikk med hjertesvikt?").
+            
+            \item \textbf{Pasientkommunikasjon:}
+            Oversette medisinsk sjargong til forståelig språk ("Hva betyr 'myokardinfarkt'?").
+            
+            \item \textbf{Beslutningsstøtte:}
+            Foreslå differensialdiagnoser basert på symptomer.
+        \end{enumerate}
+        
+        \column{0.4\textwidth}
+        \begin{block}{Prompt}
+            \scriptsize\textit{"En lege i hvit frakk som holder et nettbrett, stående ved siden av en vennlig, holografisk AI-assistent avatar. De ser på en pasients holografiske medisinske journal sammen. Scenen symboliserer samarbeid. Myk, betryggende lyssetting. Profesjonell fotostil blandet med 3D-render elementer."}
+        \end{block}
+        \centering
+        \includegraphics[width=0.8\textwidth]{images/doctor_ai_team.pdf}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Prompt Engineering}
+    Hvordan snakker vi med modellen for å få best resultat?
+    
+    \begin{itemize}
+        \item \textbf{Zero-shot:} Spør direkte. "Klassifiser denne teksten."
+        \item \textbf{Few-shot:} Gi eksempler. "Her er to eksempler på sarkasme... Klassifiser denne:"
+        \item \textbf{Chain-of-Thought (CoT):} Be modellen tenke høyt. "Tenk steg for steg." (Dramatisk bedre på resonnering!).
+        \item \textbf{Rollespill:} "Du er en erfaren kardiolog..."
+    \end{itemize}
+\end{frame}
+
+\section{Etikk og XAI}
+\begin{frame}{Farene: Hallusinasjoner og Bias}
+    \textbf{Hallusinasjoner:}
+    LLM-er er "stokastiske papegøyer". De kan finne opp fakta som ser overbevisende ut.
+    \begin{itemize}
+        \item \textit{Eksempel:} Finne opp referanser til forskningsartikler som ikke finnes.
+    \end{itemize}
+    
+    \textbf{Bias (Skjevhet):}
+    Modellene er trent på internett. De arver våre fordommer.
+    \begin{itemize}
+        \item Kan diskriminere basert på kjønn, etnisitet eller sosioøkonomisk status i medisinske råd.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Forklarbar AI (XAI)}
+    \begin{columns}
+        \column{0.6\textwidth}
+        For å stole på AI i klinikken, må vi forstå den.
+        
+        \textbf{Metoder:}
+        \begin{itemize}
+            \item \textbf{SHAP (Shapley Additive exPlanations):} Hvor mye bidro hver feature til resultatet? (Spillteori).
+            \item \textbf{LIME:} Tilpasser en enkel modell lokalt rundt prediksjonen.
+            \item \textbf{Saliency Maps:} For bilder (som vi så i Lab 2).
+        \end{itemize}
+        
+        \column{0.4\textwidth}
+        \begin{block}{Prompt}
+            \scriptsize\textit{"En 'Black Box' (Sort Boks) kube som er sprukket opp, og avslører glødende tannhjul og logiske kretser på innsiden. Lysstråler skinner ut fra sprekkene og lyser opp et dokument merket 'Forklaring'. Metafor for Forklarbar AI (XAI). Mørk bakgrunn med dramatisk lyssetting."}
+        \end{block}
+        \centering
+        \includegraphics[width=0.8\textwidth]{images/xai_blackbox.pdf}
+    \end{columns}
+\end{frame}
+
+\section{Notebooks}
+\begin{frame}{Lab 3 Oversikt}
+    \begin{enumerate}
+        \item \textbf{01-introduksjon-genai.ipynb}: API-oppsett og enkle kall.
+        \item \textbf{02-transformer-arkitektur.ipynb}: Se på attention-vekter i praksis.
+        \item \textbf{04-prompt-engineering.ipynb}: Teste ulike strategier for journalsammendrag.
+        \item \textbf{06-ai-etikk-medisin.ipynb}: Prøve å lure modellen til å gi skadelige råd (Jailbreaking) og diskutere sikring.
+        \item \textbf{08-nevrosymbolsk-ai.ipynb}: Kombinere LLM med strukturerte data (Knowledge Graphs).
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Avslutning av Kurset}
+    Vi håper ELMED219 har gitt dere en verktøykasse for fremtiden.
+    
+    \begin{itemize}
+        \item AI kommer ikke til å erstatte leger...
+        \item ...men leger som bruker AI vil erstatte leger som ikke gjør det.
+    \end{itemize}
+    
+    \centering
+    \vspace{1cm}
+    \textbf{Takk for følget!}
+\end{frame}
+
+\end{document}

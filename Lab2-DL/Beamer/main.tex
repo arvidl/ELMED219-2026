@@ -1,0 +1,207 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[norsk]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{booktabs}
+
+\usetheme{Madrid}
+\usecolortheme{beaver}
+
+\title{Lab 2: Dyp Læring og CNN}
+\subtitle{ELMED219-2026}
+\author{ELMED219}
+\date{Vår 2026}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{Oversikt}
+    \tableofcontents
+\end{frame}
+
+\section{Nevrale Nettverk}
+\begin{frame}{Inspirasjon fra Biologien}
+    Dyp læring (Deep Learning) er basert på kunstige nevrale nettverk (ANN).
+    
+    \begin{columns}
+        \column{0.6\textwidth}
+        \textbf{Det kunstige nevronet (Perceptron):}
+        Et nevron mottar input $x_i$, vekter dem med $w_i$, summerer dem, og sender dem gjennom en aktiveringsfunksjon.
+        
+        $$ z = \sum_{i=1}^{n} w_i x_i + b $$
+        $$ a = \sigma(z) $$
+        
+        \begin{itemize}
+            \item $w$: Vekter (synapsestyrke) - dette lærer modellen.
+            \item $b$: Bias (terskel).
+            \item $\sigma$: Aktiveringsfunksjon (non-linearitet).
+        \end{itemize}
+        
+        \column{0.4\textwidth}
+        \textbf{Hvorfor "Dyp"?}
+        \begin{itemize}
+            \item Fordi vi stabler mange lag med nevroner etter hverandre.
+            \item Dette lar nettverket lære hierarkiske representasjoner (kanter -> former -> objekter).
+        \end{itemize}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Aktiveringsfunksjoner}
+    Uten ikke-lineære aktiveringsfunksjoner ville hele nettverket bare kollapset til én lineær regresjon!
+    
+    \begin{itemize}
+        \item \textbf{Sigmoid:} $\sigma(z) = \frac{1}{1+e^{-z}}$. Klemmer output mellom 0 og 1. (Klassisk, men problem med "vanishing gradient").
+        \item \textbf{ReLU (Rectified Linear Unit):} $f(z) = \max(0, z)$.
+        \begin{itemize}
+            \item De-facto standarden i moderne DL.
+            \item Rask å beregne, løser mange treningsproblemer.
+        \end{itemize}
+        \item \textbf{Softmax:} Brukes i siste lag for multiklasse-klassifikasjon. Gir sannsynligheter som summerer til 1.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Hvordan lærer nettverket?}
+    \textbf{Backpropagation (Tilbakeforplantning):}
+    
+    1. \textbf{Forward Pass:} Data sendes gjennom nettverket, vi får en prediksjon $\hat{y}$.
+    2. \textbf{Loss Calculation:} Vi beregner feilen (Loss) $L(y, \hat{y})$.
+    3. \textbf{Backward Pass:} Vi beregner gradienten til feilen med hensyn på hver vekt: $\frac{\partial L}{\partial w}$.
+       (Kjerneregelen for derivasjon er essensiell her!).
+    4. \textbf{Optimizer Step:} Vi oppdaterer vektene for å redusere feilen:
+       $$ w_{ny} = w_{gammel} - \eta \cdot \frac{\partial L}{\partial w} $$
+       ($\eta$ er læringsraten).
+\end{frame}
+
+\section{CNN: Convolutional Neural Networks}
+\begin{frame}{Hvorfor CNN for bilder?}
+    Vanlige "Dense" nettverk fungerer dårlig på bilder fordi:
+    \begin{itemize}
+        \item De ignorerer romlig struktur (piksel (0,0) er nabo med (0,1)).
+        \item Antall vekter eksploderer (et 1000x1000 bilde til 100 nevroner = 100 millioner vekter!).
+    \end{itemize}
+    
+    \textbf{Løsningen: Konvolusjon}
+    Vi bruker små filtre (kernels) som glir over bildet.
+    \begin{itemize}
+        \item \textbf{Parameter sharing:} Samme filter ser etter samme mønster over hele bildet.
+        \item \textbf{Translation invariance:} En katt er en katt, uansett hvor i bildet den er.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{CNN Arkitektur}
+    \begin{block}{Prompt}
+        \scriptsize\textit{"En isometrisk visualisering av et Konvolusjonelt Nevralt Nettverk (CNN) som prosesserer et medisinsk røntgenbilde. Røntgenbildet er til venstre. Det passerer gjennom flere firkantede lag (konvolusjonslag) som blir mindre og dypere, og trekker ut egenskaper. Til høyre er resultatet en merkelapp som sier 'Diagnose: Positiv'. Ren, skjematisk 3D-stil, myk lyssetting, pedagogisk diagram."}
+    \end{block}
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/cnn_architecture.pdf}
+\end{frame}
+
+\begin{frame}{Byggeklossene i et CNN}
+    \begin{enumerate}
+        \item \textbf{Konvolusjonslag (Conv):}
+        Trekker ut egenskaper (features) som kanter, teksturer.
+        
+        \item \textbf{Pooling Lag (Max Pool):}
+        Reduserer størrelsen på bildet (downsampling).
+        \begin{itemize}
+            \item Gjør beregningene lettere.
+            \item Gjør modellen mer robust mot små forskyvninger.
+        \end{itemize}
+        
+        \item \textbf{Flatten & Dense Layers:}
+        Til slutt flatets feature-mappen ut til en vektor og sendes gjennom et klassisk nettverk for å gjøre selve klassifiseringen.
+    \end{enumerate}
+\end{frame}
+
+\section{Medisinsk Bildeanalyse}
+\begin{frame}{Spesielle utfordringer i medisin}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \textbf{Datatilgang:}
+        \begin{itemize}
+            \item Det finnes milliarder av kattebilder, men få annoterte MR-bilder.
+            \item Personvern (GDPR).
+        \end{itemize}
+        
+        \textbf{Datakvalitet:}
+        \begin{itemize}
+            \item Støy i bilder (MR/CT/Røntgen).
+            \item Variasjon mellom ulike skannere/sykehus.
+        \end{itemize}
+        
+        \textbf{Ubalanserte data:}
+        \begin{itemize}
+            \item De fleste pasienter er friske (eller har ikke den sjeldne sykdommen vi leter etter).
+        \end{itemize}
+        
+        \column{0.5\textwidth}
+        \begin{block}{Prompt}
+            \scriptsize\textit{"Et futuristisk medisinsk grensesnitt som viser en MRI-skann av en hjerne. Overlagt på skannen er varmekart (Grad-CAM) som viser hvor AI-en ser. Rundt skannen flyter data-widgets og Python-kodesnutter. Cyberpunk medisinsk estetikk men ren nok for en presentasjon. Høy kvalitet, 4k."}
+        \end{block}
+        \centering
+        \includegraphics[width=0.7\textwidth]{images/mri_analysis.pdf}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Tolkbarhet: Grad-CAM}
+    Det er ikke nok at AI-en sier "Syk". Legen må vite \textbf{hvorfor}.
+    
+    \textbf{Grad-CAM (Gradient-weighted Class Activation Mapping):}
+    \begin{itemize}
+        \item En teknikk for å visualisere hvilke deler av bildet CNN-et fokuserte på.
+        \item Den bruker gradientene som flyter tilbake i siste konvolusjonslag.
+        \item Resultatet er et "varmekart" overlagt bildet.
+    \end{itemize}
+    
+    \textit{Viktig for tillit (Trustworthy AI).}
+\end{frame}
+
+\section{Notebooks}
+\begin{frame}{Lab 2 Oversikt}
+    Denne labben er omfattende og delt i serier:
+    
+    \begin{itemize}
+        \item \textbf{A-serien (MNIST):} Vi starter med håndskrevne tall.
+        \begin{itemize}
+            \item Fra Random Forest (A4) til MLP (A5) til CNN (A6).
+            \item Ser hvordan CNN overlegent slår de andre på bildedata.
+        \end{itemize}
+        
+        \item \textbf{B-serien (Helse):}
+        \begin{itemize}
+            \item Klassifikasjon av hjertesykdom (Tabulære data).
+            \item EKG-analyse (Tidsserier - 1D CNN).
+        \end{itemize}
+        
+        \item \textbf{C-serien (Fordypning CNN):}
+        \begin{itemize}
+            \item Bygge CNN fra bunnen i PyTorch Lightning.
+            \item Implementere Grad-CAM.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Valgfrie Moduler}
+    For de som vil gå dypere:
+    
+    \begin{itemize}
+        \item \textbf{D-serien:} MR Demens-klassifikasjon. 3D-bilder! (Krever litt mer regnekraft).
+        \item \textbf{E-serien:} Emosjonsgjenkjenning fra ansiktsbilder.
+        \item \textbf{F-serien:} TabPFN - state-of-the-art for små tabulære datasett (Transformer for tabeller).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Oppsummering}
+    \begin{itemize}
+        \item Deep Learning, og spesielt CNN, har revolusjonert bildeanalyse.
+        \item Vi bygger nettverk ved å stable enkle operasjoner (Konvolusjon, ReLU, Pool).
+        \item I medisin er tolkbarhet (XAI) kritisk - vi må kunne se "hvorfor".
+    \end{itemize}
+    
+    I neste og siste lab (Lab 3) skal vi se på \textbf{Generativ AI og Store Språkmodeller} - teknologien bak ChatGPT.
+\end{frame}
+
+\end{document}
