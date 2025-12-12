@@ -68,3 +68,5 @@ create_placeholder_image('Lab3-GenAI-LLM/Beamer/images/doctor_ai_team.png',
 create_placeholder_image('Lab3-GenAI-LLM/Beamer/images/xai_blackbox.png', 
                         'Explainable AI Black Box', 'A Black Box cube that is cracked open', color_theme='dark')
 
+
+
