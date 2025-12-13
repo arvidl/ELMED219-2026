@@ -145,3 +145,5 @@ For spørsmål om kurset, kontakt [Arvid Lundervold](https://www.uib.no/en/perso
 
 
 
+
+

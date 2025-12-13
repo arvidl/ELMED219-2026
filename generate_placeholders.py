@@ -70,3 +70,5 @@ create_placeholder_image('Lab3-GenAI-LLM/Beamer/images/xai_blackbox.png',
 
 
 
+
+
