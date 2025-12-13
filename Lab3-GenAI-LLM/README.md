@@ -82,6 +82,8 @@ Lab3-GenAI-LLM/
 ### Utviklingsverktøy
 - [Google Colab](https://colab.research.google.com/) - Kjør notebooks i nettleseren
 - [Cursor AI](https://cursor.sh/) - AI-drevet kodeeditor
+   - [Tips & Tricks](https://github.com/murataslan1/cursor-ai-tips) - "The ultimate guide to mastering Cursor AI IDE"
+   - [browser-visual-editor](https://cursor.com/blog/browser-visual-editor) - En visuell editor for Cursor [Browser](https://cursor.com/docs/agent/browser)
 
 ### Videre lesning
 - [Attention Is All You Need](https://arxiv.org/abs/1706.03762) - Original transformer-artikkel
@@ -111,4 +113,4 @@ Etter å ha gjennomgått materialet, skriv en kort refleksjon (300-500 ord) som 
 
 ---
 
-*Sist oppdatert: 2025*
+*Sist oppdatert: Desember 2025*
