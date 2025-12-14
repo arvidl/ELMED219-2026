@@ -31,7 +31,7 @@ En mer detaljert emnebeskerivelse med **momenliste** finner du [her](https://git
 Gjennom øvelser og demonstrasjoner vil deltakerne arbeide med praktiske anvendelser, inkludert analyse av MR-data, segmentering av medisinske bilder, bygging av modeller for biomarkørprediksjon, og utforsking av konsepter som [Patient similarity networks](https://pmc.ncbi.nlm.nih.gov/articles/PMC11321866) og [multimodal dataanalyse](https://www.nature.com/articles/s41591-022-01981-2). Kurset introduserer også store språkmodeller ([grunnmodeller](https://en.wikipedia.org/wiki/Foundation_model)) og deres potensielle bruk i helsetjenesten.
 
 #### [Ferdigheter og verktøy](https://github.com/arvidl/ELMED219-2026/blob/main/Emnebeskrivelse-momentliste/Beamer/F-Ferdigheter/main.pdf)
-Studentene vil få erfaring med Python-programmering, [Jupyter notebooks](https://docs.jupyter.org), moderne AI-verktøy som [ChatGPT](https://chatgpt.com), [Gemini](https://gemini.google.com), og [Claude](https://claude.ai), samt skybasert databehandling og [AI-assistert koding](https://github.com/resources/articles/ai/ai-coding-tools). Det legges vekt på åpen vitenskap og reproduserbar forskningspraksis for å forberede studentene på både akademiske og praktiske situasjoner.
+Studentene vil få erfaring med Python-programmering, [Jupyter notebooks](https://docs.jupyter.org), moderne AI-verktøy som [ChatGPT](https://chatgpt.com), [Gemini](https://gemini.google.com), og [Claude](https://claude.ai), **prompt-** og [context engineering](https://www.promptingguide.ai/guides/context-engineering-guide), samt skybasert databehandling og [AI-assistert koding](https://github.com/resources/articles/ai/ai-coding-tools). Det legges vekt på åpen vitenskap og reproduserbar forskningspraksis for å forberede studentene på både akademiske og praktiske situasjoner.
 
 #### Teamprosjekt
 Kurset inkluderer et [teamprosjekt](./Team-prosjekt) med tittelen *«Presisjonsmedisin og kvantitativ avbildning ved glioblastom»*. Studentene samarbeider i tverrfaglige team for å utarbeide en forskningsplan (søknadsskisse) som kombinerer bildeteknologi, biomarkører og maskinlæring. Prosjektet er felles med BMED365 og rapporten skrives på engelsk.
@@ -79,7 +79,7 @@ Alt kursmateriale er åpent tilgjengelig i dette GitHub-repositoriet. Se også [
 | 2   | On 07.01.2026 | 14:15–16:00    | SW-installasjon, verktøy, team, [Teamprosjekt](./Team-prosjekt) og [Lab 0](./Lab0-ML/README.md)        | AL       | Hist 1   |    E/B        |
 | 2   | Fr 09.01.2026 | 10:15–13:00    | [Lab 0](./Lab0-ML/README.md), [Lab 1](./Lab1-NetworkSci-PSN/README.md)                                                      | AL       | Hist 1   |    E/B        |
 | 3   | Ti 13.01.2026 | 09:15–13:00    | [Lynkurs i AI-assistert Python-programmering](./Lab-Lynkurs/README.md)                | AL       | Hist 1   |    E/B        |
-| 3   | Fr 16.01.2026 | 08:15–13:00    | [Lab 2](./Lab2-DL) (Dyp læring)                                         | AL       | Hist 1   |    E/B        |
+| 3   | Fr 16.01.2026 | 08:15–13:00    | [Lab 2](./Lab2-DL) (Dyplæring)                                         | AL       | Hist 1   |    E/B        |
 | 4   | Ma 19 - Sø 25 |                | [TEAMPROSJEKT](./Team-prosjekt) (samarbeid teamvis i løpet av uken)        |          |          |    E/B        |
 | 4   | Ti 20.01.2026 | 08:15–12:00    | [Lab 3](./Lab3-GenAI-LLM) (Generativ AI + Store språkmodeller)                 | AL       | Hist 1   |    E/B        |
 | 4   | Ti 20.01.2026 | 13:15–16:00    | Møtepunkt for [Teamprosjekt](./Team-prosjekt) – idémyldring og veiledning           | AL       | Hist 1   |    E/B        |
@@ -105,8 +105,8 @@ Alt kursmateriale er åpent tilgjengelig i dette GitHub-repositoriet. Se også [
 | [**Lynkurs**](./Lab-Lynkurs/README.md) | AI-assistert Python | Introduksjon til Python-programmering med AI-verktøy (Google Colab + Gemini/ChatGPT) |
 | [**Lab0**](./Lab0-ML/README.md) | Maskinlæring | Grunnleggende maskinlæring med PyCaret – enkle eksempler og binær klassifikasjon |
 | [**Lab1**](./Lab1-NetworkSci-PSN/README.md) | Nettverksvitenskap & PSN | Grafteori, nettverksanalyse og pasient-likhetsnettverk med NetworkX |
-| [**Lab2**](./Lab2-DL) | Dyplæring | Nevrale nettverk og dyp læring for medisinsk bildeanalyse |
-| [**Lab3**](./Lab3-GenAI-LLM) | Generativ AI & LLM | Store språkmodeller og generativ AI i medisin |
+| [**Lab2**](./Lab2-DL) | Dyplæring | Nevrale nettverk og dyplæring for medisinsk bildeanalyse |
+| [**Lab3**](./Lab3-GenAI-LLM) | Generativ AI & LLM | Store språkmodeller og generativ AI i medisin, prompt- og context engineering |
 | [**Teamprosjekt**](./Team-prosjekt) | Presisjonsmedisin & Glioblastom | Forskningsplan for kvantitativ avbildning og AI ved hjernesvulst (felles med BMED365) |
 
 ---
