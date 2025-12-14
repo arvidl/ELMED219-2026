@@ -381,7 +381,9 @@ Lab 3 dekker generativ AI og store språkmodeller (LLM) med fokus på medisinsk 
 \textbf{Læringsmål:}
 \begin{itemize}[nosep]
     \item Forklare self-attention og transformer-arkitekturen
+    \item Forstå forskjellen mellom \emph{prompt engineering} og \emph{context engineering}
     \item Anvende prompt engineering-teknikker (zero-shot, few-shot, CoT)
+    \item Anvende modellspesifikke prompting-teknikker for GPT-5.2, Claude Opus 4.5 og Gemini 3
     \item Vurdere XAI-metoder som SHAP og LIME
     \item Diskutere AI-etikk, bias, og EU AI Act
     \item Forstå nevrosymbolsk integrasjon av nevrale og symbolske metoder
@@ -583,9 +585,15 @@ K & G08 & Anvende \emph{few-shot} prompting \\
 V & G09 & Anvende \emph{Chain-of-Thought} (CoT) prompting \\
 V & G10 & Beskrive god praksis for \emph{systemprompts} \\
 K & G11 & Definere \emph{hallusinering} og dens implikasjoner \\
-V & G12 & Kjenne til GPT-4, Claude, Gemini og deres anvendelser \\
+V & G12 & Kjenne til GPT-5.2, Claude Opus 4.5, Gemini 3 og deres styrker \\
 U & G13 & Forklare konseptet \emph{grunnmodell} (foundation model) \\
 U & G14 & Beskrive RAG (Retrieval-Augmented Generation) \\
+V & G15 & Forstå forskjellen mellom \emph{prompt engineering} og \emph{context engineering} \\
+V & G16 & Beskrive komponentene i context engineering (system prompt, RAG, verktøy, samtalehistorikk) \\
+V & G17 & Anvende modellspesifikke prompting-teknikker for GPT-5.2, Claude og Gemini \\
+V & G18 & Håndtere usikkerhet og hallusinasjonsrisiko i medisinske prompts \\
+U & G19 & Bruke strukturert ekstraksjon fra medisinske dokumenter (JSON-skjema) \\
+U & G20 & Sammenligne modellstyrker for ulike medisinske oppgaver \\
 \end{longtable}
 
 \subsection{Forklarbar AI (XAI)}
@@ -725,8 +733,12 @@ V & F05 & Trene en enkel modell med scikit-learn \\
 V & F06 & Visualisere resultater med matplotlib \\
 V & F07 & Bruke NetworkX for enkel nettverksanalyse \\
 U & F08 & Bygge og trene en modell med PyTorch \\
-K & F09 & Bruke AI-verktøy (ChatGPT, Gemini) som kodehjelp \\
+K & F09 & Bruke AI-verktøy (ChatGPT, Claude, Gemini) som kodehjelp \\
 V & F10 & Skrive enkle dokumenter med LaTeX/Overleaf \\
+V & F11 & Komponere effektive prompts for medisinske oppgaver \\
+V & F12 & Anvende context engineering med system prompts, RAG og verktøy \\
+V & F13 & Velge riktig LLM-modell basert på oppgavetype \\
+U & F14 & Sammenligne output fra ulike LLM-er for kvalitetsvurdering \\
 \end{longtable}
 
 % =====================================================================
@@ -981,6 +993,7 @@ Følgende emner kan bli dekket i eksamen:
 \end{figure}
 
 \end{document}
+
 
 
 

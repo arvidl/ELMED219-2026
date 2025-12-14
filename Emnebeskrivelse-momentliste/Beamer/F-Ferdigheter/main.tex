@@ -40,7 +40,7 @@
 % TITTELINFO
 % =====================================================================
 \title{Praktiske Ferdigheter}
-\subtitle{ELMED219: Momentliste F01--F10}
+\subtitle{ELMED219: Momentliste F01--F14}
 \author{ELMED219}
 \date{Vår 2026}
 
@@ -451,6 +451,138 @@ Implikasjoner og begrensninger.
 \end{frame}
 
 % =====================================================================
+% SEKSJON: Context Engineering
+% =====================================================================
+\section{Context Engineering for LLM}
+
+\begin{frame}{F11: Komponere effektive prompts for medisinske oppgaver}
+    \textbf{Fra Prompt Engineering til Context Engineering:}
+    \begin{itemize}
+        \item \textbf{Prompt engineering:} Utforme gode spørsmål og instruksjoner
+        \item \textbf{Context engineering:} Designe \textit{hele konteksten} modellen bruker
+    \end{itemize}
+    
+    \vspace{0.2cm}
+    \textbf{Komponenter i context engineering:}
+    \begin{enumerate}
+        \item \textbf{System prompt:} Rolle og grunnleggende instruksjoner
+        \item \textbf{Bruker-prompt:} Det spesifikke spørsmålet
+        \item \textbf{Hentet kontekst (RAG):} Journaler, retningslinjer, artikler
+        \item \textbf{Verktøy:} Laboratoriesøk, legemiddeldatabase, ICD-10
+        \item \textbf{Samtalehistorikk:} Tidligere dialog i konsultasjonen
+        \item \textbf{Strukturerte data:} JSON med lab-verdier, vitale tegn
+    \end{enumerate}
+    
+    \begin{block}{\footnotesize Medisinsk betydning}
+        \footnotesize Rik kontekst = mer relevante, personaliserte og trygge AI-svar
+    \end{block}
+\end{frame}
+
+\begin{frame}{F12: Anvende context engineering i praksis}
+    \textbf{Eksempel: Enkel prompt vs. rik kontekst}
+    
+    \vspace{0.2cm}
+    \begin{columns}[T]
+        \begin{column}{0.45\textwidth}
+            \begin{alertblock}{\footnotesize Enkel prompt}
+                \scriptsize
+                \texttt{Hva er behandlingen for hjertesvikt?}
+                
+                \vspace{0.1cm}
+                $\rightarrow$ Generelt svar, ikke personalisert
+            \end{alertblock}
+        \end{column}
+        \begin{column}{0.52\textwidth}
+            \begin{block}{\footnotesize Rik kontekst}
+                \scriptsize
+                \texttt{System: Klinisk beslutningsstøtte} \\
+                \texttt{Pasient: 72 år, eGFR 45, Warfarin} \\
+                \texttt{RAG: ESC Guidelines 2023} \\
+                \texttt{Spørsmål: Behandlingsendringer?}
+                
+                \vspace{0.1cm}
+                $\rightarrow$ Personalisert, evidensbasert svar
+            \end{block}
+        \end{column}
+    \end{columns}
+    
+    \vspace{0.2cm}
+    \textbf{Ferdighetsnivåer:}
+    \footnotesize
+    \begin{tabular}{ll}
+        \textbf{Nybegynner:} & Prompt-formulering (rolle, format, eksempler) \\
+        \textbf{Viderekommende:} & Strukturerte system prompts med seksjoner \\
+        \textbf{Avansert:} & RAG-integrasjon og verktøybruk \\
+        \textbf{Ekspert:} & Multi-agent orkestrering \\
+    \end{tabular}
+\end{frame}
+
+\begin{frame}{F13: Velge riktig LLM-modell for oppgaven}
+    \textbf{Modellstyrker for medisinske oppgaver:}
+    
+    \vspace{0.2cm}
+    \footnotesize
+    \begin{tabular}{lll}
+        \toprule
+        \textbf{Oppgavetype} & \textbf{Anbefalt modell} & \textbf{Begrunnelse} \\
+        \midrule
+        Strukturert ekstraksjon & GPT-5.2 & God instruksjonsetterlevelse \\
+        Etiske dilemmaer & Claude Opus 4.5 & Nyansert resonnering \\
+        Bildeanalyse & Gemini 3 & Multimodal fra grunn av \\
+        Lang journalanalyse & Claude Opus 4.5 & 200K tokens kontekst \\
+        Oppdatert forskning & Gemini 3 & Integrert sanntidssøk \\
+        Verktøyintegrasjon & GPT-5.2 & God API for funksjoner \\
+        Pasientkommunikasjon & Claude Opus 4.5 & Empatisk, pasientsentrert \\
+        Beregninger & Gemini 3 & Sterk på vitenskap \\
+        \bottomrule
+    \end{tabular}
+    
+    \vspace{0.2cm}
+    \normalsize
+    \begin{block}{\footnotesize Praktisk anbefaling}
+        \footnotesize For kritiske oppgaver: Test på flere modeller og sammenlign output
+    \end{block}
+\end{frame}
+
+\begin{frame}{F14: Sammenligne output fra ulike LLM-er}
+    \textbf{Evalueringskriterier for medisinsk LLM-output:}
+    
+    \vspace{0.2cm}
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+            \textbf{Kvalitetsdimensjoner:}
+            \begin{enumerate}
+                \item \textbf{Medisinsk nøyaktighet} \\
+                      {\scriptsize Er informasjonen korrekt?}
+                \item \textbf{Usikkerhetshåndtering} \\
+                      {\scriptsize Uttrykkes usikkerhet passende?}
+                \item \textbf{Strukturert output} \\
+                      {\scriptsize Følges format-instruksjoner?}
+                \item \textbf{Sikkerhetsatferd} \\
+                      {\scriptsize Henvises til lege ved behov?}
+                \item \textbf{Klinisk nytte} \\
+                      {\scriptsize Er svaret praktisk anvendbart?}
+            \end{enumerate}
+        \end{column}
+        \begin{column}{0.48\textwidth}
+            \textbf{Praktisk fremgangsmåte:}
+            \begin{enumerate}
+                \item Definer testcase med fasit
+                \item Send samme prompt til 2--3 modeller
+                \item Vurder mot kriteriene (1--5 skala)
+                \item Dokumenter styrker/svakheter
+                \item Velg modell for produksjon
+            \end{enumerate}
+            
+            \vspace{0.2cm}
+            \begin{alertblock}{\footnotesize Lab 3 Notebook 04}
+                \scriptsize Inneholder ferdige eksperimenter for modellsammenligning
+            \end{alertblock}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% =====================================================================
 % OPPSUMMERING
 % =====================================================================
 \section*{Oppsummering}
@@ -472,19 +604,20 @@ Implikasjoner og begrensninger.
         \item F08: PyTorch for dyplæring
     \end{itemize}
     
-    \textbf{Verktøy:}
+    \textbf{Verktøy og LLM:}
     \begin{itemize}
-        \item F09: AI-assistenter som kodehjelp
-        \item F10: LaTeX/Overleaf for akademisk skriving
+        \item F09--F10: AI-assistenter, LaTeX/Overleaf
+        \item F11--F14: Context engineering, modellvalg, prompt-optimalisering
     \end{itemize}
     
-    \vspace{0.3cm}
+    \vspace{0.2cm}
     \begin{block}{Lynkurs og Labs}
         Alle disse ferdighetene praktiseres gjennom Lynkurset og Lab 0--3. Øving gir mestring!
     \end{block}
 \end{frame}
 
 \end{document}
+
 
 
 

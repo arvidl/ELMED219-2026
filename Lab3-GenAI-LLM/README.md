@@ -78,6 +78,7 @@ Lab3-GenAI-LLM/
 - [NotebookLM](https://notebooklm.google.com/) - Google's AI for dokumentanalyse
 - [Claude](https://claude.ai/) - Anthropics AI-assistent
 - [ChatGPT](https://chat.openai.com/) - OpenAIs AI-assistent
+    - [Prompting Guide](https://cookbook.openai.com/examples/gpt-5/gpt-5-2_prompting_guide) - GPT-5.2 Prompting Guide
 
 ### Utviklingsverktøy
 - [Google Colab](https://colab.research.google.com/) - Kjør notebooks i nettleseren

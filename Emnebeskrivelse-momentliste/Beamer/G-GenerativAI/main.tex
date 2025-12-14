@@ -29,7 +29,7 @@
 % TITTELINFO
 % =====================================================================
 \title{Generativ AI og Store Språkmodeller}
-\subtitle{ELMED219: Momentliste G01--G14}
+\subtitle{ELMED219: Momentliste G01--G20}
 \author{ELMED219}
 \date{Vår 2026}
 
@@ -426,6 +426,186 @@
 \end{frame}
 
 % =====================================================================
+% SEKSJON: Context Engineering
+% =====================================================================
+\section{Context Engineering}
+
+\begin{frame}{G15: Fra \href{https://en.wikipedia.org/wiki/Prompt_engineering}{Prompt Engineering} til \href{https://www.anthropic.com/research/building-effective-agents}{Context Engineering}}
+    \textbf{\href{https://en.wikipedia.org/wiki/Prompt_engineering}{Prompt Engineering} vs. \href{https://www.anthropic.com/research/building-effective-agents}{Context Engineering}:}
+    \begin{itemize}
+        \item \textbf{\href{https://en.wikipedia.org/wiki/Prompt_engineering}{Prompt engineering}:} Fokus på å utforme gode spørsmål
+        \item \textbf{\href{https://www.anthropic.com/research/building-effective-agents}{Context engineering}:} Designe \textit{hele kontekstvinduet} strategisk
+    \end{itemize}
+    
+    \vspace{0.2cm}
+    \textbf{Komponenter i context engineering:}
+    \footnotesize
+    \begin{tabular}{lll}
+        \toprule
+        \textbf{Komponent} & \textbf{Beskrivelse} & \textbf{Medisinsk eksempel} \\
+        \midrule
+        System prompt & Rolle og instruksjoner & ``Klinisk beslutningsstøtte'' \\
+        Bruker-prompt & Spesifikt spørsmål & ``Vurder pasientens symptomer'' \\
+        Verktøy & Tilgjengelige handlinger & Lab-søk, ICD-10, Felleskatalogen \\
+        RAG-kontekst & Hentet informasjon & Retningslinjer, journal, artikler \\
+        Samtalehistorikk & Tidligere dialog & Tidligere spørsmål og svar \\
+        Strukturerte data & Formattert info & JSON med vitale tegn \\
+        \bottomrule
+    \end{tabular}
+    
+    \normalsize
+    \vspace{0.15cm}
+    \begin{block}{\footnotesize Hvorfor viktig i medisin?}
+        \footnotesize Rik kontekst $\rightarrow$ sikrere, mer relevante og personaliserte svar
+    \end{block}
+\end{frame}
+
+\begin{frame}{G16--G17: Modellspesifikke prompting-teknikker}
+    \textbf{Tre ledende LLM-leverandører med ulike styrker:}
+    
+    \vspace{0.2cm}
+    \begin{columns}[T]
+        \begin{column}{0.32\textwidth}
+            \textbf{\href{https://openai.com/gpt-5}{GPT-5.2} (OpenAI):}
+            \footnotesize
+            \begin{itemize}
+                \item Sterkest på strukturert output
+                \item Beste verktøyintegrasjon
+                \item God instruksjonsetterlevelse
+            \end{itemize}
+            \textbf{Godt egnet for:}
+            \begin{itemize}
+                \item JSON-ekstraksjon
+                \item API-integrasjoner
+                \item Agentiske systemer
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.32\textwidth}
+            \textbf{\href{https://anthropic.com/claude}{Claude Opus 4.5}:}
+            \footnotesize
+            \begin{itemize}
+                \item 200K tokens kontekst
+                \item Nyansert resonnering
+                \item Constitutional AI
+            \end{itemize}
+            \textbf{Godt egnet for:}
+            \begin{itemize}
+                \item Etiske dilemmaer
+                \item Lang journalanalyse
+                \item Pasientkommunikasjon
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.32\textwidth}
+            \textbf{\href{https://deepmind.google/gemini}{Gemini 3} (Google):}
+            \footnotesize
+            \begin{itemize}
+                \item Multimodal (bilde+tekst)
+                \item Sanntids websøk
+                \item Vitenskapelig styrke
+            \end{itemize}
+            \textbf{Godt egnet for:}
+            \begin{itemize}
+                \item Bildeanalyse
+                \item Litteratursøk
+                \item Beregninger
+            \end{itemize}
+        \end{column}
+    \end{columns}
+    
+    \vspace{0.15cm}
+    \begin{block}{\footnotesize Lab 3 Notebook 04}
+        \footnotesize Inneholder detaljerte prompting-guider for hver modell + sammenligningseksperimenter
+    \end{block}
+\end{frame}
+
+\begin{frame}{G18: Håndtere usikkerhet og hallusinasjonsrisiko}
+    \textbf{Prompt-mønster for medisinsk usikkerhetshåndtering:}
+    
+    \vspace{0.2cm}
+    \begin{block}{\footnotesize Anti-hallusinasjons prompt (GPT-5.2 stil)}
+        \scriptsize
+        \texttt{<usikkerhet\_og\_tvetydighet>} \\
+        \texttt{- Ved tvetydige symptomer: Presenter differensialdiagnoser med sannsynlighet} \\
+        \texttt{- Oppgi tydelig kunnskapens begrensninger og dato for oppdatering} \\
+        \texttt{- Henvis alltid til gjeldende retningslinjer og klinisk vurdering} \\
+        \texttt{- Ved usikkerhet: Eskalér til høyere hastegrad} \\
+        \texttt{</usikkerhet\_og\_tvetydighet>}
+    \end{block}
+    
+    \vspace{0.15cm}
+    \textbf{Selvsjekk for høyrisiko-oppgaver:}
+    \footnotesize
+    \begin{enumerate}
+        \item Skann eget svar for usagte antakelser
+        \item Verifiser at tall og påstander er forankret i kontekst
+        \item Unngå for sterk språkbruk (``alltid'', ``garantert'')
+        \item Kvalifiser konklusjoner med usikkerhetsgrad
+    \end{enumerate}
+    
+    \normalsize
+    \begin{alertblock}{\footnotesize Huskeregel}
+        \footnotesize AI = beslutningsstøtte, \textbf{ikke} beslutningstaker. Alltid klinisk validering!
+    \end{alertblock}
+\end{frame}
+
+\begin{frame}{G19--G20: Strukturert ekstraksjon og modellsammenligning}
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+            \textbf{G19: Strukturert ekstraksjon:}
+            \footnotesize
+            \begin{block}{\scriptsize JSON-skjema for epikrise}
+                \scriptsize
+                \texttt{\{} \\
+                \texttt{~~"diagnose": \{} \\
+                \texttt{~~~~"tekst": string,} \\
+                \texttt{~~~~"icd10": string | null} \\
+                \texttt{~~\},} \\
+                \texttt{~~"legemidler": [\{} \\
+                \texttt{~~~~"navn": string,} \\
+                \texttt{~~~~"dose": string} \\
+                \texttt{~~\}]} \\
+                \texttt{\}}
+            \end{block}
+            
+            \footnotesize
+            \textbf{Viktige regler:}
+            \begin{itemize}
+                \item Bruk \texttt{null} for manglende felt
+                \item Krev kildereferanser
+                \item Verifiser mot originaldokument
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.48\textwidth}
+            \textbf{G20: Beslutningsmatrise:}
+            \scriptsize
+            \begin{tabular}{ll}
+                \toprule
+                \textbf{Oppgave} & \textbf{Modell} \\
+                \midrule
+                Strukturert output & GPT-5.2 \\
+                Etiske vurderinger & Claude \\
+                Bildeanalyse & Gemini \\
+                Lang kontekst & Claude \\
+                Sanntidssøk & Gemini \\
+                Verktøy/API & GPT-5.2 \\
+                \bottomrule
+            \end{tabular}
+            
+            \vspace{0.2cm}
+            \normalsize
+            \textbf{Praktisk tips:}
+            \footnotesize
+            \begin{enumerate}
+                \item Test samme prompt på 2--3 modeller
+                \item Sammenlign mot evalueringskriterier
+                \item Velg modell basert på oppgave
+                \item Dokumenter valg for etterprøvbarhet
+            \end{enumerate}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% =====================================================================
 % SEKSJON: Utfordringer med LLM
 % =====================================================================
 \section{Utfordringer med LLM}
@@ -584,21 +764,22 @@
         \item G04--G06: Tokens, kontekstvindu, temperatur
     \end{itemize}
 
-    \textbf{Prompt engineering:}
+    \textbf{Prompt og context engineering:}
     \begin{itemize}
-        \item G07--G09: Zero-shot, few-shot, Chain-of-Thought
-        \item G10: Systemprompts for konsistent oppførsel
+        \item G07--G10: Zero-shot, few-shot, CoT, systemprompts
+        \item G15--G17: Context engineering, modellspesifikke teknikker
+        \item G18--G20: Usikkerhetshåndtering, strukturert ekstraksjon
     \end{itemize}
 
     \textbf{Utfordringer og avansert:}
     \begin{itemize}
         \item G11: Hallusinering -- kritisk i medisinsk kontekst
-        \item G12--G14: Modeller, foundation models, RAG
+        \item G12--G14: Modeller (GPT-5.2, Claude, Gemini), RAG
     \end{itemize}
 
-    \vspace{0.15cm}
-    \begin{block}{\footnotesize Lab 3 -- Praktisk erfaring}
-        \footnotesize Eksperimenter med prompting-teknikker, analyser tokenisering, diskuter etikk og begrensninger ved LLM i medisin.
+    \vspace{0.1cm}
+    \begin{block}{\footnotesize Lab 3 Notebook 04}
+        \footnotesize Detaljerte prompting-guider for GPT-5.2, Claude Opus 4.5 og Gemini 3 med sammenligningseksperimenter.
     \end{block}
 \end{frame}
 
