@@ -30,7 +30,7 @@ Timeplan for kalenderuke 2–5 (januar 2026).
 | Dato | Tid | Aktivitet | Rom | Fagperson |
 |------|-----|-----------|-----|-----------|
 | Ma. 19.01 | 07:15–08:00 | TEAM PROJECT – team-wise collaboration during the week | – | A. Lundervold |
-| Ti. 20.01 | 08:15–12:00 | Lab 3 (Generative AI + Large Language Models) | BB Hist 1 | A.S. Lundervold |
+| Ti. 20.01 | 08:15–12:00 | Lab 3 (Generative AI + Large Language Models) | BB Hist 1 | A. Lundervold |
 | Ti. 20.01 | 13:15–16:00 | Meet-up for team project brainstorming and coaching | BB Hist 1 | A. Lundervold |
 
 ---
@@ -40,7 +40,9 @@ Timeplan for kalenderuke 2–5 (januar 2026).
 | Dato | Tid | Aktivitet | Rom | Fagperson |
 |------|-----|-----------|-----|-----------|
 | Ti. 27.01 | 08:15–10:00 | TEAM PROJECT – group-wise presentations | BB Hist 1 | A. Lundervold |
+| Fr. 30.01 | 11:00–13:00 | **Hjemmeeksamen** | **INSPERA**|   |
 
 ---
 
 **Merk:** All undervisning i ELMED219 er felles med BMED365.
+
