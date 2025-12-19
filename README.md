@@ -75,7 +75,7 @@ Alt kursmateriale er åpent tilgjengelig i dette GitHub-repositoriet. Se også [
 
 | Uke | Dato       | Tid           | Aktivitet                                                        | Foreleser | Sted     | Merknad       |
 |-----|------------|----------------|------------------------------------------------------------------|----------|----------|---------------|
-| 2   | Ma 05.01.2026 | 10:15–14:00    | Informasjon, motivasjon, SW-installasjon og praktisk intro   | AL       | Hist 1   |    E/B        |
+| 2   | Ma 05.01.2026 | 10:15–14:00    | [Informasjon](https://docs.google.com/presentation/d/e/2PACX-1vS6fwb9iIfWlXGFHAPuGx_V5w-odixoyqDcu-cGUtWChizYA96tu9J4pwvL28cMByOEvsG01BRg_LeQ/pub?start=false&loop=false&delayms=3000), motivasjon, SW-installasjon og praktisk intro   | AL       | Hist 1   |    E/B        |
 | 2   | On 07.01.2026 | 14:15–16:00    | SW-installasjon, verktøy, team, [Teamprosjekt](./Team-prosjekt) og [Lab 0](./Lab0-ML/README.md)        | AL       | Hist 1   |    E/B        |
 | 2   | Fr 09.01.2026 | 10:15–13:00    | [Lab 0](./Lab0-ML/README.md), [Lab 1](./Lab1-NetworkSci-PSN/README.md)                                                      | AL       | Hist 1   |    E/B        |
 | 3   | Ti 13.01.2026 | 09:15–13:00    | [Lynkurs i AI-assistert Python-programmering](./Lab-Lynkurs/README.md)                | AL       | Hist 1   |    E/B        |
