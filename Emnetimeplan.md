@@ -46,3 +46,8 @@ Timeplan for kalenderuke 2–5 (januar 2026).
 
 **Merk:** All undervisning i ELMED219 er felles med BMED365.
 
+
+
+
+
+

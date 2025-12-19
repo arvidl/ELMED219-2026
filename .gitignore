@@ -120,3 +120,8 @@ Lab2-DL/data/bonn_eeg_data/setE/
 *.acn
 *.acr
 *.alg
+
+# Helper scripts (not needed for students)
+generate_pdf_placeholders.sh
+generate_placeholders.py
+generate_real_images.py
