@@ -534,7 +534,8 @@ Sv: Vurder å fordele etter ekspertise: medisinstudenter kan lede på klinisk ba
 
 ## Kontakt og støtte
 
-- Kursrepositorium: [https://github.com/arvidl/BMED365-2026](https://github.com/arvidl/BMED365-2026)
+- Kursrepositorium: [https://github.com/arvidl/ELMED219-2026](https://github.com/arvidl/ELMED219-2026)<br>
+og [https://github.com/arvidl/BMED365-2026](https://github.com/arvidl/BMED365-2026)
 - For tekniske spørsmål om LaTeX/Overleaf, se [Overleaf-dokumentasjonen](https://www.overleaf.com/learn)
 - For spørsmål om prosjektet, kontakt kursansvarlige
 
