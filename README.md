@@ -43,7 +43,7 @@ ELMED219 er en mulighet til å tilegne seg verdifulle ferdigheter og innsikt i b
 -->
 
 #### Åpent tilgjengelig materiale
-Alt kursmateriale er åpent tilgjengelig i dette GitHub-repositoriet. Se også [BMED365](https://github.com/MMIV-ML/BMED365).
+Alt kursmateriale er åpent tilgjengelig i dette GitHub-repositoriet. Se også [BMED365](https://github.com/arvidl/BMED365-2026).
 
 #### For påmeldte studenter
 **Merk**: Studenter som er påmeldt kurset finner ytterligere praktisk informasjon på [MittUiB](https://mitt.uib.no/courses/50716).
