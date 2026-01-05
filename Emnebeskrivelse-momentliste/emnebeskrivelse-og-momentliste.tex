@@ -149,7 +149,7 @@ Mohn Medical Imaging and Visualization Center (MMIV)
 }
 
 \vfill
-{\footnotesize Desember 2025}
+{\footnotesize Januar 2026}
 
 \end{titlepage}
 
@@ -290,6 +290,7 @@ Lab 1 introduserer grafteori og konseptet \emph{pasient-likhetsnettverk} (PSN) -
 00 & Introduksjon & Grafteori, nabomatriser, sentralitetsmål \\
 01 & NetworkX tutorial & Opprette, manipulere, visualisere grafer \\
 02 & PSN med IRIS & Likhetsberegning, community detection \\
+02a/b & Løsninger/utvidet & Løsninger og avanserte teknikker \\
 03 & PSN med IBS-data & Klinisk anvendelse: hjerne og kognisjon \\
 04 & PSN med IQ-data & WAIS-IV og kognitive profiler \\
 \bottomrule
@@ -306,35 +307,57 @@ Lab 1 introduserer grafteori og konseptet \emph{pasient-likhetsnettverk} (PSN) -
 
 \subsection{Lab 2: Dyplæring (DL)}
 
-Lab 2 utforsker dyplæring med fokus på nevrale nettverk, CNN og medisinsk bildeanalyse.
+Lab 2 utforsker dyplæring med fokus på nevrale nettverk, CNN og medisinsk bildeanalyse. Notebooks er organisert i \textbf{6 deler (A--F)} med tydelig prioritering.
 
 \begin{table}[htbp]
 \centering
-\caption{Notebooks i Lab 2 (prioritert)}
-\label{tab:lab2}
+\caption{Notebooks i Lab 2 -- Del A og B (prioritert)}
+\label{tab:lab2ab}
 \begin{tabular}{@{}cclp{5.5cm}@{}}
 \toprule
 \textbf{Del} & \textbf{Pri} & \textbf{Notebook} & \textbf{Innhold} \\
 \midrule
-A & 1 & CNN-intro & Konseptuell intro til CNN \\
-A & 1 & MNIST-MLP & Din første DL-modell \\
-A & 1 & MNIST-CNN & CNN på håndskrevne sifre \\
+A & 1 & A1-CNN-intro & Konseptuell intro til CNN \\
+A & 3 & A2-PyTorch-Lightning & Introduksjon til PyTorch og Lightning \\
+A & 3 & A3-MNIST-datasamling & Datainnsamling og organisering \\
+A & 3 & A4-MNIST-Random-Forest & ML baseline med Random Forest \\
+A & 1 & A5-MNIST-MLP & Din første DL-modell (MLP) \\
+A & 1 & A6-MNIST-CNN & MNIST med CNN \\
 \midrule
-B & 1 & NN-intro & Biologiske vs. kunstige nevroner \\
-B & 1 & Læring i NN & Backpropagation, gradient descent \\
-B & 1 & Hjertesykdom & Klassifisering fra tabelldata \\
-B & 1 & EKG-arytmi & CNN på EKG-signaler \\
-\midrule
-C & 2 & CNN-arkitektur & Miljøoppsett og arkitektur \\
-C & 2 & CNN-trening & Trening og lagring av modell \\
-C & 2 & CNN-testing & Evaluering og Grad-CAM (XAI) \\
-\midrule
-D & 2 & MR-demens & MRI-bildeanalyse for demens \\
+B & 1 & B1-nn-intro & Biologiske vs. kunstige nevroner \\
+B & 1 & B2-læring-i-nn & Backpropagation, gradient descent \\
+B & 1 & B3-hjertesykdom & Klassifisering fra tabelldata \\
+B & 1 & B4-EKG-arytmi-CNN & CNN på EKG-signaler \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\textbf{Prioritetsnivåer:} 1 = kjerne, 2 = anbefalt, 3 = valgfri, 4 = avansert
+\begin{table}[htbp]
+\centering
+\caption{Notebooks i Lab 2 -- Del C--F (prioritert)}
+\label{tab:lab2cf}
+\begin{tabular}{@{}cclp{5.5cm}@{}}
+\toprule
+\textbf{Del} & \textbf{Pri} & \textbf{Notebook} & \textbf{Innhold} \\
+\midrule
+C & 2 & C1-cnn-miljø-arkitektur & Miljøoppsett og CNN-arkitektur \\
+C & 2 & C2-cnn-trening & Trening og lagring av modell \\
+C & 2 & C3-cnn-testing-gradcam & Testing, evaluering og Grad-CAM \\
+C & 2 & C4-cnn-konklusjon & Oppsummering og veien videre \\
+\midrule
+D & 2 & D1-MR-demens & MRI-bildeanalyse for demensdeteksjon \\
+\midrule
+E & 3 & E1-emosjoner-bygging & Emosjonsklassifikasjon (bygging) \\
+E & 3 & E2-emosjoner-trening & Emosjonsklassifikasjon (trening) \\
+E & 3 & E3-emosjoner-evaluering & Emosjonsklassifikasjon (evaluering) \\
+\midrule
+F & 4 & F1-TabPFN-intro & Utforskning av TabPFN \\
+F & 4 & F2-TabPFN-neuro & TabPFN i nevrovitenskap \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Prioritetsnivåer:} 1 = kjerne (4--5 timer), 2 = anbefalt (3--4 timer), 3 = valgfri (2--3 timer), 4 = avansert (1--2 timer)
 
 \textbf{Læringsmål:}
 \begin{itemize}[nosep]
@@ -392,7 +415,7 @@ Lab 3 dekker generativ AI og store språkmodeller (LLM) med fokus på medisinsk 
 
 \subsection{Teamprosjekt: Presisjonsmedisin ved glioblastom}
 
-Teamprosjektet er en sentral del av kurset der studenter i tverrfaglige grupper utarbeider en forskningsplan (søknadsskisse) for et tenkt prosjekt om AI og avbildning ved hjernesvulst.
+Teamprosjektet er en sentral del av kurset der studenter i tverrfaglige grupper utarbeider en forskningsplan (søknadsskisse) for et tenkt prosjekt om AI og avbildning ved hjernesvulst. I 2026 har vi \textbf{5 tverrfaglige team} med blanding av studenter fra ELMED219 (medisinstudenter) og BMED365 (masterstudenter i biomedisin).
 
 \begin{warningbox}[Viktig om teamprosjektet]
 Oppgaven går ut på å \textbf{skrive en forskningsplan} -- ikke å faktisk gjennomføre prosjektet med koding eller dataanalyse.
@@ -403,17 +426,18 @@ Oppgaven går ut på å \textbf{skrive en forskningsplan} -- ikke å faktisk gje
     \item Bildeteknologier og modaliteter (MRI, PET)
     \item Bildeavledede biomarkører for glioblastom
     \item Maskinlæringsteknikker (segmentering, klassifisering)
+    \item \textbf{Grafteori og pasient-likhetsnettverk} (valgfri alternativ tilnærming)
     \item Datahåndteringsplan og etiske betraktninger
 \end{enumerate}
 
-\begin{infobox}[Relevant bakgrunn: Gliom-casestudien]
-Notebook 08 i Lab 3 inneholder en omfattende nevrosymbolsk AI-casestudie for gliomklassifikasjon basert på WHO 2021 CNS-klassifikasjon. Denne demonstrerer:
+\begin{infobox}[Metodologiske tilnærminger]
+Studenter kan velge mellom eller kombinere:
 \begin{itemize}[nosep]
-    \item Integrasjon av MRI-segmentering (BraTS) med molekylære markører (IDH, MGMT, 1p/19q)
-    \item Kunnskapsgrafer for behandlingsanbefalinger
-    \item Agentisk AI for orkestrering av klinisk arbeidsflyt
+    \item \textbf{Dyplæringsmetoder}: CNN-basert segmentering (nnU-Net, MONAI), klassifisering
+    \item \textbf{Pasient-likhetsnettverk (PSN)}: Nettverksbasert pasientstratifisering og subgruppeidentifikasjon (se Lab 1)
+    \item \textbf{Nevrosymbolsk AI}: Integrasjon av MRI-analyse med WHO 2021 CNS-klassifikasjon (se Notebook 08 i Lab 3)
 \end{itemize}
-Studenter kan bruke denne som inspirasjon for teamprosjektet.
+Denne fleksibiliteten reflekterer virkelig tverrfaglig forskning der ulike metodologier kan kombineres.
 \end{infobox}
 
 \textbf{Rapportstruktur:}
@@ -759,11 +783,13 @@ U & F14 & Sammenligne output fra ulike LLM-er for kvalitetsvurdering \\
 Google Colab & Plattform & Kjøre Jupyter Notebooks i nettleseren \\
 Python 3.10+ & Programmeringsspråk & All koding i kurset \\
 scikit-learn & Bibliotek & Maskinlæring (Lab 0) \\
-NetworkX & Bibliotek & Nettverksanalyse (Lab 1) \\
+NetworkX & Bibliotek & Nettverksanalyse og PSN (Lab 1) \\
 PyTorch & Rammeverk & Dyplæring (Lab 2) \\
 tiktoken & Bibliotek & Tokenisering (Lab 3) \\
 PyCaret & Bibliotek & AutoML (Lab 0) \\
 Overleaf & Plattform & LaTeX-redigering (Teamprosjekt) \\
+nnU-Net & Rammeverk & Medisinsk bildesegmentering (Teamprosjekt) \\
+MONAI & Rammeverk & Medisinsk AI med PyTorch (Teamprosjekt) \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -781,8 +807,9 @@ Overleaf & Plattform & LaTeX-redigering (Teamprosjekt) \\
 ChatGPT & Gratis/Plus & Generell AI-assistent, kodehjelp \\
 Claude & Gratis/Pro & Tekstanalyse, akademisk skriving \\
 Gemini & Innebygd i Colab & Kodegenerering og forklaring \\
-NotebookLM & Gratis (Google) & Dokumentanalyse \\
+NotebookLM & Gratis (Google) & Dokumentanalyse og kunnskapssammenstilling \\
 chat.uib.no & UiB-innlogging & UiB-intern AI-tjeneste \\
+Cursor AI & Gratis/Pro & AI-assistert kodeeditor \\
 Medical AI GPT & ChatGPT Plus & Tilpasset for ELMED219/BMED365 \\
 \bottomrule
 \end{tabular}
@@ -805,6 +832,13 @@ Medical AI GPT & ChatGPT Plus & Tilpasset for ELMED219/BMED365 \\
     \item \citet{morley2020ethics}: Etikk i AI og helse
     \item \citet{garcez2020neurosymbolic}: Nevrosymbolsk AI -- den tredje bølgen
     \item \citet{louis2021who}: WHO 2021 CNS-klassifikasjon (gliomer)
+\end{itemize}
+
+\textbf{Nyere artikler (2024--2025):}
+\begin{itemize}[nosep]
+    \item \citet{ghadimi2025deep}: CNN, transformers og hybridarkitekturer for gliom-segmentering
+    \item \citet{booth2025review}: Dyplæring for hjernesvulstanalyse i MRI
+    \item \citet{ma2024medsam}: MedSAM -- grunnlagsmodell for medisinsk bildesegmentering
 \end{itemize}
 
 \textbf{Avansert (valgfritt):}
