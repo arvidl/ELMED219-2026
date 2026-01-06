@@ -9,13 +9,27 @@
 
 I år har vi **14 søkere fra BMED365** og **14 søkere fra ELMED219**. Vi vil etablere **5 tverrfaglige team**, hver med en balansert blanding av studenter fra begge programmene:
 
+<!--
 | Team | BMED365-studenter | ELMED219-studenter | Totalt |
-|------|-------------------|---------------------|--------|
-| Team 1 | 3 (b01, b02, b03) | 3 (e01, e02, e03)| 6 |
-| Team 2 | 3 (b04, b05, b06) | 3 (e04, e05, e06)| 6 |
-| Team 3 | 3 (b07, b08, b09) | 3 (e07, e08, e09)| 6 |
-| Team 4 | 3 (b10, b11, b12)| 2 (e10, e11)| 5 |
-| Team 5 | 2 (b13, b14) | 3 (e12, e13, e14)| 5 |
+|------|------------------|-------------------|-------|
+| Team 1 | 3 (b01*, b02, b03) | 3 (e01*, e02*, e03*)| 6 |
+| Team 2 | 3 (b04*, b05, b06) | 3 (e04, e05*, e06*)| 6 |
+| Team 3 | 3 (b07*, b08, b09*) | 3 (e07, e08, e09*)| 6 |
+| Team 4 | 3 (b10*, b11*, b12)| 2 (e10*, e11*)| 5 |
+| Team 5 | 2 (b13*, b14*, b15*) | 3 (e12, e13, e14*)| 6 |
+
+*) Tilstede Dag 1 (2026-01-05)
+-->
+
+Pr. 2026-01-06:
+
+| Team | BMED365-studenter   | ELMED219-studenter      | Totalt |
+|------|---------------------|------------------------|-------|
+| Team 1 | 3 (b01, b02, b03) | 3 (e01, e02, e03)      | 6     |
+| Team 2 | 3 (b04, b06, b16) | 3 (e04=b05, e05, e06)  | 6     |
+| Team 3 | 2 (b07, b09)      | 3 (e07=b08, e08, e09)  | 5     |
+| Team 4 | 2 (b10, b11)      | 4 (e10, e11, e15, e16) | 6     |
+| Team 5 | 3 (b13, b14, b15) | 3 (e12, e13=b12, e14)  | 6     |
 
 Denne tverrfaglige sammensetningen reflekterer virkelige forskergrupper der medisinsk ekspertise møter beregnings- og tekniske ferdigheter.
 
