@@ -7,7 +7,7 @@
 
 ## Teamorganisering
 
-I år har vi **14 søkere fra BMED365** og **14 søkere fra ELMED219**. Vi vil etablere **5 tverrfaglige team**, hver med en balansert blanding av studenter fra begge programmene:
+I år har vi **15 søkere fra BMED365** og **13 søkere fra ELMED219**. Vi vil etablere **5 tverrfaglige team**, hver med en balansert blanding av studenter fra begge programmene:
 
 <!--
 | Team | BMED365-studenter | ELMED219-studenter | Totalt |
