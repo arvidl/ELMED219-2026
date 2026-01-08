@@ -99,7 +99,7 @@ Glioblastom (GBM) representerer et godt case-studie for presisjonsmedisin og kva
 
 Forestill deg at du er del av en gruppe etablerte, vellykkede forskere som skal samarbeide om en viktig biomedisinsk og medisinsk utfordring. En åpen utlysning for forskningsprosjekter er annonsert under et nytt paraplyprogram med tittelen **«Kunstig intelligens og beregningsbasert (bio)medisin»**. Din tverrfaglige gruppe sikter mot et prosjekt om **«Presisjonsmedisin og kvantitativ bildebehandling i glioblastom: En multiskala-tilnærming»**.
 
-> **Viktig:** Oppgaven er å **skrive en forskningsplan** (en skisse til søknad om forskningsmidler) for et hypotetisk prosjekt, **ikke** å faktisk gjennomføre prosjektet med dataanalyse eller koding. Du skal beskrive *hva* du ville gjort, *hvordan* og *hvorfor*, men ikke utføre selve analysen.
+> 📌 **MERK:** Oppgaven er å **skrive en forskningsplan** (en skisse til søknad om forskningsmidler) for et hypotetisk prosjekt, **ikke** å faktisk gjennomføre prosjektet med dataanalyse eller koding. Du skal beskrive *hva* du ville gjort, *hvordan* og *hvorfor*, men ikke utføre selve analysen.
 
 ### Fokusområder
 
