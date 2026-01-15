@@ -160,4 +160,107 @@ Lab2-DL/
 
 ---
 
+## Lab 2 Dyplæring - Tentativ timeplan
+
+**Dato:** Fredag 16. januar 2026  
+**Tid:** 08:15 - 13:00 (4t 45min)  
+**Sted:** Hist 1  
+**Foreleser:** Arvid Lundervold  
+**Emner:** ELMED219 / BMED365
+
+---
+
+### Anbefalte korte videoer
+
+Disse korte videoene fungerer godt som introduksjon eller mellom økter:
+
+| Video | Forfatter | Varighet | Anbefalt bruk |
+|:------|:----------|:--------:|:--------------|
+| [What is Deep Learning?](https://youtu.be/6M5VXKLf4D4) | Simplilearn | 6 min | Åpning (08:30) |
+| [But what is a neural network?](https://youtu.be/aircAruvnKk) | 3Blue1Brown | 19 min | Etter intro-forelesning |
+| [Neural Networks Explained](https://youtu.be/GvQwE2OhL8I) | StatQuest | 10 min | Alternativ åpning |
+| [Gradient Descent, Step-by-Step](https://youtu.be/sDv4f4s2SB8) | StatQuest | 10 min | Før B2-notebook |
+| [What is backpropagation?](https://youtu.be/Ilg3gGewQ5U) | 3Blue1Brown | 13 min | Med Del B teori |
+| [Deep Learning in 5 Minutes](https://youtu.be/3hJUNvVNPzk) | Siraj Raval | 5 min | Rask oppsummering |
+| [CNN Explainer](https://youtu.be/JboZfxUjLSk) | Computerphile | 12 min | Før A6/CNN hands-on |
+
+**Merk:** 3Blue1Brown-serien (Kapittel 1-3) er spesielt anbefalt for å bygge intuisjon.
+
+---
+
+### Detaljert timeplan
+
+#### 08:15 - 08:30 | Velkommen og oppsett (15 min)
+- Kursoversikt og læringsmål
+- Sjekk Colab/lokalt miljø
+- Discord-kanal for spørsmål
+
+#### 08:30 - 09:15 | Forelesning: Dyplæring grunnleggende (45 min)
+- **Video:** "What is Deep Learning?" (Simplilearn, 6 min) - åpning
+- **Slides:** [D-DeepLearning slides](../Course-description-topics/Beamer/D-DeepLearning/main.pdf) + [Google Slides](https://docs.google.com/presentation/d/1cEZO_OPJ6vBkmMAvXT5Kh00tfeLBMdJpedB3P-xxKGc/edit)
+- Hva er dyplæring? AI/ML/DL-hierarkiet
+- Biologiske vs kunstige nevroner
+- **Video:** "But what is a neural network?" (3Blue1Brown, 19 min) - visuell intuisjon
+
+#### 09:15 - 09:25 | Pause (10 min)
+
+#### 09:25 - 10:15 | Del B: Nevrale nettverk teori (50 min)
+- **B1-nn-intro** - Nevrale nettverk i menneske og maskin (demo + diskusjon)
+- **Video-alternativ:** "What is backpropagation?" (3Blue1Brown, 13 min)
+- **B2-læring-i-nn** - Backpropagation og gradient descent (live koding demo)
+- Interaktiv spørsmålsrunde om læringsmekanismer
+
+#### 10:15 - 10:25 | Pause (10 min)
+
+#### 10:25 - 11:00 | Del A: CNN introduksjon og MLP (35 min)
+- **A1-CNN-intro** - Konseptuell intro med medisinske analogier (gjennomgang)
+- **A5-MNIST-MLP** - Studentene kjører sin første MLP-modell (hands-on)
+- Sammenligning av MLP vs CNN arkitektur
+
+#### 11:00 - 11:30 | Lunsj (30 min)
+
+#### 11:30 - 12:15 | CNN og medisinske anvendelser (45 min)
+- **Video-alternativ:** CNN Explainer (Computerphile, 12 min) - visuell intro til konvolusjoner
+- **A6-MNIST-CNN** - CNN på MNIST (hands-on)
+- **B3-hjertesykdom-klassifikasjon** - Prediksjon av hjertesykdom (demo)
+- **B4-EKG-arytmi-CNN** - EKG-analyse med CNN (demo/diskusjon)
+- Diskusjon: Klinisk relevans og begrensninger
+
+#### 12:15 - 12:25 | Pause (10 min)
+
+#### 12:25 - 12:50 | Avanserte emner - forhåndsvisning (25 min)
+- **C3-cnn-testing-gradcam** - Forklarbar AI med Grad-CAM (demo)
+- **D1-MR-demens-klassifikasjon** - MR-analyse forhåndsvisning (demo)
+- Pekere til Del C, D, E, F for selvstudium
+
+#### 12:50 - 13:00 | Oppsummering og spørsmål (10 min)
+- Hovedpunkter
+- Ressurser for videre læring
+- Anbefaler Karpathys "Building micrograd" (2.5t) for dypere forståelse hjemme
+- Veiledning om oppgaver og neste steg
+
+---
+
+### Tidssammendrag
+
+| Aktivitet | Varighet |
+|-----------|----------|
+| Forelesninger, videoer og demonstrasjoner | 2t 35min |
+| Hands-on notebook-arbeid | 1t 20min |
+| Pauser (3 x 10 min) | 30 min |
+| Lunsj | 30 min |
+| **Totalt** | **4t 45min** |
+
+---
+
+### Notebook-prioritet for økten
+
+| Dekket i økten | Anbefalt selvstudium |
+|----------------|----------------------|
+| A1, A5, A6 (kjerne) | A2, A3, A4 (valgfri) |
+| B1, B2, B3, B4 (kjerne) | C1-C4 (anbefalt) |
+| C3, D1 (kun demo) | E1-E3, F1-F2 (valgfri) |
+
+---
+
 Utviklet av Arvid Lundervold, Universitetet i Bergen.
