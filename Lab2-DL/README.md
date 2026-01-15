@@ -197,7 +197,7 @@ Disse korte videoene fungerer godt som introduksjon eller mellom økter:
 
 #### 08:30 - 09:15 | Forelesning: Dyplæring grunnleggende (45 min)
 - **Video:** "What is Deep Learning?" (Simplilearn, 6 min) - åpning
-- **Slides:** [D-DeepLearning slides](../Course-description-topics/Beamer/D-DeepLearning/main.pdf) + [Google Slides](https://docs.google.com/presentation/d/1cEZO_OPJ6vBkmMAvXT5Kh00tfeLBMdJpedB3P-xxKGc/edit)
+- **Slides:** [D-DeepLearning slides](https://github.com/arvidl/ELMED219-2026/blob/main/Lab2-DL/Beamer/main.pdf) + [Google Slides](https://docs.google.com/presentation/d/e/2PACX-1vTpEYzlrPDMGTQuVLmyefOLEjBT13gtfoHGIBy6o9o-WrdnOHgvy3zApOPx8ekD3E3a4irp7CkaFDHN/pub?start=false&loop=false&delayms=3000)
 - Hva er dyplæring? AI/ML/DL-hierarkiet
 - Biologiske vs kunstige nevroner
 - **Video:** "But what is a neural network?" (3Blue1Brown, 19 min) - visuell intuisjon
