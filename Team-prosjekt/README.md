@@ -21,13 +21,13 @@ I år har vi **15 søkere fra BMED365** og **13 søkere fra ELMED219**. Vi vil e
 *) Tilstede Dag 1 (2026-01-05)
 -->
 
-Pr. 2026-01-08:
+Pr. 2026-01-21:
 
-| Team | BMED365-studenter   | ELMED219-studenter      | Totalt |
+| Team | BMED365 students    | ELMED219 students      | Total |
 |------|---------------------|------------------------|-------|
 | Team 1 | 2 (b01, b02)      | 3 (e01, e02, e03)      | 5     |
-| Team 2 | 4 (b04, b05, b06, b16) | 2 (e05, e06)      | 6     |
-| Team 3 | 3 (b07, b08, b09) | 3 (e08, e09 e17)       | 6    |
+| Team 2 | 2 (b04, b05)      | 3 (e05, e06, e18)      | 5     |
+| Team 3 | 3 (b07, b08, b09) | 3 (e08, e09 e17)       | 6     |
 | Team 4 | 2 (b10, b11)      | 3 (e10, e11, e15)      | 5     |
 | Team 5 | 4 (b12, b13, b14, b15) | 2 (e12, e14)      | 6     |
 
