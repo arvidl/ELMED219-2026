@@ -22,13 +22,18 @@ The digital home exam will take place in [Inspera](https://www.inspera.com). Ple
 - The **topics covered** in the MCQ and the two essay questions are among the following (_no coding is expected_): 
 
   - Multimodal data
-  - Basics of Machine Learning
+  - Performance metrics for medical image segmentation
+  - Basics of Machine Learning (ML), including generalisation
   - “Open science”
   - MRI technology 
   - Generative AI
   - Large Language Models (LLMs)
+  - Hallucinations in LLMs
+  - Explainable AI (XAI)
+  - Trustworthy LLM
   - “Biomarker”
   - Deep learning and overfitting
+  - Network topology and community detection
   - PSN (“patient similarity networks”)
   - The equation $y \approx f(\mathbf{X}, \theta)$
   - Machine learning in the diagnosis of diseases
