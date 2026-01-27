@@ -15,7 +15,7 @@ The digital home exam will take place in [Inspera](https://www.inspera.com). Ple
 
 - This is followed by **two free-text essay questions**. 
 
-- The eight MCQ questions and the two essay questions are given in both **English**, **Norsk bokmål**, and **Norsk nynorsk**. 
+- The eight MCQ questions and the two essay questions are given in both **English** and **Norsk bokmål**. 
 
 - **All aids are allowed** but specify precisely which aids you have had access to and how you used these sources (look-up, search, prompt) in your submitted answers. The exam allows the use of AI to understand and explain medical AI.
 
@@ -37,7 +37,7 @@ The digital home exam will take place in [Inspera](https://www.inspera.com). Ple
   - PSN (“patient similarity networks”)
   - The equation $y \approx f(\mathbf{X}, \theta)$
   - Machine learning in the diagnosis of diseases
-  - AI ethics, regulations, and thrustworthy AI
+  - AI ethics, regulations, and trustworthy AI
 
 
 ## Exam Rules
